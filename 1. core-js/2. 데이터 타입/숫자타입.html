@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var integer = 100; //정수 (number)
+    var float = 3.14; //실수 (number)
+    
+    //자바스크립트 정수/실수 구분x
+    //타입 확인용 키워드 typeof
+    console.log(typeof integer);
+    console.log(typeof float);
+
+    var bin = 0b1000010;  //0b 2진수 표현법
+    console.log(bin); //답 66
+
+    var oct = 0o102; // 8진수
+    console.log(oct); //66
+
+    var hex = 0xAC00;
+    console.log(hex);
+
+    console.log(10/4);
+
+    // 어떠한 숫자든 0으로 나눌 수 없음
+    console.log(30/0); // Infinity
+
+    //타 언어는 에러 뜨는데 JS는 에러 잘 안뜸
+    // NaN = Not a Number
+    //잘못된 연산, 표현할 수 없는 값
+    console.log(30/'메롱');
+
+  </script>
+
+</body>
+
+</html>
