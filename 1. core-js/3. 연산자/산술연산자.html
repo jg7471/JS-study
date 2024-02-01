@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var num = 3;
+    console.log(27 / 5); //5.4 몫
+    console.log(27 % 5); //2 나머지 : 배수 확인시
+
+    console.log(num ** 4); //3의 4승 , ES7 이후 출시된 기호
+    console.log(Math.pow(num, 4)); //3의 4승 ES7 이전 거듭제곱 함수
+
+    console.log('----------------------------------------------------------');
+
+    // 단항 산술 연산자 ++, --
+    var x = 3;
+    x++; //단순 값 올리기
+    x++;
+    x--;
+    --x; //같은 의미
+    --x;
+
+    console.log('x: ' + x);
+
+    // 전위(prefix), 후위(suffix) 연산
+    var a = 10
+    var result;
+    result = a++; //후위 연산 : 선연산 후증감
+    console.log(`result: ${result}, a: ${a}`);
+
+    result = ++a; //전위 연산 : 선증감 후연산, 올리고 다른 연산 진행
+    console.log(`result: ${result}, a: ${a}`);
+
+    console.log('-------------------------------------------------');
+    //대입(할당) 연산자, 복합 대입 연산자
+    var i = 9;
+    i += 3; // i = i + 3 같은 의미
+    i -= 8; //4
+    i *= 10; //40
+    i /= 8; //5
+    i %= 3; //2 나머지 값
+    i **= 4; //16
+    console.log('i : ' + 1);
+
+
+
+  </script>
+
+</body>
+
+</html>

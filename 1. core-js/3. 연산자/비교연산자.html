@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var a = 5, b = '5'; //동시 생성
+    console.log(a == b); // true  다른 언어는 타입 다르므로, false 이지만 JS에선 자동 변환하여 true 판단
+    console.log(a === b); // false  타입까지 참고하여 판단 = false , JS에선 === 많이 씀
+
+    // == 연산자는 암묵적으로 문자열 내부에 숫자가 있다면 자동으로 숫자로 변환한 후에 비교
+    // === 연산자는 타입까지 일치하는지 비교
+    console.log('------------------------------------------');
+
+
+    //동등 비교(==)는 결과 예측이 힘들기 때문에 주의(권장x)
+    console.log('0' == ''); // F
+    console.log(0 == ''); // T
+    console.log(0 == '0'); // T
+    console.log(false == 'false'); // F
+    console.log(false == '0'); // T
+    // 예측이 어렵다 -> 사용하지 마라
+
+
+    //일치 비교(===)에서는 NaN을 주의
+    //NaN은 자신과 일치하지 않는 유일한 값
+    console.log(NaN === NaN); // F
+
+    //문자열 비교
+    console.log('--------------------------------------------');
+    console.log('apple' === 'apple');
+    console.log('apple' === 'Apple'); // F 대소문자 구분함
+
+    //문자열끼리 대소 비교
+    //같은 문자일 경우 사전 등재 순서로 판단, 소문자 > 대문자
+    console.log('peach' < 'zebra'); // T 사전 등재 순서대로
+    console.log('peach' < 'Zebra'); // F 유니코드 문자 번호를 기준
+    console.log('감자'< '고구마'); // T
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
