@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //정수 1개를 입력 받아서 해당 정수가 소수이지를 판별
+    
+    /*내가 작성
+      var num = +prompt('정수를 입력하세요');
+      var sum = num;
+      for(var i = 1; i <= num; i++) {
+        if(num % i === 2){
+          sum += num;
+        }
+        console.log(sum);
+      }
+      5입력시 1~5까지 정수 판단하는지 오해함
+      */
+
+      /*
+      var num = +prompt('정수를 입력하세요');
+      var count = 0; //나누어 떨어진 횟수 체크
+      for(var i=i; i<=num; i++){
+        if(num % i === 0){
+          count++;
+        }
+      }
+      if (count === 2) {
+        console.log(`${num}은 소수입니다`);
+      }else{
+        console.log(`${num}은 소수가 아닙니다`);
+      }
+      */
+
+      //고난이도
+      var num = +prompt('정수를 입력하세요');
+      console.log('-------------------------------------------');
+      for(var j=2; num % j !==0; j++) {} //!==0 true시 계속 진행됨
+      console.log(`${num}은 ${num === 1 ? '소수입니다.' : '소수가 아닙니다.'}`);
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
