@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <body>
+
+
+
+    <script>
+      /*
+      //0부터 10까지 합
+      var sum = 0;
+      var i = 0;
+
+      while (i <= 10) {
+        sum += i;
+        i++;
+      }
+
+      console.log(sum);
+
+      console.log(`-------------------------------------`);
+
+      //48~150 사이의 정수 중 8의 배수만 출력해 보자
+
+      var x = 48;
+      var sum1 = 0;
+
+      while (x <= 150) {
+        console.log(x);
+        x += 8;
+
+      }
+
+      console.log(`-------------------------------------`);
+      //1000의 약수(나누어 떨어지는 수)의 개수를 구하세요
+
+      var s = 1;
+      var sum2 = 0;
+      while (s <= 1000) {
+        if (1000 % s === 0) {
+          sum2++;
+        }
+        s++;
+      }
+      console.log(sum2);
+
+      console.log(`-------------------------------------`);
+      //구구단 계산
+      var num = 1;
+      var point = +prompt(`숫자를 입력하세요`);
+
+      while (num <= 9) {
+        console.log(`${num}*${point}=${num*point}`);
+        num++;
+      }
+
+      console.log(`-------------------------------------`);
+      // 1~200 6의 배수 but 12배수x
+      var sum3 = 0;
+      for (var q = 1; q <= 200; q++) {
+        
+        if (q % 6 === 0 && q % 12 !== 0) {
+          //q*6 이렇게 적음
+          console.log(q);
+          q++;
+
+        }
+      }
+
+      console.log(`-------------------------------------`);
+      // 입력값 받고, 팩토리얼 값 구하기
+      var sum4 = 0;
+      var k = +prompt(`팩토리얼 숫자를 입력하세요`);
+
+      for (var z = k - 1; z > 0; --z) {
+        k *= z;
+
+      }
+      console.log(k);
+
+      console.log(`-------------------------------------`);
+      //정수 1개를 입력 받아서 해당 정수가 소수이지를 판별
+      var sum5 = 0;
+      var char = +prompt(`정수를 입력하세요`);
+      for (w = 2; w < char; w++) {
+        if (char % w !== 0) {
+          alert('소수입니다.');
+          break;
+        } else if (char % w == 0) {
+          alert('소수아닙니다.');
+          break;
+        }
+      }
+
+
+      ???
+      var char1 = +prompt(`정수를 입력하세요123`);
+      for(var t = 2; char1 % t !==0; t++){}
+      console.log(`${char1}는 ${char1 === t ? '소수 입니다아':'소수 아입니다'}`);
+      
+
+      //구구단
+      for(i=2; i<=9; i++){
+        console.log(`${i}단`);
+        console.log('--------');
+        for(x=1; x<=9; x++){
+          console.log(`${i}*${x}=${i*x}`);
+        }
+        
+      }
+     
+      // 정수를 하나 입력받아서, 입력받은 수 까지의 모든 소수를 출력하고, 
+      // 그 소수들의 개수를 구하는 로직을 작성합니다.
+
+      var total = 0;
+      var num = +prompt(`정수를 입력하세요~!`);
+      for(var i = 1; i < num; i++){
+        total = num % i !==0; 
+        
+      }
+      console.log(total);
+     */
+
+
+      /*
+        1. 정수를 두개 입력받으세요. (x, y) : pronpt 함수 두 번 사용, 각각 따로
+        2. x부터 y까지의 누적합계를 while을 사용하여 구하는 코드를 작성하세요.
+        ex) 입력: 3, 7 -> "3부터 7까지의 누적합계: 25"
+        
+        처음에는 x에 무조건 작은 값이 들어올 것이라고 예상하고 작성하겠습니다.
+        다 하신 분은 만약 x에 큰 값이 들어왔을 경우에는
+        어떻게 대처할 지 생각해 보세요.
+        (x에 큰 값이 들어와도 정상적으로 출력이 되었으면 좋겠습니다.
+        입력: 7, 3 -> "3부터 7까지의 누적합계: 25")
+        - while문을 if else 로 나눠서 두번 쓰는 것은 지양하겠습니다.
+      
+
+
+      var x = +prompt('1번째 값을 입력하세요');
+      var y = +prompt('2번째 값을 입력하세요');
+      var temp = 0;
+      var sum = 0;
+
+      if (x > y) {
+        temp = x;
+        x = y;
+        y = temp;
+                
+      }
+      while (x <= y) {
+        sum += x;
+        x++;
+      }
+      alert(sum);
+
+
+
+
+
+
+
+      // 1 ~ 100 사이의 랜덤한 숫자하나가 정답으로 주어진다.
+      // 사용자는 이 사이의 숫자를 입력할 수 있어야 한다.
+      // 시스템은 입력한 숫자를 판단하여 up인지 down인지 알려줘야 한다.
+      // 만약 정답을 맞추지 못하면 지속해서 입력을 받고 결과를 알려준다.
+      // 정답을 맞추면 맞췄다는 메시지와 함께 프로그램을 종료한다.
+
+      // 사용자들은 입력 기회가 5번으로 제한된다.
+      // 즉, 5번 안에 정답을 맞추지 못할 경우 게임이 강제종료된다.
+
+      // @@ 사용자는 게임 시작전에 난이도를 설정할 수 있다.
+      // @@난이도는 상, 중, 하 난이도가 존재하며
+      // @@난이도별 입력 횟수제한이 다르다.
+
+
+   
+
+      var level = +prompt(`레벨 상3~하1 선택하세요.`);
+      var count;
+      //var count = 0;
+     
+
+      if (level === 3) {
+        count = 3;
+      } else if (level === 2) {
+        count = 6;
+      } else if (level === 1) {
+        count = 9;
+      } else {  
+        alert(`값이 정확하지 않아 HARD level로 진행됩니다.`);
+        count = 3; //빼먹음
+      }
+
+      var life = count;
+
+      var secret = Math.floor(Math.random() * 100) + 1;
+      console.log('secret: ' + secret);
+
+      var min = 1, max = 100;
+
+      while(true) {
+
+        var num = +prompt(`${min}~${max}까지 숫자를 입력하세요.`);
+        
+
+        if (num < min || num > max) {
+        //if (min > num || max < num) { 주인공 우선
+          alert(`값을 제대로 입력하세요`);
+          continue; //무한반복
+        }
+
+        life--;
+
+
+        if (secret === num) {
+          alert(`정답입니다. ${count-life}번 만에 맞추었네요.`);
+          break; //빼먹음
+        } else if (secret > num) {
+          alert(`틀렸습니다 UP`);
+          min = num + 1; //빼먹음
+        } else {
+          alert(`틀렸습니다 DOWN`);
+          max = num - 1;
+        } // max = num - 1; 잘못 적음
+
+
+
+
+        if (life === 0) {
+          alert(`game over, answer is ${secret}`);
+          break; //빼먹음
+        }else{
+          alert(`${life}번 남았습니다.`);
+        }
+
+
+      }
+
+       */
+
+
+
+
+      // 1 ~ 100 사이의 랜덤한 숫자하나가 정답으로 주어진다.
+      // 사용자는 이 사이의 숫자를 입력할 수 있어야 한다.
+      // 시스템은 입력한 숫자를 판단하여 up인지 down인지 알려줘야 한다.
+      // 만약 정답을 맞추지 못하면 지속해서 입력을 받고 결과를 알려준다.
+      // 정답을 맞추면 맞췄다는 메시지와 함께 프로그램을 종료한다.
+
+      // 사용자들은 입력 기회가 5번으로 제한된다.
+      // 즉, 5번 안에 정답을 맞추지 못할 경우 게임이 강제종료된다.
+
+      // @@ 사용자는 게임 시작전에 난이도를 설정할 수 있다.
+      // @@난이도는 상, 중, 하 난이도가 존재하며
+      // @@난이도별 입력 횟수제한이 다르다.
+
+
+ 
+      var level = +prompt(`level을 select 하세요 1-low, 2-middle, 3-high`);
+      var life;
+      if (level === 1) {
+        life = 10;
+      } else if (level === 2) {
+        life = 6;
+      } else if (level === 3) {
+        life = 3;
+      } else {
+        alert(`제대로 입력하지 않아 middle로 설정 됩니다.`);
+        life = 6;
+      }
+      var secret = Math.floor(Math.random() * 100) + 1;
+      console.log('secret: ' + secret);
+
+      var count = level;
+      min = 1, max = 100;
+
+      while (true) {
+        var num = +prompt(`${min}~${max}값을 입력하세요`);
+
+
+
+        if (num < min || num > max) {
+          alert(`유효값을 입력하세요`);
+          continue;
+        }
+        count--;
+
+        if (secret === num) {
+          alert(`정답입니다 ${level-count}번에 맞추었습니다.`);
+          break;
+        } else if (num < secret) {
+          alert(`업`);
+          min = num + 1;
+        } else {
+          alert(`다운`);
+          max = num - 1;
+        }
+
+        if (count === 0) {
+          alert(`GAME OVER ANSWER IS ${secret}`);
+        } else {
+          alert(`${count}번 남았습니다`);
+        }
+        alert(`수고하셨습니다;)
+      }
+      
+
+ 
+    </script>
+
+  </body>
+
+</html>
