@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var ex = 10 + '20';
+    console.log('ex' + ex); // 1020
+    console.log('ex: ' + typeof ex);
+    console.log('--------------------------------------------------');
+
+    var ex2 = 10 * '3';
+    console.log('ex2 ' + ex2); // 30, 곱셉은 문자열을 숫자로 변환
+    console.log('ex2: ' + typeof ex2);
+    console.log('--------------------------------------------------');
+
+    ex2 = 100 + '';
+    console.log('ex2: ' + typeof ex2); // string 
+    console.log('--------------------------------------------------');
+
+    // 문자열 타입의 암묵적 숫자 변환
+    var ex3 = +'550'; //number
+
+    ex3 = +'false'; //number -> NaN 숫자가 아니야
+
+
+    // 논리 타입을 암묵적 숫자 변환, (+기호 붙임 문자->숫자(+prompt))
+    ex3 = +true; // 1
+    ex3 = +false; // 0
+    ex3 = +null; // 0
+    ex3 = +NaN; // NaN
+
+
+    console.log(ex3);
+    console.log('ex3: ' + typeof ex3);
+    console.log('--------------------------------------------------');
+
+    // Truthy, Falsy
+
+    // undefined, null, 0, NaN, ''(빈 문자열)은 모두 false
+    // 나머지는 모두 true로 인식
+    
+    // 함수가 반환하는 값, 비동기 통신의 결과값들이 정확하게 어떤 값인지 모르더라고
+    // 해당 값이 띠고 있는 논리적 평가에 따라 조건문을 좀 더 수월하게 구성 가능.
+
+
+    // 비어있거나 0(부정적인 것) false
+    if ('') console.log('OK1'); // 공백 false
+    if ('hello') console.log('OK2'); // 값 있음 true
+    if (undefined) console.log('OK3'); // 비었음 false
+    if (null) console.log('OK4'); // 의도적 값 지움 false ----> 가장 자주 씀
+    if (350) console.log('OK5'); // 정수(0이 아닌 모든 정수)true
+    if (NaN) console.log('OK6'); // 숫자가 아니다 false
+    if (0) console.log('OK7'); // 0은 false로 해석함
+    if ([1, 2, 3]) console.log('OK8'); // 배열 true
+
+    // if(!ex3){}  ex3가 비어 있지 않다면
+    // if(ex3 && ex4) 좌우항 둘 다 값이 존재한다면(자바스크립트만) true // ex3 !== null and ex4 !== null 같은 의미-> 자바는 이렇게 써야함
+
+
+  </script>
+
+</body>
+
+</html>

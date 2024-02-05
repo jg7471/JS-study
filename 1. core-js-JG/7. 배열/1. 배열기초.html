@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 배열의 생성
+    // var fruits = '딸기'; //변수
+    var fruits = ['딸기', '포도', '복숭아', '사과'];
+    console.log(fruits);
+
+    // 배열의 길이 확인
+    console.log('배열의 길이: ' + fruits.length);
+
+    // 배열의 데이터 추가하기
+    fruits[4] = '파인애플';
+    console.log('배열의 길이: ' + fruits.length);
+
+    fruits[fruits.length] = '망고'; // length를 몰라도 추가 가능
+    console.log(fruits);
+
+    // 배열 요소 참조
+    var apple = fruits[3]; // 좌 영역, 우 값
+    console.log('apple: ' + apple);
+
+    console.log('-------------------------------------');
+    // 배열의 반복문 처리
+    for (var i = 0; i < fruits.length; i++) { //마지막 인덱스
+      // i<=fruits.length-1  
+      console.log(`${i+1}번째 과일 : ${fruits[i]}`); // 인덱스 0부터 시작 주의
+
+    }
+
+  </script>
+
+
+
+
+</body>
+
+</html>
