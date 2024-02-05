@@ -13,9 +13,9 @@
     var foods = ['떡볶이', '오뎅', '김말이', '닭꼬치']
 
     // indexOf(): 배열 요소의 인덱스를 알려줌.foods
-    // 없는 값 전달 시 -1 리턴
+    // 없는 값 전달 시 <-1> 리턴
     var idx = foods.indexOf('김말이');
-    console.log('찾은 익데스 : '+ idx);
+    console.log('찾은 인데스 : '+ idx);
     
     // includes(): 배열 요소의 존재 확인.
     // 있으면 true 없으면 false
@@ -30,6 +30,7 @@
     var sliceArr = arr.slice(3, 7); // 7번 미만 : 6까지
     console.log(sliceArr); // 데이터 손상x
 
+    console.log('-----------------------------');
     // reverse(): 배열을 역순으로 배치
     var copyArr = arr.slice(0); //처음부터 끝까지 자르기(복사하기), slice의 시작을 0부터 끝 인덱스 지정x, 끝까지 범위 지정됨.
     copyArr.reverse();

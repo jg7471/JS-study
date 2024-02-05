@@ -63,9 +63,9 @@
       var delName = prompt(`현재 멤버 ${kakao}\n삭제할 이름을 입력하ㅔ숑`);
       var idx = kakao.indexOf(delName);
       if (idx === -1) {
-        alert(`${delName}은 잘못된 이름입니다, 재입렵하세요.`);
+        alert(`${delName}은 잘못된 이름입니다, 재입력하세요.`);
       } else {
-        kakao.splice(idx .1); //하나씩 지우겠다
+        kakao.splice(idx, 1); //하나씩 지우겠다
         alert('삭제 완료!\n남은 멤버:' + kakao);
       }
 
