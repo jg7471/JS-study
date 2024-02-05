@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+
+// 우리반 학생들 4과목 점수(국영수탐)
+// var kim = [67, 83, 45, 32];
+// var lee = [100, 87, 55, 67];
+// var park = [23, 45, 41, 22];
+
+var ourStudentScore = [
+[67, 83, 45, 32],
+[100, 87, 55, 67],
+[23, 45, 41, 22]
+];
+
+console.log(ourStudentScore);
+console.log(ourStudentScore[1]); //array
+console.log(ourStudentScore[0],[2]); //더블 인덱싱 45점
+
+// 반 평균 구하기
+// 한 학생의 평균을 총합을 저장할 변수
+console.log('----------------------------');
+var ourAverage = 0;
+
+for(var studentScore of ourStudentScore){
+  // studentScore 변수에는 한 학생의 점수 배열이 전달됨.
+
+  var eachTotal = 0; // 한학생의 4과목 총점.
+  for(var score of studentScore){
+    // score 변수에는 한 학생의 점수가 하나씩 전달됨.
+    eachTotal += score; // eachTotal에 4과목 점수를 누적해서 더함.
+  }
+  // 한 학생의 평균 점수 구하기
+  var eachAvg = eachTotal/studentScore.length; // 한 학생의 점수합계를 과목수로 나눔
+  ourAverage += eachAvg;
+}
+
+var classAvg = ourAverage / ourStudentScore.length;
+console.log(`우리반 평균 : ${Math.round(classAvg*100)/100}점`); // 반올림 함수 -소숫점까지 만들려면, 곱하고 나눠야함
+
+
+
+
+</script>
+
+
+</body>
+</html>
