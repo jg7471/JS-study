@@ -12,12 +12,12 @@
   <script>
     var ex = 10 + '20';
     console.log('ex' + ex); // 1020
-    console.log('ex: ' + typeof ex);
+    console.log('ex: ' + typeof ex); //string
     console.log('--------------------------------------------------');
 
     var ex2 = 10 * '3';
     console.log('ex2 ' + ex2); // 30, 곱셉은 문자열을 숫자로 변환
-    console.log('ex2: ' + typeof ex2);
+    console.log('ex2: ' + typeof ex2); //number
     console.log('--------------------------------------------------');
 
     ex2 = 100 + '';
@@ -56,7 +56,7 @@
     if (undefined) console.log('OK3'); // 비었음 false
     if (null) console.log('OK4'); // 의도적 값 지움 false ----> 가장 자주 씀
     if (350) console.log('OK5'); // 정수(0이 아닌 모든 정수)true
-    if (NaN) console.log('OK6'); // 숫자가 아니다 false
+    if (NaN) console.log('OK6'); // 숫자가 아니다 false //100ABC
     if (0) console.log('OK7'); // 0은 false로 해석함
     if ([1, 2, 3]) console.log('OK8'); // 배열 true
 

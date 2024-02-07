@@ -58,21 +58,23 @@
 
     var kakao = ['무지', '네오', '어피치', '라이언', '제이지'];
 
+    
     //while 조건식에 kakao.length를 지정해서, length가 0이 되면 false값을 띌 수 있도록-> 반복문 종료.
-    while (kakao.length) { //length 0이 되면 반복문 종료
-      var delName = prompt(`현재 멤버 ${kakao}\n삭제할 이름을 입력하ㅔ숑`);
+    /*
+    while(kakao.length) { //length 0이 되면 반복문 종료
+      var delName = prompt(`현재 멤버 ${kakao}\n삭제할 이름을 입력하세요`);
       var idx = kakao.indexOf(delName);
-      if (idx === -1) {
+      if (idx === -1) { //인덱스 찾기, 없을시 -1
         alert(`${delName}은 잘못된 이름입니다, 재입력하세요.`);
       } else {
         kakao.splice(idx, 1); //하나씩 지우겠다
         alert('삭제 완료!\n남은 멤버:' + kakao);
       }
-
-
     }
+    */
 
-    /*
+
+    
     while (true) {
       if (kakao.length === 0) {
         alert('친구들이 다 삭제되었어요.\n프로그램을 종료합니다.');
@@ -81,22 +83,21 @@
 
       var delName = prompt(`현재 멤버: ${kakao}\n삭제할 이름을 입력하세요`); // 문자라 + 안붙임
 
-      if (kakao.includes(delName)) { //존재 유무
-        //indexOf 도 가능
-        if (confirm(`입력하신 이름: ${delName}이 맞습니까?`)); {
+      if (kakao.includes(delName)) { //존재 유무 확인
+        //indexOf 도 가능 : 인덱스 찾기, 없을시 -1
+        if (confirm(`입력하신 이름: ${delName}이 맞습니까?`)) {
 
-          //var idx = kakao.indexOf(delName); //데이터 찾기   
-          //kakao.splicea(inx, 1); //하나 지우겠다.
+          //var idx = kakao.indexOf(delName); //데이터 찾기
+          //kakao.splice(idx, 1); //하나 지우겠다.
           kakao.splice(kakao.indexOf(delName), 1); //위 두줄 이렇게 적어도 됨
           alert(`삭제완료! \n남은 멤버:  ${kakao}`);
 
         }
       } else {
-        alert(`${delName}은 잘못된 이름입니다, 재입렵하세요.`);
+        alert(`${delName}은 잘못된 이름입니다, 재입력하세요.`);
         //continue; // 굳이 쓸 필요는 없음. 왜? 이하에 더 이상 실행할 내용이 없으므로, 처음으로 돌아감
       }
     }
-    */
 
     //반복 횟수가 명확하면 for
     //while (true) {

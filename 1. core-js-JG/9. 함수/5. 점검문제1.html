@@ -11,7 +11,7 @@
 
   <script>
    
-   /* 
+    /* 
     Q. n의 약수의 개수를 구하기
     1. 정수 n을 전달받아 n의 약수들을 출력하고 
     약수의 개수를 리턴하는 함수 calcDivisor를 정의하세요.
@@ -20,8 +20,25 @@
      나누어 떨어졌을 시 약수의 개수 카운트를 1증가시키고 출력.
     
     약수들은 배열에 담아서 한번에 출력해 주세요. (그래야 가로로 출력됨)
-    
-     */
+    */
+
+    function calcDivisor(targetNumber){
+      var divisors = [];
+      var count = 0;
+      for(var i = 1; i <= targetNumber; i++){
+        if(targetNumber % i === 0){
+          divisors.push(i);
+          //count++;
+        }
+      }
+      console.log(`${targetNumber}의 약수 : ${divisors}`);
+      //return count;
+      return divisors.length; //count 변수로 직접 세도 되지만, 약수의 배열 = 약수의 개수
+    }
+
+    var divCount = calcDivisor(9842311);
+    console.log(`약수의 개수는 ${divCount}개`);
+
 
   </script>
 </body>
