@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var z = 'hello'; // 전역 변수(global)
+
+    // 즉시 실행 함수(정의와 동시에 실행되는 함수)
+    (function (x, y) {
+      console.log(`x+y= ${x+y}`);
+    })(60, 70); // 바로 값 줌, 일회성 함수(이름이 없다)
+
+
+
+    // 재귀 함수
+    // 함수 내에서 자기 자신을 다시 호출하여 작업을 수행하는 함수
+    // 종료 조건을 직접 작성해야함.
+    console.log(`----------------------------------------`);
+
+    function countdown(n) {
+      if (n < 0) return; // 끝을 내줘야 무한루프 방지
+      console.log(n);
+      countdown(n - 1);
+    }
+    countdown(5);
+
+    console.log(`----------------------------------------`);
+
+    function factorial(n) {
+      if (n === 1) return 1;
+      return n * factorial(n - 1);
+    }
+
+    console.log(`6! : ${factorial(6)}`);
+
+
+
+    // 중첩함수
+    console.log(`----------------------------------------`);
+
+    function outer() {
+      var x = 1; // outer 함수 내에서만 사용 가능한 지역 변수
+
+
+      function inner() { //헬퍼 함수
+        var y = 2; // inner 함수 내에서만 사용 가능한 지역 변수
+        console.log(`x+y = ${x+y}`);
+      }
+      inner(); // outer 함수 내에서만 사용 가능
+      //console.log(y); inner 끝났으로 호출 불가 : 지역변수 : inner 내에서만 유효
+
+    }
+    outer();
+    //inner(); outer 호출 -> inner 호출 가능 : 바깥 쪽에서 inner 호출 불가
+    
+    //console.log(y); 메모리 상에 존재 x : outer 내에서만 유효함
+    //console.log(x); // 지역 변수, 그 자리에서만 쓸 수 있음
+
+    // 우선순위 지역변수>>전역변수
+
+
+    console.log(z);
+
+</script>
+
+</body>
+
+</html>
