@@ -19,14 +19,12 @@
     5. user에서 프로퍼티 name을 삭제하세요.
     */
 
-    var user = {
-      name: 'John',
-      surname: 'Smith'
-    }
-
-    user.name = 'Pete';
-    delete user.name;
-    console.log(user);
+    var user = {}; //빈객체
+    user.name = 'John'; //프로퍼티 추가
+    user.surname = 'Smith'; //프로퍼티 추가
+    user.name = 'Pete'; //name 데이터 수정
+    delete user.name; //프로퍼티 삭제
+    console.log(user); //데이터 조회
 
 
 
@@ -49,8 +47,9 @@
     }
 
     total = 0;
+    // for-in은 배열이나 객체의 index 혹은 key 값을 변수에 저장
     for(var key in salaries){ //key로 생성
-      total += salaries(key); //key 빼먹음
+      total += salaries[key]; //key 빼먹음
     }
     console.log(total);
 

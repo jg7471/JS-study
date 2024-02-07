@@ -13,23 +13,27 @@
 
     // 함수의 매개값에 함수 전달
     // calculate 함수의 하청(즉석에서 함수 생성)
+    
+    //1번
     function calculate(func) {
       console.log('계산기입니다');
-      const result = func(10, 20);
+      const result = func(50, 20);
       return result;
     }
 
-    console.log('--------------------------------');
-
+    //2번
     function add(n1, n2) {
       return n1 + n2;
     }
 
+    //1+2번
     const r = calculate(add);
     console.log('r: ' + r);
 
     console.log('--------------------------------');
 
+
+    //@@@ function 무슨 뜻?
     const r2 = calculate(function (n1, n2) {
       return n1 - n2;
     });
@@ -37,6 +41,7 @@
 
     console.log('--------------------------------');
 
+    //@@@ 변경한다?
     const r3 = calculate((n1, n2) => n1 * n2);
     console.log('r3: ' + r3);
 
@@ -48,18 +53,14 @@
         if (i % 2 === 0) /*한 줄이라 괄호 생략*/ console.log(i);
       }
     }
-
-    console.log('--------------------------------');
-
+    
     // 정수 n을 전달하면 1 ~ n까지의 모든 홀수를 출력하는 함수.
     function showOddNumber(n) {
       for (let i = 1; i <= n; i++) {
         if (i % 2 !== 0) console.log(i);
       }
     }
-
-    console.log('--------------------------------');
-
+    
     // 정수 n을 전달하면 1 ~ n까지의 모든 3의 배수를 출력하는 함수.
     function showMultiplesOf3(n) {
       for (let i = 1; i <= n; i++) {
@@ -70,26 +71,29 @@
     console.log('--------------------------------');
 
     // 콜백을 적용한 솔루션
-    function showOddNumbers(n, code) { //code 아니어도 됨(매개변수->지목을 위해)
+    function showNumbers(n, code) { //code 아니어도 됨(매개변수->지목을 위해)
       for (let i = 1; i <= n; i++) {
         if (code(i)) console.log(i);
       }
     }
 
-    console.log('--------------------------------');
+    console.log('짝수출력함수------------------------------');
 
     // 짝수 출력 함수 호출문
-    showNumbers(10, function (i) {
+    // @@@ function ???
+     showNumbers(10, function(i) {
       return i % 2 === 0;
     });
 
-    console.log('--------------------------------');
+    console.log('홀수출력함수------------------------------');
 
     // 홀수 출력 함수 호출문
+    // const pow = num => num * num;
+    // 화살표 => 함수 변수 공식(내가 정리)
     showNumbers(10, i => i % 2 !== 0); // function 써도 되지만 => 함수 씀
     //초록 (i) 한개 뿐이라 괄호 생략
 
-    console.log('--------------------------------');
+    console.log('1~200 5의 배수o, 10의 배수x--------------------------------');
 
     // 1 ~ 200까지의 정수 중 5의 배수이면서 10의 배수는 아닌 수를 출력
     showNumbers(200, i => i % 5 === 0 && i % 10 !== 0);

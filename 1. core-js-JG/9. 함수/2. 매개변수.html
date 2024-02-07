@@ -10,7 +10,7 @@
 <body>
 
   <script>
-    //begin부터 end까지의 총합을 구해주는 함수
+    //begin부터 end까지의 총합을 구해주는 함  수
     //매개변수(parameter) : 함수를 정의할 때 함수 바깥쪽에서 함수 내부로 들어오는 데이터를 저장하는 변수
 
     function calcRangeTotal(begin, end) {
@@ -22,11 +22,23 @@
       return total;
     }
 
+    // 자바스크립트 함수는 매개변수의 개수를 다르게 주더라도
+    // 정상적으로 작동함, but 좋은 코드는 X
+    var totalNumber = calcRangeTotal(10, 30);
+    console.log('실행 결과값: ' + totalNumber);
+    console.log(calcRangeTotal(10, 20));
+
+   
+
+
     //매개변수가 없는 경우
     function selectRandomFood() { // 괄호 비워두셈
       var rn = Math.random(); //난수 생성함수 0.0 <= ~ < 1.0
       return rn > 0.5 ? '자장면' : '짬뽕';
     }
+
+    console.log('오늘 저녁은 무엇? ' + selectRandomFood()); //빈괄호 열어두기
+
 
     // 매개변수의 defalut값 지정 (ES6)
     function sayHello(lang = '한국어') { //defalut 값
@@ -40,18 +52,16 @@
       }
     }
 
-
-
-    // 자바스크립트 함수는 매개변수의 개수를 다르게 주더라도
-    // 정상적으로 작동함, but 좋은 코드는 X
-    var totalNumber = calcRangeTotal(10, 30);
-    console.log('실행 결과값: ' + totalNumber);
-
-
-    console.log('오늘 저녁은 무엇? ' + selectRandomFood()); //빈괄호 열어두기
-
     sayHello();
     sayHello('일본어');
+
+
+
+
+   
+
+
+
 
   </script>
 

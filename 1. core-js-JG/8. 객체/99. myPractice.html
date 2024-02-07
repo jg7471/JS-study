@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var country = {
+      asia : ['korea', 'japan'],
+      europe : ['germany', 'france'],
+      america : ['brazil', 'usa'],
+      total : 6
+    };
+  
+    //타입
+    console.log(typeof country); //object 객체 + array 배열
+
+    //전체조회
+    console.log(country);
+    
+    //항목에 데이터 입력
+    country.asia.push('china');
+    console.log(country.asia);
+
+    //항목 조회
+    console.log(country.asia);
+    
+    //항목 수정
+    country.total = 7;
+    country.america[1] = 'canada';
+    console.log(country.total);
+    console.log(country.america);
+
+    //항목 추가
+    country.africa = 'algeria';
+    console.log(country.africa);
+
+    //항목 삭제
+    delete country.europe[1];
+    console.log(country.europe);
+
+    //for ~ in (ES6 업데이트), key 값 : value 값 조회
+    for(var key in country){
+      console.log(`key : ${key}, value : ${country[key]}`);
+    }
+
+    // 객체의 프로퍼티 키의 존재 유무 확인(in 키워드)
+    var flag = 'asia' in country;
+    console.log(flag);
+
+
+
+
+
+  </script>
+  
+</body>
+</html>
