@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const userNames = ['김철수', '홍길동', '박연희']
+    /*
+    const kim = userName[0];
+    const hong = userName[1];
+    const park = userName[2];
+    */
+
+    const [kim, hong, park] = userNames; //순서대로 세팅됨
+
+    console.log(kim);
+    console.log(hong);
+    console.log(park);
+
+    /*
+    let kim;
+    let hong;
+    let park;
+    for(let user of userName){
+      if(user === '김철수'){
+        kim = user;
+      }
+    }
+    */
+
+  </script>
+
+</body>
+
+</html>
