@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    const emp ={
+      empName : '뽀로로',
+      age : 4,
+      hireDate : '2021-01-01',
+      birthDay : '2020-02-08'
+    };
+
+    const {empName, birthDay, age} = emp; // 배열은 순서대로, 객체는 순서x->키랑 변수랑 동일하게 작성
+    console.log(`내 이름은${empName}, 나이는 ${age}살 이고 생일은 ${birthDay}입니다`);
+    
+    const {empName : en/*변수명 변경*/, birthDay : bd, age : a} = emp; //기본 프로퍼티 이름대로
+    console.log(`내 이름은${en}, 나이는 ${bd}살 이고 생일은 ${a}입니다`);
+
+    console.log('---------------------------------------------------');
+
+    const {birthDay: bDay, ...others} = emp; // ... 섞어서 묶음
+    console.log(others);
+
+    console.log('---------------------------------------------------');
+    // 객체 복사
+    const copyEmp ={
+      ...emp, // emp 내용 복사
+      address: '마포구', //내용 추가
+      hobbies: ['산책','수영'],
+      age:17
+    };
+
+    console.log(copyEmp); //카피
+    console.log(emp); //원본
+
+
+  </script>
+
+
+</body>
+</html>
