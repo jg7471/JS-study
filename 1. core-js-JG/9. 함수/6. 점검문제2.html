@@ -35,7 +35,7 @@
     console.log(`총합${sum},평균${average}`);
     */
 
-    function calcNumbersTotalAndAverage(...numbers){
+    function calcNumbersTotalAndAverage(...numbers){ //다중
       var total = 0;
       for(var n of numbers){
         total += n;
@@ -50,7 +50,6 @@
       }
 
     }
-    //@@@ result.total ???
     var result = calcNumbersTotalAndAverage(90, 70, 60,40);
     console.log(`총합 : ${result.total}, 평균 : ${result.average}`);
     

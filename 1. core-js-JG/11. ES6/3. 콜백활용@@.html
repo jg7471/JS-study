@@ -70,7 +70,7 @@
 
       const filterdArray = [];
       for (let user of userList) {
-        if (condition(user)) { //@@@ filter 안적어도?
+        if (condition(user)) { //@@@ filter 안적어도됨, 매개값
           filterdArray.push(user);
         }
       }
@@ -100,7 +100,7 @@
       const mappedArray = [];
 
       for (let user of userList) {
-        mappedArray.push(callback(user)); //@@@ 이해 안됨 callback(입력값)(user(데이터))
+        mappedArray.push(callback(user)); //@@@ 함수호출(user)시, 항상 괄호
       }
       return mappedArray // 先선언
     }
