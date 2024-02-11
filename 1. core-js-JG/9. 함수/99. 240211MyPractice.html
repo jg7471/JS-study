@@ -10,6 +10,7 @@
 <body>
 
   <script>
+    /*
     function calcTotal(end) {
       console.log('함수가 출력 되었습니다');
       let total = 0;
@@ -21,7 +22,7 @@
 
     }
     console.log(calcTotal(5));
-
+    */
 
     /*
     function add(n1, n2){
@@ -142,6 +143,7 @@
     console.log(operateAll(1,2));
     */
 
+    /*
     function operateAll(a1, a2){
       return{
         puls : a1 + a2
@@ -149,6 +151,188 @@
     }
     let a = operateAll(10, 20);
     console.log(a);
+    */
+
+    /*
+    function addAll(n1, n2){
+      return{
+        plus : n1 + n2,
+        minus : n1 - n2
+      }
+    }
+    console.log(addAll(10, 20));
+    */
+
+
+    /* 틀림
+    function addAll(...numbers){
+      console.log(numbers);
+      let total = 0;
+      total += numbers;
+    }
+    let a = addAll(1,2,3,4,5,6,7);
+    console.log(a);
+    */
+
+    /*
+    function addAll(...numbers){
+      let total = 0;
+      for(let i of numbers){
+        total += i;
+      }
+      return total;
+    }
+
+    let a = addAll(1,2,3,4,5);
+    console.log(a);
+    */
+
+
+    /* 
+    Q. n의 약수의 개수를 구하기
+    1. 정수 n을 전달받아 n의 약수들을 출력하고 
+    약수의 개수를 리턴하는 함수 calcDivisor를 정의하세요.
+    2. 약수의 출력은 함수 내부에서 이뤄져야 합니다.
+    3. 힌트) 전달받은 n을 1부터 n까지 지속적으로 나누어
+     나누어 떨어졌을 시 약수의 개수 카운트를 1증가시키고 출력.
+    
+    약수들은 배열에 담아서 한번에 출력해 주세요. (그래야 가로로 출력됨)
+    */
+
+    /* 1차
+    function divCount(numbers){
+      let total = 0;
+      let array = [];
+      for(let i = 0; i <= numbers; i++){
+        if(numbers % i === 0){
+          array += i;
+          
+        }
+      return array.length;
+      }
+
+    }
+    console.log(`${divCount(10)}의 약수의 개수는 ${array}이며, 입니다`);
+    */
+
+    /*
+    function divCount(divisors) {
+      let array = [];
+      let count = 0;
+      for (i = 1; i <= divisors; i++) {
+        if (divisors % i === 0) {
+          array.push(i);
+        }
+        
+      }
+      console.log(`${divisors}의 약수는 ${array}`);
+      return array.length;
+    }
+
+    console.log(`${divCount(10)}의 약수는 `);
+    */
+
+    /*
+    function divCount(divisors){
+      let array = [];
+      for(let i = 1; i <= divisors; i++){
+        if(divisors % i === 0){
+          array.push(i);
+        }
+
+      }
+      console.log(`${divisors}의 약수 ${array}`);
+      return array.length;
+    }
+    
+    console.log('약수의 개수'+ divCount(10));
+    */
+
+    /*
+      Q. n개의 정수를 전달하면 해당 정수들의 총합과 평균을 
+         반환하는 함수 calcNumbersTotalAndAverage를 작성하세요.
+    */
+
+
+    /*
+    function calcNumbersTotalAndAverage(...numbers){
+      let total = 0;
+      for(let n of numbers){
+        total += n;
+      }
+      let avg = total / numbers.length;
+
+      return {
+        total,
+        avg
+      }
+    }
+
+    let result = calcNumbersTotalAndAverage(1,2,3,4,5);
+    console.log(`${result.total},${result.avg}`);
+    */
+
+    /*
+    1. 키(cm)와 몸무게(kg)을 인수로 전달받아 
+    2. bmi지수를 계산하여 반환함과 동시에 
+    3. bmi가 25.0이상이면 "당신은 과체중입니다." 
+     18.5이하면 "당신은 저체중입니다." 
+     나머지는 "당신은 정상체중입니다."를 출력하는 
+     calcBMI라는 함수를 정의하고 호출하세요. 
+    # bmi 계산식 : 몸무게(kg) / (키(m) * 키(m)) 
+    # 출력 예시: 
+    "키 -> 178.4cm, 체중-> 78.2kg의 체질량지수는: 24.57입니다"
+    */
+
+    /*
+    function bmiData(cm, kg){
+      let m = cm / 100;
+      let bmi = kg / (m * m);
+
+      if(bmi > 25){
+        alert(`당신은 과체중입니다`);
+      }
+
+      return bmi;
+    }
+
+    let bmi = bmiData(180, 75);
+    console.log(bmi);
+
+    */
+
+    (function (x, y){
+      console.log(x+y);
+    })(1,2);
+
+
+    function countdown(n){
+      if(n < 0) return;
+      console.log(n);
+      countdown(n-1);
+    }
+    countdown(5);
+
+    function factorial(n){
+      if(n===1) return 1;
+      return n * factorial(n-1);
+    }
+
+    console.log(factorial(6));
+
+    function outer(){
+      let x = 1;
+        
+      function inner(){
+        let y = 2;
+        console.log(x+y);
+      }
+      inner();
+    }
+
+
+
+
 
   </script>
 

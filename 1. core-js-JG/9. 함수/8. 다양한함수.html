@@ -34,7 +34,7 @@
     console.log(`----------------------------------------`);
 
     function factorial(n) {
-      if (n === 1) return 1;
+      if (n === 1) return 1; // 위 아래 순서 주의
       return n * factorial(n - 1);
     }
 
@@ -57,7 +57,7 @@
       //console.log(y); inner 끝났으로 호출 불가 : 지역변수 : inner 내에서만 유효
 
     }
-    outer();
+    //outer();
     //inner(); outer 호출 -> inner 호출 가능 : 바깥 쪽에서 inner 호출 불가
     
     //console.log(y); 메모리 상에 존재 x : outer 내에서만 유효함
