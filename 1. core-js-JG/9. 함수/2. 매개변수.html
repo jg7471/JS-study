@@ -42,18 +42,18 @@
 
     // 매개변수의 defalut값 지정 (ES6)
     function sayHello(lang = '한국어') { //defalut 값
-      console.log('lang: '+lang);
+      console.log('lang: '+lang); // 출력값
       if (lang === '한국어') {
-        alert('안녕하세요');
+        alert('안녕하세요'); // 출력값
       } else if (lang === '영어') {
         alert('hello');
       } else if (lang === '일본어') {
-        alert('콘니치와');
+        alert('콘니치와'); // 출력값
       }
     }
 
-    sayHello();
-    sayHello('일본어');
+    sayHello(); //null '' 쓰지 않도록 주의
+    sayHello('일본어'); //' ' 주의
 
 
 

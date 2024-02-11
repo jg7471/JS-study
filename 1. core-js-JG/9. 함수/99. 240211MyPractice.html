@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    function calcTotal(end) {
+      console.log('함수가 출력 되었습니다');
+      let total = 0;
+      for (let i = 0; i <= end; i++) {
+        total += i;
+
+      }
+      return total;
+
+    }
+    console.log(calcTotal(5));
+
+
+    /*
+    function add(n1, n2){
+      return n1 + n2;
+    }
+    console.log(add(3, 4));
+    */
+
+    /*
+    var add2 = function(n1, n2){
+      return n1 + n2;
+    }
+    */
+
+    /*
+    let result = calcTotal(6);
+    console.log(result);
+    
+
+    let sum = calcTotal(4);
+    console.log(sum);
+
+    console.log(calcTotal(10));
+    
+    let rn = calcTotal;
+    let go1 = rn(4);
+    console.log(go1);
+
+    let s1 = calcTotal(4);
+    console.log(s1);
+
+    console.log(calcTotal(2));
+    */
+
+
+
+    // 틀림
+    /*
+    function selectRandomFood{
+      let random = Math.random;
+      let rn = (`오늘의 저녁은 ${random > 0.5 ? ' 짜장면 ' : ' 짬뽕'}`);
+    }
+    */
+
+    /*
+    function selectRandomFood(){
+      let rm = Math.random;
+      return rm > 0.5 ? ' 짜장면 ' : ' 짬뽕 ';
+    }
+    
+    console.log( selectRandomFood());
+    */
+
+    /*
+    function calcRangeTotal(){
+      let rn = Math.random;
+      return rn > 0.5 ? '1' : '0';
+    }
+
+    console.log(calcRangeTotal());
+    */
+
+    /*
+    function sayHello(lang = 'korean') {
+      console.log('answer is : ' +lang);
+      if (lang === 'korean') {
+        console.log('annyeong');
+      } else if (lang === 'japanese') {
+        console.log('konnichiwa');
+      }
+    }
+    sayHello('japanese');
+    */
+
+    /*
+    function sayHello(lang = 'korean') {
+      console.log('answer is : ' +lang); //출력값
+      if (lang === 'korean') {
+        console.log('1'); // 출력값
+      } else if (lang === 'japanese') {
+        console.log('2'); // 출력값
+      }
+    }
+    sayHello();
+    sayHello('japanese');
+    */
+
+    /*
+    function add(n1, n2){
+      return n1 + n2;
+    }
+    
+    console.log(add(add(1,1), add(2, 2)));
+    */
+
+    /*
+    function name(nick) {
+      let badNick = ['18', 'ana'];
+      if (badNick.includes(nick)) {
+        console.log('거부');
+        return;
+      } else{
+        console.log('성공');
+        return;
+      }
+    }
+    name('18');
+    name('ok');
+    */
+
+    /*
+    function operateAll(n1, n2){
+      return {
+        plus : n1 + n2,
+        minus : n1 + n2
+      }
+    }
+    console.log(operateAll(1,2));
+    */
+
+    function operateAll(a1, a2){
+      return{
+        puls : a1 + a2
+      }
+    }
+    let a = operateAll(10, 20);
+    console.log(a);
+
+  </script>
+
+</body>
+
+</html>
