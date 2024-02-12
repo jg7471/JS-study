@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    /*
+    function add(n1, n2){
+      console.log(`함수 출력됨`);
+      return n1 + n2 ;
+    }
+
+    let a = add(1,2);
+    console.log(a);
+
+  
+    
+    const foo = function(){
+      console.log(`함수 foo 호출`);
+    }
+
+    foo();
+
+    const array = [
+      10, 'hello', true, {}, [1,2,3], add,
+      function(){console.log(`배열 내부 함수`);}      
+    ];
+
+    array[6]();
+
+
+    const dog = {
+      name : 'choco',
+      age : 3,
+      favorite : ['산책','낮잠'],
+      play : function() {
+        console.log(`${this.name}`);
+      }
+    }
+                      //매개변수 1개면 괄호 생략가능
+                   //function //{return}  1줄이면 {} 중괄호 생략가능
+    const multiply = (n1, n2) => n1 * n2;
+    const r2 = multiply(4,6);
+    console.log(`re : ${r2}`);
+
+    const sayHello = name => console.log(`${name}님 안녕하세요`);
+    sayHello('뽀로로');
+
+    const kim ={
+      name : 'chulsu',
+      age : 32,
+      greating : sayHello,
+      dance : () =>console.log(`신나게 춤을 춥니다`)
+    }
+    
+    // 정수 1개를 전달하면 해당 정수의 제곱값을 리턴하는
+    // 화살표 함수 pow를 작성해보세요.
+    let pow = n => n**2;
+    let xxx = pow(3);
+    console.log(xxx);
+    
+
+    function calculate(func){
+      const result = func(1,2);
+      return result;
+    }
+
+    function add(n1, n2){
+      return n1 + n2;
+    }
+    
+    const r = calculate(add);
+    console.log('r: '+ r);
+
+    const r2 = calculate(function(n1, n2){
+      return n1 - n2;
+    });
+    console.log(r2);
+
+    const r3 = calculate((n1, n2) => n1* n2);
+    console.log(r3);
+
+    function showEvenNumber(n){
+      for(let i = 1; i<= nl i++){
+        if( i % 2 === 0) console.log(i);
+      }
+    }
+
+    function calculate(func){
+      console.log(`계산기입니다`);
+      const result = func(1,2);
+      return result;
+    }
+
+    function add(n1, n2){
+      return n1 + n2;
+    }
+
+    const r = calculate(add);
+    console.log(r);
+
+    const r2 = calculate(function (n1, n2){
+      return n1 - n2;
+    });
+
+    const r3 = calculate((n1, n2) => n1 * n2);
+    */
+
+    /*
+    function showNumbers(n, code){
+      for(let i = 1; i <= n; i++){
+        if(code(i)) console.log(i);
+      }
+    }
+
+    let aaa = showNumbers(5);
+    console.log(aaa);
+    */
+
+    /*
+    function showNumbers(n, code) {
+      for (i = 1; i <= n; i++) {
+        if (code(i)) console.log(i);
+      }
+    }
+    // 짝수 출력 일반함수 호출문
+    showNumbers(10, function (i) {
+          return i % 2 === 0;
+        }
+
+
+    function showNumbers(n, code){
+      for(let i = 1; i <= n; i++){
+        if(code(i), console.log(i);)
+      }
+    }
+
+    showNumbers(10, function(
+      return i % 2 === 0;
+    ));
+    
+
+    function showNumbers(n, code){
+      for(let i = 1; i <= n; i++){
+        if(code(i)) console.log(i);
+      }
+    }
+
+    showNumbers(10, function(i){
+      return i % 2 === 0;
+    });
+
+    function showNumbers(n, code) {
+      for (i = 1; i <= n; i++) {
+        if (code(i)) console.log(i);
+      }
+    }
+    
+    showNumbers(10, function(i){
+      return i % 2 ===0;
+    });
+
+    showNumbers(10, i => i % 2 !== 0);
+
+    showNumbers(200, i => i % 5 === 0 && i % 10 !==0 );
+    
+
+    function showNumbers(n, code){
+      for(let i = 0; i <= n; i++){
+        if(code(i)) console.log(i);
+      }
+    }
+    
+    showNumbers(10, i => i % 2 === 0);
+    */
+
+    const userList = [{
+        account: "abc1234",
+        userName: "대길이",
+        job: "추노",
+        address: "서울",
+        hobbies: ["수영", "축구", "테니스"],
+      },
+      {
+        account: "banana",
+        userName: "빠나나",
+        job: "과일",
+        address: "서울",
+        hobbies: ["푸드파이팅", "테니스"],
+      },
+      {
+        account: "park1234",
+        userName: "주차왕",
+        job: "발렛파킹",
+        address: "경기",
+        hobbies: ["족구", "축구", "테니스", "영화감상"],
+      },
+      {
+        account: "fire",
+        userName: "불꽃남자카리스마",
+        job: "게이머",
+        address: "서울",
+        hobbies: ["독서", "테니스"],
+      },
+    ];
+
+    // 4명의 회원 중 취미가 딱 2개인 사람만 필터링 해 주세요.
+    // 취미가 2개인 사람만 모아서 새 배열에 다시 담아줘.
+
+
+    /*
+    function aaa{
+      for(let user of userlist){
+        if(hobbies.length>2){
+          aaa.push(user);
+        }
+        
+      }
+      return aaa;
+    }
+
+
+    function hobbyList2{ //() 빼먹음
+      const array = [];
+      for(user of userList){
+        if(user.hobbies.length === 2){
+          user.push[array];// []틀림
+        }
+
+      }
+      return array;
+    }
+   
+    function hobbyList2{ // () 빼먹음
+      const array = [];
+      for(let user of userList){
+        if(user.hobbies.length === 2){
+          array.push(user);
+        }
+      }
+      return array;
+    }
+
+    
+    function hobbyList2() {
+      const array = [];
+      for (let user of userList) {
+        if(user.hobbies === 2){
+          array.push(user);
+        } 
+      }
+      return array;
+    }
+    
+    
+
+
+    function hobbyList2() {
+      const array = [];
+      for (let user of userList) {
+        if (user.hobbies.length === 2) {
+          array.push(user);
+        }
+
+      }
+      return array;
+    }
+
+
+    // 서울 사는 사람들만 필터링해서 새로운 배열에 담아줘
+
+    function seoulGuys(){
+      const array = [];
+      for(let user of userList){
+        if(user.address === '서울')
+        array.push(user);
+      }
+      return array;
+    }
+    
+
+    function filter(condition){
+
+      const array = [];
+      for(let user of userList){
+        if(condition(user)){
+          array.push(user);
+        }
+        return array;
+      }
+    }
+
+    const result1 = filter(user => user.hobbies.length >= 3);
+
+    function filter(condition){
+      const array = [];
+      for(let user of userList){
+        if(condition(user)){
+          array.push(user);
+        }
+      }
+      return array;
+    }
+
+    const aaa = filter(user => user.hobbies.length > 3);
+    */
+
+    function filter(condition){
+      const array = [];
+      for(let user of userList){
+        if(condition(user)){
+          array.push(user);
+        }
+      }
+      return array;
+    }
+
+    const aaa = filter(user => user.hobbies.length > 3 )
+
+
+
+
+  </script>
+
+</body>
+
+</html>

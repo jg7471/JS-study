@@ -24,22 +24,22 @@
       return n1 + n2;
     }
 
-    //1+2번
+    //1(2)번(나눈거) 합쳐 사용
     const r = calculate(add);
     console.log('r: ' + r);
 
     console.log('--------------------------------');
 
 
-    //@@@ function ?
-    const r2 = calculate(function (n1, n2) {
+    // 즉석에서 선언
+    const r2 = calculate(function (n1, n2) { //괄호() 주의 function 시작-끝
       return n1 - n2;
     });
     console.log('r2: ' + r2);
 
     console.log('--------------------------------');
 
-    //@@@ 변경한다?
+    // 화살표 함수 간결 사용 //function, {return} 생략
     const r3 = calculate((n1, n2) => n1 * n2);
     console.log('r3: ' + r3);
 
@@ -71,23 +71,21 @@
     // 콜백을 적용한 솔루션
     function showNumbers(n, code) { //code 아니어도 됨(매개변수->지목을 위해)
       for (let i = 1; i <= n; i++) {
-        if (code(i)) console.log(i);
+        if (code(i)) console.log(i); //아래 함수 출력지점
       }
     }
 
     console.log('짝수출력함수------------------------------');
 
-    // 짝수 출력 함수 호출문
-    // @@@ function ???
-     showNumbers(10, function(i) {
+    // 짝수 출력 일반함수 호출문
+     showNumbers(10, function(i) { // @@ i를 x로 바꿔도 됨? //(i){} 주의
       return i % 2 === 0;
     });
 
     console.log('홀수출력함수------------------------------');
 
-    // 홀수 출력 함수 호출문
+    // 홀수 출력 화살표함수 호출문
     // const pow = num => num * num;
-    // 화살표 => 함수 변수 공식(내가 정리)
     showNumbers(10, i => i % 2 !== 0); // function 써도 되지만 => 함수 씀
     //초록 (i) 한개 뿐이라 괄호 생략
 
