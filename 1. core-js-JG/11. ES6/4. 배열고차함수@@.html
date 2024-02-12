@@ -57,7 +57,7 @@
     // filter
     // 특정 조건에 의해 필터링 된새로운 배열이 리턴
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    const newArray = numbers.filter(num => /*조건식 : */ num % 3 === 0);
+    const newArray = numbers.filter(num => /*조건식 : */ num % 3 === 0); //num은 어디서? 왜 바꾸면 안됨?
     console.log(newArray);
 
 
@@ -73,7 +73,7 @@
     const square = numbers.map(n => n ** 2); // 숫자 들어올 때 마다 2승
     console.log(square);
 
-    const plusTwo = numbers.map(n => n + 2);
+    const plusTwo = numbers.map(n => n + 2); // map함수
     console.log(plusTwo);
 
     // 회원들의 취미 중 첫번째 취미만 새 배열로 받기
@@ -81,7 +81,7 @@
     console.log(firstHobby);
 
     // 회원 목록에서 회원의 이름과 주소만 추출하고 싶다.
-    const mappedUserList = userList.map(u => {
+    const mappedUserList = userList.map(u => { //x로 적어도 됨
       return {
         userName: u.userName,
         addr: u.address //여러개의 값 리턴 -> 배열, 객체
@@ -146,7 +146,7 @@
     appleBasket
       .filter(apple => apple.color === 'green' && apple.sweet >= 9) // 함수의 호출 행위 자체가 return ex: fillterdApples
       .map(apple => `이 사과는 ${apple.color}색이며, 당도는 ${apple.sweet}입니다.`) // 메서드 체인링 이어 붙임
-      .forEach(a => console.log(a));
+      .forEach(a => console.log(a)); //메서드 체인링 이어 받기 @@ 변수 이름 상관 없음?
     
     
     

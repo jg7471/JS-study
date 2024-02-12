@@ -100,7 +100,7 @@
       const mappedArray = [];
 
       for (let user of userList) {
-        mappedArray.push(callback(user)); //@@@ 함수호출(user)시, 항상 괄호
+        mappedArray.push(callback(user)); //@@@ 함수호출(user)시, 항상 괄호, 여기가 포인트
       }
       return mappedArray // 先선언
     }

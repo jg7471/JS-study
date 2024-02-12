@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  
+
 
   <ul id="fruits">
-    <li class="fr apple">사과</li> <!--li fr 클래스-->
+    <li class="fr apple">사과</li> <!-- 이름 2개 fr 공통 디자인 apple 개별 디자인-->
+    <!--li fr 클래스-->
     <li class="fr banana">바나나</li>
     <li class="fr banana">포도</li>
     <li class="fr banana">복숭아</li>
@@ -17,7 +20,6 @@
 
 
   <script>
-
     //const $grape = document.querySelector('.grape');
     //const $grape = document.querySelector('#fuits li:nth-child(3)');
     const $grape = document.querySelector('.banana +li'); //인접선택
@@ -25,7 +27,7 @@
 
     $grape.textContent = '맛있는 포도'; //자주 씀
 
-    
+
     const $fr = document.querySelector('.fr'); //querySelector는 발견된 첫번째 태그만 가져옴
     console.log($fr);
 
@@ -35,30 +37,33 @@
     const $frAll = document.querySelectorAll('.fr');
     console.log($frAll); //유사 배열 개체 - slice, push 등 같은거 못 씀
     //$frAll.push 안됨X (배열X)
-    //for of문은 가능
+    //for of문은 가능 key : value 값은 있기에.. 
 
     // 유사배열을 순수한 배열로 변경하기
     const $fruitsArray = [...$frAll];
-    $fruitsArray.pop().textContent = '오우렌쥐'; //원본은 그대로
+    $fruitsArray.pop().textContent = '오우렌쥐'; //삭제/변경 : fruitsArray에서만 변경됨 원본 fruits은 그대로
+
+
+
+
 
     // 요소를 한 번에 여러 개 취득하는 기타 메서드들도 유사배열 형태로 요소가 리턴됩니다.
     // 배열로 변경해서 사용하세요
     const $frAllyByTagName = document.getElementsByTagName('li');
-    console.log($frAllyByTagName);
+    console.log($frAllyByTagName); // 역시 유사배열
 
-    const $frAllbyClassName = document.getElementsByClassName('fr');
-    console.log($frAllbyClassName);
+    const $frAllbyClassName = document.getElementsByClassName('fr'); // .X : fr이라는 클래스 이름을 가져오겠다
+    console.log($frAllbyClassName); // 역시 유사배열 
 
-    for(let $f of $fruitsArray){
+    for (let $f of $fruitsArray) { //전체 변경
       $f.style.border = '1px dashed tomato';
-      $f.style.magrin = '10px';
-
+      $f.style.marginLeft = '10px';
+      $f.style.fontSize = '2em';
     }
-  //margin-left:10px; CSS
-  //$f.style.marginLeft='10px'; JavaScript
-
-
+    //margin-left:10px; CSS
+    //$f.style.marginLeft='10px'; JavaScript
   </script>
 
 </body>
+
 </html>

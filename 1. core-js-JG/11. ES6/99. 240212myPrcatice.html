@@ -180,6 +180,7 @@
     showNumbers(10, i => i % 2 === 0);
     */
 
+    /*
     const userList = [{
         account: "abc1234",
         userName: "대길이",
@@ -213,6 +214,7 @@
     // 4명의 회원 중 취미가 딱 2개인 사람만 필터링 해 주세요.
     // 취미가 2개인 사람만 모아서 새 배열에 다시 담아줘.
 
+    */
 
     /*
     function aaa{
@@ -309,8 +311,7 @@
     }
 
     const aaa = filter(user => user.hobbies.length > 3);
-    */
-
+  
     function filter(condition){
       const array = [];
       for(let user of userList){
@@ -324,6 +325,100 @@
     const aaa = filter(user => user.hobbies.length > 3 )
 
 
+
+  // 회원 정보 중에 회원 이름만 전부 모아서 배열에 담아줘.  
+  function map(callback){
+    const array = [];
+    
+    for(let user of userList){
+      array.push(callback(user));
+    }
+    return array;
+  }
+
+  const nameList = map(user => user.userName);
+ 
+ 
+  function map(callback){
+    const array = [];
+    for(let user of userList){
+      array.push(callback(user));
+    }
+    return array;
+  }
+
+  const result1 = map(user => user.userName);
+ */
+
+
+
+ const userList = [{
+        account: "abc1234",
+        userName: "대길이",
+        job: "추노",
+        address: "서울",
+        hobbies: ["수영", "축구", "테니스"],
+      },
+      {
+        account: "banana",
+        userName: "빠나나",
+        job: "과일",
+        address: "서울",
+        hobbies: ["푸드파이팅", "테니스"],
+      },
+      {
+        account: "park1234",
+        userName: "주차왕",
+        job: "발렛파킹",
+        address: "경기",
+        hobbies: ["족구", "축구", "테니스", "영화감상"],
+      },
+      {
+        account: "fire",
+        userName: "불꽃남자카리스마",
+        job: "게이머",
+        address: "서울",
+        hobbies: ["독서", "테니스"],
+      },
+    ];
+
+    userList.forEach(user => {
+      console.log(`제 이름은 ${user.userName} 이구요,${user.address}살아요`);
+    })
+
+    const numbers = [1,2,3,4,5,6,7,8,9];
+    const array = numbers.filter(num => num % 3 === 0);
+
+    const newUserList = userList.filter(user => user.account === 'abcd1234' );
+    console.log(newUserList);
+
+    const square = numbers.map(n => n**2);
+    console.log(square);
+
+    const newHobby = userList.map(user => user.hobbies[0]);
+    
+    const mappedUserList = userList.map(x => {
+      return{
+        userName : x.userName,
+        addr : x.address
+      }
+    });
+
+    console.log(mappedUserList);
+
+    appleBasket
+      .filter(apple => apple.color === 'green' && apple.sweet >=9)
+      .map(apple => `이 사과는 ${apple.color}색이며, 당도는 ${apple.sweet}`)
+      .forEach(a => console.log(a));
+
+      userList
+        .filter(user => user.address ==='서울')
+        .map(user => {
+          return {
+            name : user.userName,
+            secondhobby : user.hobbies[1]
+          }
+        })
 
 
   </script>

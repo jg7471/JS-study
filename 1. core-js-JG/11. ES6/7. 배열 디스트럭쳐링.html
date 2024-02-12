@@ -29,8 +29,9 @@
     */
 
     const [kim, hong, park] = userNames; //순서대로 세팅됨
+
     const [kk, /* 공백 */, jj] = userNames;
-    console.log(`kk : ${kk}, hh : ${jj}`);
+    console.log(`kk : ${kk}, hh : ${jj}`);  
 
     // 변수값 교환하기
     let first = 10;
@@ -60,7 +61,7 @@
     // const copyFoods = foods.map(f => f);
     // const copyFoods = food.slice(); //미만 주의
 
-    const copyFoods = ['치킨너겟', ...foods, '닭강정']; // ...foods 원본배열, 앞뒤로 삽입 가능
+    const copyFoods = ['1', ...foods, '2']; // ...foods 원본배열, 앞뒤로 삽입 가능
     console.log(`copy:${copyFoods}`); // 추가
     console.log(`original:${foods}`); // 오리지날
 

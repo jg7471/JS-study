@@ -79,7 +79,7 @@
     traders
       .filter(trs => trs.year === 2022)
       .map(trs => trs.trader)
-      .forEach(trs => console.log(trs));
+      .forEach(trs => console.log(trs)); //변수 이름 상관없음?
 
 
     console.log('---------------------------');
@@ -94,7 +94,7 @@
     */
    
     // 연습 2: 거래자가 근무하는 모든 도시이름을 배열에 담아주세요.
-    const mappedCities = traders.map(trs => trs.trader.city)
+    const mappedCities = traders.map(trs => trs.trader.city) // 변수로 처리
     console.log(mappedCities);
     //mappedCities.forEach(city => console.log(city));
 
@@ -160,6 +160,23 @@
 
     // 연습 5: 서울에 사는 거래자의 모든 거래액의 총합 출력.
     // reduce 함수 : 배열을 반복해서 각 요소에 콜백함수를 적용한 결과를 누적하는 함수
+
+    /*
+    let total = 0;
+    traders
+      .filter(trs => trs.trader.city === '서울')
+      // 1번 .forEach(trs => total += trs.value);
+      // 2번 .map(trs => trs.value)
+      // 2번 .forEach(val => total += val);
+    */
+
+    // reduce 함수: 배열을 반복해서 각 요소에 콜백함수를 적용한
+    //             결과를 누적하는 함수
+    /*
+      array.reduce((누적값, 배열 요소) => 반복해서 실행할 내용(누적연산), acc의 초기값);
+    */
+    
+    
     const total = traders
       .filter(trs => trs.trader.city === '서울') // 콜백함수
       .reduce((acc, curr) => acc + curr.value, 0)
