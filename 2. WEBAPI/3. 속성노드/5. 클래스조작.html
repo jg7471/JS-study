@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .circle {
+      border-radius: 50%;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- .box.red ///class 여러 값 생성 가능-->
+  <div class="box red"></div>
+
+
+
+
+  <script>
+    const $color = document.querySelector('.box');
+    console.log($box.attributes.class.value); //class의 value를 주세요
+    console.log($box.getAttribute('class')); //.box에서 class의 속성을 얻겠다
+    console.log($box.clssName); //class 전용 얻을 수 있음
+
+    //$box.setAttribute('class', 'box blue'); //class 값을 블루로 변경 // class 2개 이상일 때 '띄어쓰기' 사용 구분
+    //$box.className = 'box blue'; //위와 같은 결과
+
+    // 클래스를 각각 조작할 때는 className 보다는, classList 프로퍼티를 사용하는게 좋음
+    console.log($box.classList); //클래스를 구분하여 나눔
+
+    //요소에 클래스를 추가
+    //$box.className = 'box blue circle'; //3개 클래스 세팅(기존 값도 입력해야함) : 전부 싹 갈아치울 때 사용
+    $box.classList.add('circle'); // 기존 box red +circle 추가 // 단독적일 때 사용
+    $box.classList.add('abc','def','ghi'); // 한번에 추가 가능(push)
+
+    //요소에 특정 클래스를 교체
+    $box.classList.replace('red','blue'); // red를 blue로 교체
+
+    //요소에 특정 클래스를 삭제
+    $box.classList.remove('circle');
+    $box.classList.remove('abc','def','ghi'); //여러 값 삭제
+
+    //요소에 특정 클래스가 존재하는지 확인
+    //hsaAttribute('class') // 이 '속성'이 존재하는지
+    console.log($box.classList.contains('red')); //red라는 class가 존재하는지 -> red->blue 로 변경하였기에 false
+
+    // toggle(): 함수, 해당 클래스가 존재하면 삭제, 존재하지 않으면 추가
+    $box.classList.toggle('circle'); //존재 하지 않으므로 circle 추가됨
+    $box.classList.toggle('blue'); // 존재 하므로 blue 삭제됨
+
+  
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

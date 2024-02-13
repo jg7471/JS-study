@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="text" id="name" value="kim" class="user-name">
+
+
+  <script>
+
+    const $input = document.querySelector('input'); // 태그 선택자
+
+    console.log($input.attributes);
+    console.log($input.attributes[0].value); // type의 value
+    console.log($input.attributes.type.value); // 이렇게 해도됨
+    console.log($input.attributes.id.value);
+    console.log($input.attributes.class.value);
+                                 //속성 변경                 
+
+                     //값을 변경     
+    $input.attributes.value.value = '메롱메롱'; //유사배열의 value value 값을 메롱메롱으로 바꿈
+    $input.attributes.type.value = 'password'; //password 타입으로 바꿈
+
+  </script>
+
+  
+</body>
+</html>
