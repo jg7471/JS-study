@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!--
+  <ul>
+   
+    <li id="apple" style="background: red;">사과</li>
+    <li id="banana">바나나</li>
+    <li id="grape">포도</li>
+    <li id="peach">복숭아</li>
+  </ul>
+
+
+  <ul id="fruits">
+    <li class="fr apple">사과</li>
+    <li class="fr banana">바나나</li>
+    <li class="fr banana">포도</li>
+    <li class="fr banana">복숭아</li>
+  </ul>
+
+
+
+  
+  <div id="wrap">
+    <ul id="list">
+      <li>리스트1</li>
+      <li>리스트2</li>
+      <li>리스트3</li>
+      <li>리스트4</li>
+      <li>리스트5</li>
+      <li>리스트6</li>
+      <li>리스트7</li>
+    </ul>
+  </div>
+
+    -->
+
+    <ul id="fruits">
+      <li class="apple">apple</li>
+      <li class="banana">banana</li>
+      <li class="grape">grape</li>
+    </ul>
+  
+    <div id="test">
+  
+    </div>
+
+
+  <script>
+
+    const $fruits =document.getElementById('fruits');
+    
+    const $childNodes = $fruits.childNodes;
+    console.log($childNodes);
+
+    const $children = $fruits.children;
+    console.log(children);
+
+    const $firstChild = $fruits.firstChild;
+    
+
+
+
+
+
+
+
+
+    //1. id="list"인 요소에 <li> 요소중  
+    //    홀수번째 요소만 선택후 배경색상 yellow 적용
+
+    const $liList = [...document.querySelectorAll('#list li')];
+    for(let i = 0; i <= $liList.length; i++){
+      if(i % 2 === 0){
+        $liList[i].style.background = 'green';
+      }
+    }
+    
+    
+
+    /* 1번 내가 작성
+    const $list = document.querySelector('#list li')
+    for (let n of $list) {
+      let total = 0;
+      for (let i = 1; i <= n; i++) {
+        if (n % i !== 0) {
+          total += i;
+        }
+        return total;
+      }
+      */
+
+
+    //2. id="list"인 요소에 <li> 요소중
+    //   짝수번째 요소만 선택후 배경색상 gray 적용  
+
+  
+    const $liList2 = [...document.querySelectorAll('#list li:nth-child(even)')];
+    $liList2.forEach(li => li.style.background = 'red');
+
+
+
+    //3. id="list"인 요소에 <li> 요소중   
+    //  첫번째 <li>요소만 선택후 폰트색상 red 적용  
+
+    // const $first = document.querySelector('#list li:first-child');
+    // $first.style.color = 'red';
+
+    $liList[0].style.color = 'aqua';
+
+
+    //4. id="list"인 요소에 <li> 요소중  
+    //   마지막번째 <li>요소만 선택후 폰트색상 green 적용
+    $liList[$liList.length-1].style.color = 'green';
+
+
+    
+    //5. id="list"인 요소에 <li> 요소중 
+    // 두번째 <li>요소만 선택후 font-style: italic 적용 
+    $liList[1].style.fontStyle = 'italic';
+    
+    //6. id="list"인 요소에 <li> 요소중  3번째 이전 요소만 선택후 
+    //   border: 2px dotted aqua 적용 (1, 2번째만 선택)    
+
+
+    [$liList[0], $liList[1]].forEach($li => $li.style.border = '2px dotted blue');
+
+
+    //7. id="list"인 요소에 <li> 요소중  3번째 이후요소만 선택후
+    //   border 2px dashed violet 적용 (3번째부터 끝까지 선택)
+    const [, , ...$rest] = $liList;
+    $rest.forEach($li => $li.style.border = '2px dashed violet');
+
+
+
+    // const $onetwo = document.querySelectorAll('#list li:first-child, li:nth-child(2)');
+    // $onetwo.forEach($li => $li.style.border = '2px dotted aqua');
+
+      /*
+      const $banana = document.getElementById('banana');
+      $banana.textContent = '123';
+      $banana.attributes.id.value ='bnnnnnn';
+
+      const $apple = document.getElementById('apple');
+      $apple.style.background = 'green';
+      */
+
+      /*
+      const $grape = document.querySelector('.banana +li');
+      $grape.textContent = '맛있는 포도';
+
+      const $fr = document.querySelector('.fr');
+      console.log($fr);
+
+      const $frAll = document.querySelectorAll('.fr');
+      console.log($frAll);
+      const $fruitsArray = [...$frAll];
+      $fruitsArray.pop().textContent = '1234';
+
+      const $frAllByTagName = document.getElementsByTagName('li');
+      console.log($frAllByTagName);
+
+      for(let $f of $fruitsArray){
+        $f.style.border = '1px dashed tomato';
+        $f.style.marginLeft = '10px';
+        $f.style.fontSize = '2em';
+
+      }
+      */
+
+
+      
+  </script>
+
+
+
+</body>
+
+</html>

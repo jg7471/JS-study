@@ -14,8 +14,8 @@
     <li class="fr apple">사과</li> <!-- 이름 2개 fr 공통 디자인 apple 개별 디자인-->
     <!--li fr 클래스-->
     <li class="fr banana">바나나</li>
-    <li class="fr banana">포도</li>
-    <li class="fr banana">복숭아</li>
+    <li class="fr grape">포도</li>
+    <li class="fr peach">복숭아</li>
   </ul>
 
 
@@ -34,7 +34,7 @@
 
     // querySelectorAll 이 가져오는 데이터 묶음은 배열이 아닌 유사배열이므로, 배열문법X
     // 유사배열을 배열로 바꿔서 사용하는 것이 좋음
-    const $frAll = document.querySelectorAll('.fr');
+    const $frAll = document.querySelectorAll('.fr'); //복수
     console.log($frAll); //유사 배열 개체 - slice, push 등 같은거 못 씀
     //$frAll.push 안됨X (배열X)
     //for of문은 가능 key : value 값은 있기에.. 
@@ -52,8 +52,8 @@
     const $frAllyByTagName = document.getElementsByTagName('li');
     console.log($frAllyByTagName); // 역시 유사배열
 
-    const $frAllbyClassName = document.getElementsByClassName('fr'); // .X : fr이라는 클래스 이름을 가져오겠다
-    console.log($frAllbyClassName); // 역시 유사배열 
+    const $frAllByClassName = document.getElementsByClassName('fr'); // .X : fr이라는 클래스 이름을 가져오겠다
+    console.log($frAllByClassName); // 역시 유사배열 
 
     for (let $f of $fruitsArray) { //전체 변경
       $f.style.border = '1px dashed tomato';

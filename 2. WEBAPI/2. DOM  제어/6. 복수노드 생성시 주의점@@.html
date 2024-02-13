@@ -19,7 +19,7 @@
     // Live DOM : 사전에 미리 렌더링 되어 잇는 요소 노드. HTML->CSS->JAVA Script
     const $fruits = document.getElementById('fruits');
 
-    //과일 이름 텍스트 배열
+    //과일 이름 텍스트 배열(기준점)
     const fruitsName = ['Apple', 'Banana', 'Grape', 'Orange'];
 
     /*
@@ -29,6 +29,7 @@
     - 활성화된 DOM을 변경조작하는 것은 가능한 한 횟수를 줄여줘야 함
 
 
+    //방법1
     for(let f of fruitsName){ //권장 X
       const $li = document.createElement('li'); //가상 DOM(HTML에는 존재X, 자바스크립트에서 가상으로 생성)
       $li.textContent = f;
@@ -37,11 +38,18 @@
     }
     */
 
+
+
+
+    //방법2
     // Solution : 가상의 부모 DOM 생성
     // 다른 노드를 담는 임시 컨테이너 역할을 하는 가상 DOM 객체
+    
+  
+    //★가상 컨테이너
     const $frag = document.createDocumentFragment(); //가상 컨테이너->실제 라이브DOM과 만나는 횟수는 1회로
 
-    for(let f of fruitsName){
+    for(let f of fruitsName){ //이해 안됨@@@
       const $li = document.createElement('li');
       $li.textContent =f;
       $frag.appendChild($li);

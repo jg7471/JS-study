@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <h2 class="the-tile">html 조작</h2>
+  <h2 class="the-title">html 조작</h2>
   <!-- ul#list>li*5{list_$} -->
   <ul id="list">
     <li class="obj1">list_2</li>
@@ -26,7 +26,7 @@
     console.log($theTitle);
     */
 
-    const $theTitle =document.querySelector('.the-title');
+    const $theTitle = document.querySelector('.the-title');
     //console.log($theTitle); //확인
     $theTitle.innerHTML = '<a href="#">요소 객체 조작</a>'; // += 밀어넣기
 
@@ -60,7 +60,7 @@
     $newLi.textContent = 'Banana';
     $theTitle.fruits.appendChild($newLi);
     */
-    const $li1 = documentl.createElement('li');
+    const $li1 = document.createElement('li');
     $li1.textContent = 'list_1';
     $list.insertBefore($li1, $list.firstElementChild);
 
@@ -88,15 +88,15 @@
 
     //$list.innerHTML = '';
 
-    //방법1
     const $children = $list.children; //유사배열
 
+    //방법1
     for(let $li of [...$children]){
       $list.removeChild($li);
     }
 
     //방법2
-    [...$children].forEach($li => $list.removeChild($li));
+    //[...$children].forEach($li => $list.removeChild($li));
 
 
 

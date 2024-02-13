@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btn">클릭</button>
+
+  <script>
+
+    const $btn = document.getElementById('btn');
+
+     const helloHandler = () => {alert('Halou World!')}; //중괄호 있어도 됨?
+
+    $btn.addEventListener('click', function() { //매개값x
+      alert('안녕하세요~!');
+
+    //addEventListener('이벤트 타입', 핸들러->콜백방식)
+
+    }); //이벤트 타입만 적음됨 //콜백 : 동작을 파라미터화
+
+    $btn.addEventListener('click', () => { //하나의 이벤트에 여러 이벤트 중첩 가능~!
+      alert('안녕안한다!');
+    }) //화살표 함수
+
+
+    $btn.addEventListener('click', helloHandler); //클릭시 helloHandler 실행
+    $btn.removeEventListener('click', helloHandler); //이름 있는 값만 삭제 가능// 익명함수 삭제 불가
+
+
+  </script>
+
+
+
+</body>
+</html>

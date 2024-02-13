@@ -35,16 +35,16 @@
 <body>
 
   <!-- .box.red ///class 여러 값 생성 가능-->
-  <div class="box red"></div>
+  <div class="box red">Hello</div>
 
 
 
 
   <script>
-    const $color = document.querySelector('.box');
+    const $box = document.querySelector('.box');
     console.log($box.attributes.class.value); //class의 value를 주세요
     console.log($box.getAttribute('class')); //.box에서 class의 속성을 얻겠다
-    console.log($box.clssName); //class 전용 얻을 수 있음
+    console.log($box.className); //class 전용 얻을 수 있음
 
     //$box.setAttribute('class', 'box blue'); //class 값을 블루로 변경 // class 2개 이상일 때 '띄어쓰기' 사용 구분
     //$box.className = 'box blue'; //위와 같은 결과
