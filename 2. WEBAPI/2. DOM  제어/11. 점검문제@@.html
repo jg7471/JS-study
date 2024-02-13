@@ -89,7 +89,9 @@
     //$list.innerHTML = '';
 
     const $children = $list.children; //유사배열
+    //유사배열로 만든 뒤 배열로 만들어라??? @@
 
+    //console.log($list); 값은 그대로 있음
     //방법1
     for(let $li of [...$children]){
       $list.removeChild($li);
