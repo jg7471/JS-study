@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function add(n1, n2) {
+            console.log('함수 출력');
+            return n1 + n2;
+        }
+    
+    
+    console.log(add(10, 20));
+
+    const foo = function(){
+        console.log('함수 foo 호출');
+    }
+
+    const girl = {
+        name : 'ayumi',
+        age : 23,
+        favotiye : ['flower', 'english'],
+        play : function(){
+            console.log(`${this.name} like me`);
+        }
+    };
+
+    girl.play();
+
+    const multiply = (n1, n2) => n1 * n2;
+    const r2 = multiply(4, 6);
+    console.log(r2);
+
+    const sayHello = name => console.log(`${name}님 안녕하세요`);
+    sayHello('asuka');
+
+    const girl2 = {
+        name : 'asami',
+        age : 22,
+        greeting : sayHello,
+        dance : () => console.log('love you')
+    };
+    
+    girl2.greeting('sukidayo');
+    girl2.dance();
+
+    const pow = num => num**2;
+    console.log(pow(3));
+
+    </script>
+
+</body>
+
+</html>

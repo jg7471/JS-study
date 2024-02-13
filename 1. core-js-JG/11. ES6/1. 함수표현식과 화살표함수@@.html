@@ -28,7 +28,7 @@
       return n1 + n2;
     }
 
-    add(10, 30);
+    //add(10, 30); ??
 
     const plus = add;
     const r1 = plus(10,20);
@@ -41,12 +41,13 @@
     foo();
 
     // 함수는 배열이나 객체에 저장 가능
-    const array = [// @@ 6번만 출력됨??
+    const array = [// @@ 6번만 출력됨?? →해결함 
       10, 'hello', true, {}, [], add, // add 밖에서 미리 만든 함수
       function() {console.log('배열 안에서 만든 함수 호출');} //; 위치 주의
     ];
 
-    array[6](); //함수 호출시 () 필요
+    console.log(array[0]);
+    array[6](); //함수 호출시 () 필요 
 
     console.log('-------------------------------');
 
