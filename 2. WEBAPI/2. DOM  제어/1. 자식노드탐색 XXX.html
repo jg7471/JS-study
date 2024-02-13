@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="fruits">
+    <li class="apple">apple</li>
+    <li class="banana">banana</li>
+    <li class="grape">grape</li>
+  </ul>
+
+  <div id="test">
+
+  </div>
+
+
+  <script>
+
+    //노드 탐색의 기점이 되는 ul 요소 취득
+    const $fruits = document.getElementById('fruits');
+
+    //기준 노드의 모든 자식 노드를 탐색.(텍스트 노드 포함)
+    const $childNodes = $fruits.childNodes; //모든 자식 가져올 수 있음(0 text, li apple... text(공백)포함 모두 탐색, 잘 사용XXX) XXXXXXXXXXXXXXXXXXXXXX
+    console.log(childNodes);
+
+    //기준 노드의 모든 자식 노드를 탐색(텍스트 노드 제외)
+    const $children = $fruits.children;
+    console.log($children); // 요소(li)값만 가져옴 : 요거 더 많이 씀 : 유사배열
+
+    //기준 노드의 첫번째 자식 노드를 탐색
+    const $firstChild = $fruits.firstChild;
+    console.log('firstChild : ' + $firstChild); //텍스트(공백) 포함 : 자주 사용 XXXXXXXXXXXXXXXXXXXX
+    console.log('first-element-child: ' + $fruits.firstElementChild); // 첫번째 자식 요소 취득(요소만)
+    console.log('last-element-child: ' + $fruits.lastElementChild); // 마지막 자식 요소 취득(요소만)
+
+
+
+
+    //기준 노드에 자식노드가 있는지의 여부를 확인
+    //텍스트 노드가 있을 시에는 true 나올 수 있음.
+    const $test = document.getElementById('test');
+    console.log($test.hasChildNodes); //함수 (텍스트노드(공백)포함 : 자식 없는데도 불구하고 true)111111
+
+    //텍스트 노드를 제외한 자식 요소노도의 존재 여부 확인
+    //console.log($test.children.length === 0);
+    console.log(!!$test.children.length); //!! not->boolean type으로 전환(형변환 참조) childeren 정수가 0으로 변환->! true -> !! false //강의 재참고
+    //!!논리값 전환 (자식노드 인정X)111111
+    //Boolean(~~); 
+    
+
+
+
+
+  </script>
+</body>
+</html>

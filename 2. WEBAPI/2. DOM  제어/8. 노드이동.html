@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <ul id="fruits">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Grape</li>
+  </ul>
+
+
+
+  <script>
+    const $fruits = document.getElementById('fruits');
+
+
+    /*
+      const $children = $fruits.children;
+      const $apple = $children[0];
+      const $banana = $children[1];
+      const $grape = $children[2];
+    */
+    
+    //배열 destructuring 사용
+    const [$apple, $banana, $grape] = [...$fruits.children]; //$fruits.children; //유사배열xx 순수배열 필요
+    const $mango = document.createElement('li');
+    $mango.textContent = 'Mango';
+
+    //맨 마지막에 요소 추가
+    $fruits.appendChild($mango); //망고 추가
+    $fruits.appendChild($banana); //이미 존재하는 요소 appendChild시 맨 마지막으로 이동
+
+    // insertBefore도 마찬가지로 기존 요소를 이동시킬 수 있다
+    $fruits.insertBefore($apple, $mango); //애플을 망고 이전으로 이동
+
+    //$fruits.insertBefore($grape, $banana);
+    $fruits.insertBefore($grape, $fruits.lastElementChild);
+
+
+  </script>
+
+</body>
+
+</html>

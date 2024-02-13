@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<div id="wrap">
+  <!--감싸고 F1 id Wrap 강의참고-->
+    <ul id="fruits">
+      <li class="apple">apple</li>
+      <li class="banana">banana</li>
+      <li class="grape">grape</li>
+    </ul>
+</div>
+
+<!-- table#board>tr*2>td*2 -->
+<table id="board">
+  <tr>
+    <td>A</td>
+    <td>B</td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td>D</td>
+  </tr>
+</table>
+
+<script>
+//id로 탐색해도됨
+
+const $banana = document.querySelector('.banana');
+
+//부모 노드 탐색 //매번 변수 선언 힘들기 때문에
+const $parent = $banana.parentNode;
+console.log(parent);
+
+const $div = $banana.parentNode.parentNode; // $parent.parentNode;
+console.log($div);
+
+//이전 형제노드 탐색
+const $prev = $banana.previousElementSibling;
+console.log($prev);
+
+//다음 형제노드 탐색
+const $next = $banana.nextElementSibling;
+console.log($next);
+
+// 더 이상 지목할 형제 없을 시 null
+const $next2 = $next.nextElementSibling; //다음 다음 next next : 존재x : null
+console.log($next2);
+
+
+//table 태그는 자식태그로 tbody를 자동으로 삽입
+const $board = document.getElementById('board'); // table(board) -> tbody(공백) -> tr
+//table -> thead(자동삽입) -> tbody(자동삽입)
+//console.log($board.children);
+const $tbody = $board.children[0]; // tbody를 지목하여 tr 취득
+console.log($tbody.children); //주의
+
+
+</script>
+
+
+  
+</body>
+</html>
