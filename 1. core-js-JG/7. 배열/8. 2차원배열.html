@@ -16,25 +16,25 @@
     // var park = [23, 45, 41, 22];
 
     var ourStudentScore = [
-      [67, 83, 45, 32],
-      [100, 87, 55, 67],
-      [23, 45, 41, 22]
+      [10, 10, 10, 10],
+      [20, 20, 20, 20],
+      [30, 30, 30, 30],
+      [40, 40, 40, 40]
     ];
 
     console.log(ourStudentScore);
     console.log(ourStudentScore[1]); //array 세로부터 1번
-    console.log(ourStudentScore[0], [2]); //더블 인덱싱 45점 세로 0번-가로 2번
+    console.log(ourStudentScore[0] [2]); //더블 인덱싱 45점 세로 0번-가로 2번
+    //[0][0] 사이 쉼표 X
 
     // 반 평균 구하기
     // 한 학생의 평균을 총합을 저장할 변수
     console.log('----------------------------');
-    var ourAverage = 0;
+    var ourAverage = 0; //@@ 위치 여긴 이유?
 
     for (var studentScore of ourStudentScore) {
-      // studentScore 변수에는 한 학생의 점수 배열이 전달됨.
-      //console.log(studentScore);
-      //각 줄 분리되어서
-      var eachTotal = 0; // 한학생의 4과목 총점.
+      // studentScore 변수에는 한 학생의 점수 배열이 전달됨(각 줄 분리되어서).
+      var eachTotal = 0; // 한학생의 4과목 총점. @@위치 여기인 이유
       for (var score of studentScore) {
         //console.log(score);
         //가로->세로 분리됨
@@ -43,8 +43,11 @@
         eachTotal += score; // eachTotal에 4과목 점수를 누적해서 더함.
       }
       // 한 학생의 평균 점수 구하기
+      console.log(eachTotal);
       var eachAvg = eachTotal / studentScore.length; // 한 학생의 점수합계를 과목수로 나눔
+      console.log(eachAvg);
       ourAverage += eachAvg;
+
     }
 
     var classAvg = ourAverage / ourStudentScore.length;
