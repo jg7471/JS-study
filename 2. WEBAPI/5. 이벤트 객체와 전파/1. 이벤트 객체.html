@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <p>아무곳이나 클릭하세요</p>
+  <input type="checkbox">
+
+  <em class="message"></em><br>
+
+  <hr>
+
+  <input type="text" id="input-text">
+  <p class="msg"></p>
+
+
+
+  <script>
+    const $em = document.querySelector('.message');
+
+    //문서 전체에 이벤트 핸들러 등록
+    //이벤트 핸들러의 첫번째 인수로 이벤트에 관련된 다양한 정보가 들어있는
+    //이벤트 객제가 자동으로 전달됨
+    //핸들러 내에서 이벤트 객체를 사용하려면, 적당한 매개변수를 선언해서 사용하시면 됩니다.
+
+
+
+    /*
+    document.addEventListener('click', function(e){ //클릭이벤트 콜백함수: 보통 e로 선언
+      console.log('클릭 이벤트 발생!');
+      console.log(e);
+
+      $em.textContent = `x좌표 :${e.offsetX}, y좌표 :${e.offsetY}`;
+    }); //함수 원형으로 적음
+    */
+
+
+
+
+    const $checkbox = document.querySelector('input[type=checkbox]'); //input인데 tpye은 checkbox
+    $checkbox.addEventListener('change', function (e) {
+          //console.log((e.target)); //실제 이벤트가 발생한 요소 -> 많이 사용함(이벤트 발생한 요소가 누구인지 파악하기 위해서)
+
+          //체크박스 or radio 버튼의 체크 유무를 확인하는 프로퍼티
+          if (e.target.checked) { //자주씀
+            $em.textContent = '체크됨';
+          } else {
+            $em.textContent = '체크안됨!';
+          }
+        });
+
+        ///////////////////////////////////////////////
+
+        const $input = document.getElementById('input-text');
+        const $msg = document.querySelector('.msg'); //메시지 받음
+
+        $input.addEventListener('keyup', e => { //키 누를 때 마다 이벤트 발생 //keyup, keydown으로 선후방식 가능 // 대부분 keyboard 관련 요거만 씀
+          //(e) => {}원형 , 매개변수 1개 소괄호 생략가능
+          //console.log('keyup 이벤트 발생!');
+          //onsole.log(`입력한 값 ${e.target.value}`); //e.target의 value가 뭐야
+          //console.log(e.keyCode); //사용자가 어떤 키를 눌렀는데 숫자로 알려줌 //대소문자구분 //엔터(13번) 눌렸는지 확인시
+          if(e.keyCode === 13){ // keyup 한 자판이 엔터키?
+            $msg.textContent = e.target.value; //주체의 value값을 주겠다.
+            e.target.value=''; //입력창(e.target) 비우기
+          } else if(e.keyCode === 27){ //esc
+            $msg.textContent = ''; //p tag txt 지우겠다
+          }
+
+        }); //괄호 주의
+  </script>
+
+
+</body>
+
+</html>
