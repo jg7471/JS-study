@@ -53,7 +53,7 @@
 
     document.querySelector('.child').addEventListener('click', e =>{
       alert('child');
-      e.stopImmediatePropagation(); //이벤트 전파 막는 메서드 //이벤트 버블링 上 -> 下
+      e.stopPropagation(); //이벤트 전파 막는 메서드 //이벤트 버블링 上 -> 下
     });
 
 

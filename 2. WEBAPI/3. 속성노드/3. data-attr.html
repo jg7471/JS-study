@@ -10,7 +10,7 @@
 <body>
 
   <ul id="users">
-    <!-- html과 자바스크립트 사이의 전역변수 -->
+    <!-- 'data-' html과 자바스크립트 사이의 전역변수 -->
     <li id="1" data-user-id="kim1234" data-role="common">Kim</li> <!-- 전역 속성 -->
     <li id="2" data-user-id="park4321" data-role="admin">Park</li>
   </ul>
@@ -22,7 +22,8 @@
     const[$user1, $user2] = [...$users.children]; //배열로 변환
 
     /*
-    data- 로 시작하는 어트리뷰트와 dataset 프로퍼티를 사용하면
+    <data->
+    로 시작하는 어트리뷰트와 dataset 프로퍼티를 사용하면
     HTML 요소와 자바스크립트 간의 데이터를 쉽게 교환할 수 있습니다.
     data- 뒤에는 원하시는 특정 키워드를 작성하시고,
     dataset 프로퍼티를 이용하여 data + 키워드 로 값을 가지고 오시면
@@ -40,6 +41,7 @@
 
     $user2.dataset.role = 'anonymous';
     $user2.dataset.userTelNumber = '010-1234-5678'; 
+    console.log($user2.dataset.userTelNumber); //li값에 추가됨
 
 
         

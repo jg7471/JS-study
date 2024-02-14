@@ -35,7 +35,7 @@
     /*
     document.addEventListener('click', function(e){ //클릭이벤트 콜백함수: 보통 e로 선언
       console.log('클릭 이벤트 발생!');
-      console.log(e);
+      //console.log(e); //발생했다고 알림뜸
 
       $em.textContent = `x좌표 :${e.offsetX}, y좌표 :${e.offsetY}`;
     }); //함수 원형으로 적음
@@ -47,9 +47,11 @@
     const $checkbox = document.querySelector('input[type=checkbox]'); //input인데 tpye은 checkbox //속성이 여러개니
     $checkbox.addEventListener('change', function (e) {
           //console.log((e.target)); //실제 이벤트가 발생한 요소 -> 많이 사용함(이벤트 발생한 요소가 누구인지 파악하기 위해서)
+          //change는 폼 컨트롤(value의 값)의 `값이 변경 되었을 때 발생하는 이벤트
+
 
           //체크박스 or radio 버튼의 체크 유무를 확인하는 프로퍼티
-          if (e.target.checked) { //자주씀
+          if (e.target.checked) { //자주씀 : 체크 되었을 때
             $em.textContent = '체크됨';
           } else {
             $em.textContent = '체크안됨!';
@@ -57,18 +59,19 @@
         });
 
         ///////////////////////////////////////////////
-
+        //값(value)
         const $input = document.getElementById('input-text');
         const $msg = document.querySelector('.msg'); //메시지 받음
 
         $input.addEventListener('keyup', e => { //키 누를 때 마다 이벤트 발생 //keyup, keydown으로 선후방식 가능 // 대부분 keyboard 관련 요거만 씀
           //(e) => {}원형 , 매개변수 1개 소괄호 생략가능
           //console.log('keyup 이벤트 발생!');
-          //onsole.log(`입력한 값 ${e.target.value}`); //e.target의 value가 뭐야
+          //console.log(`입력한 값 ${e.target.value}`); //e.target의 value가 뭔지 나옴
           //console.log(e.keyCode); //사용자가 어떤 키를 눌렀는데 숫자로 알려줌 //대소문자구분 //엔터(13번) 눌렸는지 확인시
           if(e.keyCode === 13){ // keyup 한 자판이 엔터키?
-            $msg.textContent = e.target.value; //주체의 value값을 주겠다.
-            e.target.value=''; //입력창(e.target) 비우기
+            $msg.textContent = e.target.value; //주체의 value값을 주겠다. // e.입력값(value)-> 메시지 <p> msg에 저장
+            //e.target.value : 인풋태그에 입력되는 값
+            e.target.value=''; //입력창(e.target) 비우기 // 사용자 입력값
           } else if(e.keyCode === 27){ //esc
             $msg.textContent = ''; //p tag txt 지우겠다
           }

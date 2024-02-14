@@ -13,10 +13,14 @@
 
     const $btn = document.getElementById('btn');
 
-     const helloHandler = () => {alert('Halou World!')}; //중괄호 있어도 됨?
+    //함수이름으로 선언
+     const helloHandler = () => {alert('Halou World!')}; //@@중괄호 있어도 됨?
 
+     //함수 이름없이 선언
     $btn.addEventListener('click', function() { //매개값x
       alert('안녕하세요~!');
+      //alert('이렇게도 됨');
+
 
     //addEventListener('이벤트 타입', 핸들러->콜백방식)
 
@@ -24,11 +28,11 @@
 
     $btn.addEventListener('click', () => { //하나의 이벤트에 여러 이벤트 중첩 가능~!
       alert('안녕안한다!');
-    }) //화살표 함수
+    }); //화살표 함수
 
 
     $btn.addEventListener('click', helloHandler); //클릭시 helloHandler 실행
-    $btn.removeEventListener('click', helloHandler); //이름 있는 값만 삭제 가능// 익명함수 삭제 불가
+    $btn.removeEventListener('click', helloHandler); //helloHandler 삭제 //이름 있는 값만 삭제 가능// 익명함수 삭제 불가
 
 
   </script>

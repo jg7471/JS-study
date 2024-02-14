@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+    #fruits {
+      list-style: none;
+      padding: 0;
+
+    }
+
+    #fruits li {
+      width: 100px;
+      cursor: pointer;
+    }
+
+    #fruits .active {
+      color: pink;
+      text-decoration: underline;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <ul id="fruits">
+    <li id="apple" class="active">Apple</li>
+    <li id="banana">Banana</li>
+    <li id="grape">Grape</li>
+  </ul>
+
+  <div>선택된 과일: <em class="msg">apple</em></div>
+
+  <br>
+
+  # 새로운 과일 추가
+  <input type="text" class="text-box">
+  <button id="add">추가</button>
+
+
+
+  <script>
+    const $fruits = document.getElementById('fruits');
+    const $msg = document.querySelector('.msg');
+    const $liList = [...$fruits.children]; ///@@@
+
+    function activate(e) {
+      if (!e.target.matches('#fruits > li')) {
+        console.log('여기는 안돼');
+        return
+      }
+
+
+      for (let $li of $liList) {
+        $li.classList.toggle('active', $li === e.target);
+      }
+
+      $msg.textContent = e.target.id;
+    }
+
+    $fruits.addEventListener('click', activate)
+
+
+
+  </script>
+
+</body>
+
+</html>

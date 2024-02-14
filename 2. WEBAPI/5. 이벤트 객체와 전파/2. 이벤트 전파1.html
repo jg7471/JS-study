@@ -38,10 +38,10 @@
 
     $fruits.addEventListener('click', e => { //fruits 内에서 함수 발생
       //console.log('ul 클릭 이벤트 발생!');
-      //console.log('이벤트 핸들러가 붙은 타겟 : ' + e.currentTarget); //위치 확인
-      //console.log('실제 이벤트가 발생한 요소 : ' + e.target); //위치 확인
+      //console.log('이벤트 핸들러가 붙은 타겟 : ' + e.currentTarget); //위치 확인 UL(전체)
+      //console.log('실제 이벤트가 발생한 요소 : ' + e.target); //위치 확인 LI(원하는 값)
       if(e.target === e.currentTarget){
-        // 이벤트가 발생한 곳과 이벤트가 등록된 곳이 같다면, 이벤트 강제 종료
+        // 이벤트가 발생한 곳과 // 이벤트가 등록된 곳이 같다면, 이벤트 강제 종료
         // 이벤트가 등록된 곳 : ul => 발생한 곳도 ul이라면 계속 될 의미가 없다
         return;
       }
