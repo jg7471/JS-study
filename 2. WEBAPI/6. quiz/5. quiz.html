@@ -100,7 +100,7 @@
 
     // 생성된 이후에 ul 안에서 삭제 버튼 클릭 시 이벤트 발생.(이벤트 전파)
     $ul.addEventListener('click', e => { //이벤트 객체 필요, 누구인지 알아야 하기 때문에
-      if (!e.target.matches('.todo-list > li > button')) { //x버튼에서만 활성화 되길 원함
+      if (!e.target.matches('.todo-list > li > button')) { //x버튼에서만 활성화 되길 원함 @@@
         //위 요소 아닐 경우 실행 됨
         return;
       }

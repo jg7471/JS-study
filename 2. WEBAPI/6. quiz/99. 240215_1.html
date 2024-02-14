@@ -1,0 +1,239 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>자바스크립트 카운트</h2>
+    <input type="text" id="result" value="0" readonly>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+
+    <script>
+        const $count = document.getElementById('0');
+        const $plus = document.getElementById('plus');
+        const $minus = document.getElementById('minus');
+
+        $plus.onclick = () => {
+            
+            $count.value++;
+        }
+
+        $minus.addEventListener('click', e => {
+
+            if(+$count.value === 0){
+                console.log($count.value);
+                alert('0미만 x');
+            }
+            $count.value--;
+
+        })
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <button id="hider">텍스트 숨기기</button>
+    <div id="text">안녕하세요</div>
+
+    <script>
+
+        const $btn = document.getElementById('hider');
+        const $text = document.getElementById('text');
+
+        $btn.addEventListener('click', () => {
+            $text.classList.toggle('hide');
+            if($text.classList.contains('hide')){
+                $btn.textContent='텍스트 보이기';
+            }else{
+                $btn.textContent='텍스트 숨기기'
+            }
+            
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .menu ul {
+          display: none;
+          list-style: none;
+          border: 1px solid orange;
+          width: 100px;
+          margin: 0;
+          margin-top: 20px;
+          margin-left: 20px;
+          padding: 10px;
+        }
+    
+        .menu .title {
+          cursor: pointer;
+        }
+    
+        .menu .title:hover {
+          border-bottom: 1px solid green; 
+          /* 밑줄 */
+        }
+    
+        .menu .title::before {
+          /* 가상요소로 집어 넣음 : before(맨앞)위치*/
+          content: '▶';
+          color: olive;
+        }
+    
+        .open ul {
+          display: block;
+          /* open 포함시 디스플레이 : 요소를 block 요소처럼(아래로 내림) */
+        }
+    
+        .open .title::before { 
+          /* oper일시 화살표 아래로 : before(맨앞)위치*/
+          content: '▼';
+          color: pink;
+        }
+      </style>
+
+
+</head>
+<body>
+
+    <div id="lunches" class="menu">
+        <span class="title">추천 점심 메뉴 (click me)</span>
+        <ul>
+          <li>자장면</li>
+          <li>돈까스</li>
+          <li>김치찌개</li>
+          <li>제육덮밥</li>
+        </ul>
+      </div>
+
+      <script>
+
+        const $menu = document.querySelector('.menu');
+        const $title = document.querySelector('.title');
+        
+        $title.addEventListener('click', ()=> {
+            $menu.classList.toggle('open');
+        });
+
+
+      </script>
+
+
+    
+</body>
+</html>
+
+
+
+-->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .img {
+            width: 200px;
+            border: 3px solid #000;
+            display: block;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+
+    <h2>css 스타일 변경하기</h2>
+    <img src="./img/1.jpg" alt="test" class="img">
+    <select id="select">
+        <option value="./img/1.jpg">봄</option>
+        <option value="./img/2.jpg">여름</option>
+        <option value="./img/3.jpg">가을</option>
+        <option value="./img/4.jpg">겨울</option>
+    </select>
+    <span>변경할 색상</span>
+    <input type="color" class="input">
+
+
+    <script>
+        const $select = document.getElementById('select');
+        const $img =document.querySelector('.img');
+        const $input = document.querySelector('.input');
+
+    $select.addEventListener('change', () => {
+        $img.setAttribute('src',$select.value);
+    });
+
+    $input.addEventListener('change', e => {
+        $img.style.borderColor = e.target.value;
+    })
+
+
+
+    </script>
+
+
+</body>
+
+</html>

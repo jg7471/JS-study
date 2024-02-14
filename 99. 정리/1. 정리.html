@@ -1,0 +1,116 @@
+Q
+match matches
+click onClick
+if (!e.target.matches('#fruits > li'))
+if (!e.target.matches('.todo-list > li > button'))
+
+
+
+하이라이트
+
+
+
+
+
+
+
+
+
+$input.getAttribute('value')
+
+$input.setAttribute('value','안녕하세요'); //건드릴 속성, 값--세팅하겠다
+$input.setAttribute('class','user-name');
+$box.setAttribute('class', 'box blue');
+
+$input.hasAttribute('class')
+$input.removeAttribute('class');
+
+
+const $users = document.getElementById('users');
+const[$user1, $user2] = [...$users.children]; //배열로 변환
+
+
+$h.style.color = 'orange';
+
+
+
+const $box = document.querySelector('.box');
+console.log($box.attributes.class.value); //class의 value를 주세요
+console.log($box.getAttribute('class')); //.box에서 class의 속성을 얻겠다
+console.log($box.className); //class 전용 얻을 수 있음
+
+
+
+$box.classList.add('circle'); // 기존 box red +circle 추가 // 단독적일 때 사용
+$box.classList.add('abc','def','ghi'); // 한번에 추가 가능(push)
+
+$box.classList.replace('red','blue');
+
+$box.classList.remove('abc','def','ghi'); //여러 값 삭제
+
+$box.classList.contains('red') //존재 하는지 확인
+
+// toggle(): 함수, 해당 클래스가 존재하면 삭제, 존재하지 않으면 추가
+$box.classList.toggle('circle'); //존재 하지 않으므로 circle 추가됨
+$box.classList.toggle('blue'); // 존재 하므로 blue 삭제됨
+
+
+//함수 이름 있이
+const helloHandler = () => {alert('Halou World!')}; //중괄호 있어도 됨?
+$btn.addEventListener('click', helloHandler); //클릭시 helloHandler 실행
+$btn.removeEventListener('click', helloHandler); //이름 있는 값만 삭제 가능// 익명함수 삭제 불가
+
+
+//함수 이름 없이
+    $btn.addEventListener('click', () => { //하나의 이벤트에 여러 이벤트 중첩 가능~!
+      alert('안녕안한다!');
+    }) //화살표 함수
+
+const $checkbox = document.querySelector('input[type=checkbox]');
+
+
+    const $liList = [...$fruits.children]; //모든 li요소를 배열에 담기.
+
+$li.classList.toggle('active', $li === e.target); 
+
+$fruits.appendChild($newLi); // ul에 새로만든 li 추가 //자식요소 이어 붙이겠다
+
+
+
+const $li = document.createElement('li'); //<li></li> 생성
+$li.textContent = $todoInput.value; //<li>할 일</li>
+
+$ul.appendChild($li); //기존appendChild(신규)
+
+
+
+
+
+
+
+240124 총복습
+checkbox.addEventListener('change', function(e){
+//change는 폼 컨트롤(value의 값)의 `값이 변경 되었을 때 발생하는 이벤트
+
+
+e.target.value 인풋태그에 입력되는 값
+e.target 실제 이벤트가 발생한 요소 === e.currentTarget 이벤트 핸들러가 붙은 타겟(범위 무시)
+
+function activate(e) { //즉석 콜백 // 이 방법 더 선호 @@무슨 함수?
+
+
+const $liList = [...$fruits.children];
+
+if (!e.target.matches('#fruits > li'))
+if (!e.target.matches('.todo-list > li > button'))
+
+const $newLi = document.createElement('li'); //<li></li> 새로운 리스트
+$newLi.textContent = $textBox.value; //<li>Oreange</li>
+      
+
+      $text.classList.toggle('hide'); //toggle로 hide 생성 //f12 element에서 확인 가능
+      if($text.classList.contains('hide')){
+
+
+        const $liList = [...document.querySelectorAll('#list li')]; //전원 선택 후 순수배열 전환
+        const $frAll = document.querySelectorAll('.fr');

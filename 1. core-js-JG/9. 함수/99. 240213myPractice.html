@@ -9,8 +9,10 @@
 
 <body>
 
+    
     <script>
-        function add(n1, n2) {
+    /*
+    function add(n1, n2) {
             console.log('함수 출력');
             return n1 + n2;
         }
@@ -52,6 +54,52 @@
 
     const pow = num => num**2;
     console.log(pow(3));
+
+  
+    function calculate(func){
+        console.log('1번');
+        const result = func(1022, 2022);
+        return result;
+    }
+
+    function add(n1, n2){
+        console.log('2번');
+        return n1 + n2;
+    }
+
+
+    const r = calculate(add);
+    console.log(r);
+
+
+    const r2 = calculate(function(n1, n2){
+        return n1 - n2;
+    }); 
+
+    
+    const r3 = calculate((n1, n2) => n1 + n2);
+    console.log(r3);
+    
+
+    function showNumbers(n, code){
+        for(let i = 1; i <= n; i++){
+            if(code(i)) console.log(i);
+        }
+    }
+
+    showNumbers(10, function(i){
+        return i % 2 === 0;
+    });
+    */
+
+    const showNumbers = (function(n, code){
+
+        for(let i = 0; i <+ n; i++){
+            if()
+        }
+        
+        return code(i);
+    });
 
     </script>
 

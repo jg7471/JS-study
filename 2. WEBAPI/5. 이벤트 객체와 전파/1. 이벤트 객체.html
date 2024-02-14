@@ -23,7 +23,7 @@
 
 
   <script>
-    const $em = document.querySelector('.message');
+    const $em = document.querySelector('.message');// 체크됨
 
     //문서 전체에 이벤트 핸들러 등록
     //이벤트 핸들러의 첫번째 인수로 이벤트에 관련된 다양한 정보가 들어있는
@@ -44,7 +44,7 @@
 
 
 
-    const $checkbox = document.querySelector('input[type=checkbox]'); //input인데 tpye은 checkbox //속성이 여러개니
+    const $checkbox = document.querySelector('input[type=checkbox]'); //v 체크박스 //input인데 tpye은 checkbox //속성이 여러개니
     $checkbox.addEventListener('change', function (e) {
           //console.log((e.target)); //실제 이벤트가 발생한 요소 -> 많이 사용함(이벤트 발생한 요소가 누구인지 파악하기 위해서)
           //change는 폼 컨트롤(value의 값)의 `값이 변경 되었을 때 발생하는 이벤트
@@ -60,7 +60,7 @@
 
         ///////////////////////////////////////////////
         //값(value)
-        const $input = document.getElementById('input-text');
+        const $input = document.getElementById('input-text');//입력값
         const $msg = document.querySelector('.msg'); //메시지 받음
 
         $input.addEventListener('keyup', e => { //키 누를 때 마다 이벤트 발생 //keyup, keydown으로 선후방식 가능 // 대부분 keyboard 관련 요거만 씀

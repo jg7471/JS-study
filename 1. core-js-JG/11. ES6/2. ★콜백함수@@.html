@@ -15,7 +15,7 @@
     //1번
     function calculate(func) {
       console.log('계산기입니다');
-      const result = func(50, 20);
+      const result = func(50, 20); //func 호출값 있어야 함
       return result;
     }
 
@@ -25,16 +25,16 @@
     }
 
     //1(2)번(나눈거) 합쳐 사용
-    const r = calculate(add);
+    const r = calculate(add); // 함수 사용시 const// lex 불가 
     console.log('r: ' + r);
 
     console.log('--------------------------------');
 
 
-    // 즉석에서 선언
+    // 즉석에서 선언 // 1번 값 사용
     const r2 = calculate(function (n1, n2) { //괄호() 주의 function 시작-끝
       return n1 - n2;
-    });
+    });//괄호 주의
     console.log('r2: ' + r2);
 
     console.log('--------------------------------');
@@ -78,7 +78,7 @@
     console.log('짝수출력함수------------------------------');
 
     // 짝수 출력 일반함수 호출문
-     showNumbers(10, function(i) { // @@ i를 x로 바꿔도 됨? //(i){} 주의
+     showNumbers(10, function(i) { // @@ i를 x로 바꿔도 됨? //(i){} 주의 왜 function?
       return i % 2 === 0;
     });
 

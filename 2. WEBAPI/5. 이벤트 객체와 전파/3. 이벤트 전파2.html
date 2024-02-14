@@ -45,18 +45,18 @@
 
 
   <script>
-    const $fruits = document.getElementById('fruits');
-    const $msg = document.querySelector('.msg');
+    const $fruits = document.getElementById('fruits');//전체 리스트
+    const $msg = document.querySelector('.msg');//선택된 과일
     const $liList = [...$fruits.children]; //모든 li요소를 배열에 담기.
 
 
     // 이벤트 핸들러 -> ul에 클릭이 발생하면 호출됨.
-    function activate(e) { //즉석 콜백 // 이 방법 더 선호
+    function activate(e) { //즉석 콜백 // 이 방법 더 선호 @@무슨 함수?
       //이벤트 발생 타겟이 특정 요소인지를 검증.
-      if (!e.target.matches('#fruits > li')) { //'#fruits > li' false일 경우 return , 특정 요소 아닐경우 강제 종료
+      if (!e.target.matches('#fruits > li')) { //@@'#fruits(전체) > li(선택)' false일 경우 return , 특정 요소 아닐경우 강제 종료
         //element.matches('selector'); 요소에 해당 선택자가 있는지 확인하고 true / false 를 반환한다
         // #fruits(전체) > li:Banana(일부) : 외부 클릭시 false -> 클릭 안됨
-        console.log('여기는 안돼~!');
+        console.log('여기는 이벤트가 발생하면 안돼~!');
         return;
 
       }
@@ -84,7 +84,7 @@
       //em.msg에 이벤트가 발생된 과일 이름을 추가
       //$msg.textContent = e.target.value; //글자는 value 값 아님
       //$msg.textContent = e.target.textContent; //클릭시 글자값 가져오기
-      $msg.textContent = e.target.id; // 아이디로 가져오기 @@ 왜 id???
+      $msg.textContent = e.target.id; // 아이디로 가져오기 @@ 왜 id??? -> UL/LI 값이 ID임
 
     }
     // ul에 이벤트 등록
@@ -99,13 +99,14 @@
     $btn.addEventListener('click', e => {
       const $newLi = document.createElement('li'); //<li></li>
       $newLi.textContent = $textBox.value; //<li>Oreange</li>
-      $newLi.setAttribute('id', $textBox.value.toLowerCase() /*소문자로 */ ); //<li id="orange">Orange</li>   //id(입력값)에 setAttribute 속성 넣기
-      //인강 참조 //@@여기 왜 id???
-      $fruits.appendChild($newLi); // ul에 새로만든 li 추가 //자식요소 이어 붙이겠다
+      $newLi.setAttribute('id', $textBox.value.toLowerCase()); /*소문자로 함수 */ //<li id="orange">Orange</li>
+      //id(입력값)에 setAttribute 속성 넣기 //('value','안녕하세요'); //원하는 속성, 값
+      //인강 참조 //@@여기 왜 id???->fruits ul/li가 id이니까
+      $fruits.appendChild($newLi); // ul(기존/큰값)에 새로만든 li(신규/작은값) 추가 //자식요소 이어 붙이겠다
       $textBox.value = ''; // 다음 입력을 위해 입력창 비우기
 
       // 새롭게 추가된 li에도 active 추가 대상 여부를 확인하기 위해 배열에 추가~!
-      $liList.push($newLi);
+      $liList.push($newLi);//기존.push(신규)
 
     }); //만능 //onClick도 되긴함
 

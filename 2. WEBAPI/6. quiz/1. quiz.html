@@ -21,23 +21,23 @@
   <button id="minus">-</button>
 
   <script>
-    const $count = document.getElementById('result');
+    const $count = document.getElementById('result'); // 총계 // 왜 하필 result? @@
     const $plus = document.getElementById('plus');
     const $minus = document.getElementById('minus');
 
-    $plus.onclick = () => {
+    $plus.onclick = () => { // 합수 변수 x @@
       //$plus.addEventListener
       //console.log('더하기 버튼 클릭 확인용');
 
       $count.value++; //암묵적 형변환 string 문자열 값을 숫자로 변환
     }
 
-    $minus.addEventListener('click', e => {
+    $minus.addEventListener('click', e => { //@@click onclick
       
       if(+$count.value === 0){ // count.value가 0이 안떠서 -값 뜸 -> log 찍어봐
         // count.value는 숫자는 맞으나, string값으로 입력되어 ===안됨
         // +$count.value 붙이면 숫자형으로 변환됨
-        console.log($count.value);
+        console.log($count.value); // 0 몇번 되었는지 체크
         alert('0미만으로 내릴 수 없습니다.');
         return;
       }

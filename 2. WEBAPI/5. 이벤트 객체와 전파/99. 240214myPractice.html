@@ -7,66 +7,50 @@
   <title>Document</title>
 
 
-  <style>
-    #fruits {
-      list-style: none;
-      padding: 0;
-
-    }
-
-    #fruits li {
-      width: 100px;
-      cursor: pointer;
-    }
-
-    #fruits .active {
-      color: pink;
-      text-decoration: underline;
-    }
-  </style>
-
-
 </head>
 
 <body>
 
+  <p>아무곳이나 클릭하세요</p>
+  <input type="checkbox">
 
-  <ul id="fruits">
-    <li id="apple" class="active">Apple</li>
-    <li id="banana">Banana</li>
-    <li id="grape">Grape</li>
-  </ul>
+  <em class="message"></em><br>
 
-  <div>선택된 과일: <em class="msg">apple</em></div>
+  <hr>
 
-  <br>
-
-  # 새로운 과일 추가
-  <input type="text" class="text-box">
-  <button id="add">추가</button>
-
-
+  <input type="text" id="input-text">
+  <p class="msg"></p>
 
   <script>
-    const $fruits = document.getElementById('fruits');
-    const $msg = document.querySelector('.msg');
-    const $liList = [...$fruits.children]; ///@@@
-
-    function activate(e) {
-      if (!e.target.matches('#fruits > li')) {
-        console.log('여기는 안돼');
-        return
+    const $em = document.querySelector('.message');// 체크됨
+    const $checkbox = document.querySelector('input[type=checkbox]');//v 체크박스
+    
+    $checkbox.addEventListener('change', function(e){
+      
+      if(e.target.checked){
+        $em.textContent=('체크됨');
+      }else{
+        $em.textContent=('해제됨');
       }
 
+    });
 
-      for (let $li of $liList) {
-        $li.classList.toggle('active', $li === e.target);
+    const $input = document.getElementById('input-text');//입력값
+    const $msg = document.querySelector('.msg');//메시지 받음
+
+    $input.addEventListener('keyup', e => {
+
+      if(e.keyCode===13){
+        $msg.textContent=e.target.value;
+        e.target.value = '';
+      }else if(e.keyCode===27){
+        $msg.textContent='';
       }
 
-      $msg.textContent = e.target.id;
-    }
+    });
 
-    $fruits.addEventListener('click', activate)
+
+
 
 
 
