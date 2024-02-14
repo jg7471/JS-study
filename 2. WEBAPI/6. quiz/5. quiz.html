@@ -44,9 +44,9 @@
         */
 
 
-    const $btn1 = document.querySelector('.btn1');
-    const $nameInput = document.querySelector('.name-input');
-    const $nameTitle = document.querySelector('.name-title');
+    const $btn1 = document.querySelector('.btn1'); //확인
+    const $nameInput = document.querySelector('.name-input'); //입력
+    const $nameTitle = document.querySelector('.name-title'); //출력 될 곳
 
     $btn1.addEventListener('click', () => { //e 안씀
       if ($nameInput.value === '') { //value 값이 비었는가?
@@ -58,9 +58,9 @@
       $nameInput.style.display = 'none';
     });
 
-    const $todoInput = document.querySelector('.todo-input');
-    const $btn2 = document.querySelector('.btn2');
-    const $ul = document.querySelector('.todo-list');
+    const $todoInput = document.querySelector('.todo-input'); //입력
+    const $btn2 = document.querySelector('.btn2'); //확인
+    const $ul = document.querySelector('.todo-list');//저장 될 곳
 
     function createTodo() { //e 이벤트 객체
 
@@ -69,7 +69,7 @@
         return;
       }
       // li 생성하고 사용자 입력값을 텍스트로 추가
-      const $li = document.createElement('li'); //<li></li> 생성
+      const $li = document.createElement('li'); //<li></li> 생성 //없던 요소 생성
       $li.textContent = $todoInput.value; //<li>할 일</li>
 
       // X 버튼 생성
@@ -80,7 +80,7 @@
       $li.appendChild($delBtn);
 
       // li를 ul에 추가하기
-      $ul.appendChild($li);
+      $ul.appendChild($li); //기존appendChild(신규)
 
       //방법1(비추)
       // 삭제 버튼 클릭시 이벤트 발생(요소 생성 시 이벤트 미리 달아놓기)
@@ -96,7 +96,8 @@
     }
 
     //방법2(추천)
-    $btn2.addEventListener('click', createTodo)
+    $btn2.addEventListener('click', createTodo); //이벤트 등록 : btn2 클릭시 createTode
+
     // 생성된 이후에 ul 안에서 삭제 버튼 클릭 시 이벤트 발생.(이벤트 전파)
     $ul.addEventListener('click', e => { //이벤트 객체 필요, 누구인지 알아야 하기 때문에
       if (!e.target.matches('.todo-list > li > button')) { //x버튼에서만 활성화 되길 원함

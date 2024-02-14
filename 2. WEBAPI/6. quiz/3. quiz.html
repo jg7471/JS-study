@@ -23,22 +23,23 @@
     }
 
     .menu .title:hover {
-      border-bottom: 1px solid green;
+      border-bottom: 1px solid green; 
+      /* 밑줄 */
     }
 
     .menu .title::before {
-      /* 가상요소로 집어 넣음 */
+      /* 가상요소로 집어 넣음 : before(맨앞)위치*/
       content: '▶';
       color: olive;
     }
 
     .open ul {
       display: block;
-      /* open 포함시 디스플레이 */
+      /* open 포함시 디스플레이 : 요소를 block 요소처럼(아래로 내림) */
     }
 
-    .open .title::before {
-      /* oper일시 화살표 아래로 */
+    .open .title::before { 
+      /* oper일시 화살표 아래로 : before(맨앞)위치*/
       content: '▼';
       color: pink;
     }
@@ -71,7 +72,8 @@
     const $menu = document.querySelector('.menu');
     const $title = document.querySelector('.title');
     $title.addEventListener('click', () => { //이벤트 객체 필요x
-      $menu.classList.toggle('open'); //클래스 이름 open
+      $menu.classList.toggle('open'); //클래스 이름 open //열기
+      //f12 class = "menu open" 으로 만들어 줆
 
     });
 

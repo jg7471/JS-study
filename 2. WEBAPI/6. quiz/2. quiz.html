@@ -42,9 +42,9 @@
     $btn.addEventListener('click', () => {
       $text.classList.toggle('hide'); //f12 element에서 확인 가능
       if($text.classList.contains('hide')){
-        $btn.textContent='텍스트 보이기';
+        $btn.textContent='텍스트 보이기'; //<div id="text" class="hide">안녕하세요</div>
       } else {
-        $btn.textContent='텍스트 숨기기';
+        $btn.textContent='텍스트 숨기기'; //<div id="text" class="">안녕하세요</div>
       }
     });
 
