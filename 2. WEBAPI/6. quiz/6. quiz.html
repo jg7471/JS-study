@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+    thead th,
+    tbody td {
+      border: 1px solid black;
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+
+  <h2>이벤트 위임 방식으로 변경해 보세요.</h2>
+
+  <table>
+    <thead>
+      <th>번호</th>
+      <th>제목</th>
+      <th>내용</th>
+      <th>삭제</th>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- tr 주의 -->
+        <td>1</td>
+        <td>첫글</td>
+        <td>hi</td>
+        <td><button>삭제</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>두번째 글</td>
+        <td>hi</td>
+        <td><button>삭제</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>세번째 글</td>
+        <td>hi</td>
+        <td><button>삭제</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>네번째 글</td>
+        <td>hi</td>
+        <td><button>삭제</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const $list = document.querySelector('table tbody'); //body로 영역 줄임
+    $list.addEventListener('click', (e) => { //클릭 이벤트 발생 // e 괄호 생략 가능
+      // (e) 안적고 ()
+      // !event.target.matches 이렇게 적어도 되긴하나 가독성x
+
+      if (!e.target.matches('button')) { //매칭 아니라면? 버튼이 아니라면 리턴
+        return;
+      }// 중괄호 생략 가능
+
+
+      //삭제 버튼이 눌리면 그 삭제 버튼이 포함된 tr 날리기
+      $list.removeChild(e.target.parentNode.parentNode);
+      //button 상대적부모 td
+      //button의 부모의 부모(button->td->tr) 지워라(한 묶음)
+
+
+    });
+
+
+
+
+    /*
+    부모(tbody)에 이벤트 걸어 자식에게 전파
+    버튼으로 이벤트 영역 줄임
+    누가 눌렀는지 -> 이벤트 객체(e.target)
+    */
+
+    /* 내가 작성
+    const $main = document.querySelectorAll('tbody');
+    const $table = document.querySelectorAll('tr');
+    const $content = document.querySelectorAll('td');
+    const $delBtn = document.createElement('button');
+
+    $tr.addEventListener('click', (e) => {
+      if (!e.target.matches('tbody > tr > td > button')) {
+        return;
+      }
+      $content.removeChild(e.target.childNodes);
+    });
+    */
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const date = new Date(); //요소 아니라$없음 //JSP기본제공 : 오늘 날짜 객체
+    console.log(date);
+    console.log(date.getTime()); //시간 밀리초 //게시물 몇 초전 계산할 때
+
+    const millis = 1693735023000; //1970년 기준
+    const day = new Date(millis); //대문자
+    console.log(day);
+
+    console.log(date);
+    console.log(date.getFullYear()); //년
+    console.log(date.getMonth(+1)); //월 //월은 0부터 시작
+    console.log(date.getDate()); //일
+    console.log(date.getHours()); //시
+    console.log(date.getMinutes()); //분
+    console.log(date.getSeconds()); //초
+    console.log(date.getDay()); // 6 일요일(서양)
+
+    console.log('-------------------------------------');
+    //오늘 날짜 - 특정 날짜 (밀리초)
+    const gap = date.getTime() - millis;
+    console.log(gap);
+
+    let time;
+    if (gap < 60 * 60 * 24 * 1000) { //하루 전?
+      if (gap < 60 * 60 * 1000) { //1시간
+        time = '방금 전';
+      } else {
+        time = gap / (60 * 60 * 1000) + '시간 전';
+      }
+
+    } else { // 1일 이상 넘어간 경우
+      const checkTime = new Date(gap);
+      const clacYear = checkTime.getFullYear() - 1970;
+      console.log(checkTime);
+      if (clacYear > 0) {
+        time = clacYear + '년 전';
+      } else {
+        time = (`${checkTime.getMonth()+1}개월 전`); //0개월
+      }
+    }
+
+    console.log(`지정된 날자는 오늘로부터 ${time} 입니다`);
+  </script>
+
+
+
+</body>
+
+</html>
