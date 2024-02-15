@@ -23,7 +23,7 @@
     */
 
     //일반적인 함수 정의문
-    function add(n1, n2){
+    function add(n1, n2) {
       console.log('함수 add가 출력됨!');
       return n1 + n2;
     }
@@ -31,19 +31,22 @@
     //add(10, 30); ??
 
     const plus = add;
-    const r1 = plus(10,20);
+    const r1 = plus(10, 20);
 
     // 익명함수 : 함수 리터럴(값)
-    const foo = function(){
+    const foo = function () {
       console.log('함수 foo 호출!');
     }
 
     foo();
 
     // 함수는 배열이나 객체에 저장 가능
-    const array = [// @@ 6번만 출력됨?? →해결함 
-      10, 'hello', true, {}, [], add, // add 밖에서 미리 만든 함수
-      function() {console.log('배열 안에서 만든 함수 호출');} //; 위치 주의
+    const array = [ // @@ 6번만 출력됨?? →해결함 
+      10, 'hello', true, {},
+      [], add, // add 밖에서 미리 만든 함수
+      function () {
+        console.log('배열 안에서 만든 함수 호출');
+      } //; 위치 주의
     ];
 
     console.log(array[0]);
@@ -52,10 +55,10 @@
     console.log('-------------------------------');
 
     const dog = { //dog = 0x10
-      name : 'choco', //객체 : 필수!!!
-      age : 3,
-      favorite : ['산책', '낮잠'],
-      play : function() {
+      name: 'choco', //객체 : 필수!!!
+      age: 3,
+      favorite: ['산책', '낮잠'],
+      play: function () {
         console.log(`${this.name} 멍멍이가 신나게 놉니다`); //this(위치하고 있는 함수의) 주소값(0x10)
       }
     };
@@ -64,7 +67,7 @@
 
     console.log('-------------------------------');
     // ES6 : 화살표 함수
-    
+
     /* 기존 기능
     function multiply(n1, n2){
       return n1 * n2;
@@ -86,7 +89,7 @@
     //함수의 내부 코드가 단 한 줄이라면 중괄호 생략 가능
     //그 한 줄의 코드가 리턴문이라면 return 키워드 생략 가능
     const multiply = /*function*/ (n1, n2) => /*{ \n return*/ n1 * n2;
-    
+
     const r2 = multiply(4, 7);
     console.log(`r2: ${r2}`);
 
@@ -98,11 +101,11 @@
     sayHello('루피');
     sayHello('뉴진스');
 
-    const kim ={
-      name : `김철수`,
-      age : 30,
-      greeting : sayHello, //위의 sayHello 호출
-      dance : ()/*매개값 없음(적어야 함, 1개만 생략가능)*/ => console.log('신나게 춤을 춥니다.')
+    const kim = {
+      name: `김철수`,
+      age: 30,
+      greeting: sayHello, //위의 sayHello 호출
+      dance: () /*매개값 없음(적어야 함, 1개만 생략가능)*/ => console.log('신나게 춤을 춥니다.')
     };
 
     kim.greeting(`야옹이`);
@@ -120,7 +123,6 @@
     const multiply2 = n1 => n1**2;
     multiply2(3);
     */
-
   </script>
 
 </body>

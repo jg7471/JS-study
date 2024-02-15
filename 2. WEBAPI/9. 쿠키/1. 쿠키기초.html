@@ -47,7 +47,7 @@
     const $make = document.getElementById('make');
     $make.addEventListener('click', createCookie); // 클릭시 함수 실행
 
-    document.getElementById('get').addEventListener('click', getCookie);
+    document.getElementById('get').addEventListener('click', getCookie); //바로
 
     //쿠키 확인하기
     function getCookie() { //이벤트 필요x
@@ -61,7 +61,7 @@
       for (let c of cookies) {
         //문자열 메서드 search(찾으려는 문자)
         //문자가 존재한다면 해당 문자 위치 인덱스 리턴, 없다면 -1
-        if (c.search(find) !== 1) { //c라는 데이터에서 찾아봐 search
+        if (c.search(find) !== -1) { //c라는 데이터에서 찾아봐 search
           //문자열 메서드 replace('기존문자', '새문자')
           console.log(c.replace(find + '=', '')); //기존 문자열을 새 문자열로 바꿔줌(아무것도 없는거로) //find(이름)과 =은 필요없어서 제거하고//나머지 값만 가져옴
           flag = true; //찾았음

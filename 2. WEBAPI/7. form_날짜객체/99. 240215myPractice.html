@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <form action="#" name="regForm">
+    아이디: <input type="text" name="id"> <br>
+    비밀번호: <input type="password" name="pw"> <br>
+    번호:
+    <div>
+      <select name="phone">
+        <option>010</option>
+        <option>011</option>
+        <option>018</option>
+      </select>
+      - <input type="text" name="phone2">
+      - <input type="text" name="phone3">
+    </div>
+
+    자기소개: <br>
+    <textarea name="intro" cols="50" rows="5"></textarea>
+    <br>
+
+    분야:
+    <!--라디오/체크박스 벨류 꼭 필요-->
+    <input type="checkbox" name="inter" value="java">Java
+    <input type="checkbox" name="inter" value="db">DB
+    <input type="checkbox" name="inter" value="jsp">Jsp
+    <input type="checkbox" name="inter" value="js">JavaScript
+    <!--유사배열-->
+
+    <!--
+        button 태그에 type을 명시하지 않으면 form태그 내부에서
+        자동으로 submit으로 type이 인식됩니다.
+        버튼에 이벤트를 걸어서 입력값 검증 등 로직을 구현하고 싶다면
+        반드시 type="button"으로 설정해 놓으셔야 합니다.
+    -->
+
+    <button type="button" id="regist" onclick="check()">가입</button>
+    <!-- type="button" 위 설명 이거 말하는 거, 습관화 해라
+    ,onclick시 'check 함수 호출됨'-->
+    <input type="reset" value="초기화"> <!-- 초기화 reset-->
+    <!-- <input type="submit" value="회원가입"> -->
+
+
+    <script>
+
+      let flag =false;
+      for(let $ele of [...$form.inter]){
+
+        if($ele.checked){
+          flag = true;
+          break;
+        }
+
+
+      }
+
+      if(!flag){
+        alert('한 개 잇아 체크하세요');
+        return;
+      }
+      if(confirm('회원가입 진행')){
+        $form.submit();
+      }
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

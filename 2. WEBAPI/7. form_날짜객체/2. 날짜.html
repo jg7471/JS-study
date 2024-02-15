@@ -20,7 +20,7 @@
 
     console.log(date);
     console.log(date.getFullYear()); //년
-    console.log(date.getMonth(+1)); //월 //월은 0부터 시작
+    console.log(date.getMonth()); //월 //월은 0부터 시작
     console.log(date.getDate()); //일
     console.log(date.getHours()); //시
     console.log(date.getMinutes()); //분
@@ -47,7 +47,7 @@
       if (clacYear > 0) {
         time = clacYear + '년 전';
       } else {
-        time = (`${checkTime.getMonth()+1}개월 전`); //0개월
+        time = `${checkTime.getMonth() +1}개월 전`; //0개월
       }
     }
 

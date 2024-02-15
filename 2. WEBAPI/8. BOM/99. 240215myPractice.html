@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      animation: fadeIn 0.5s linear;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    /*clock 지목 */
+    .clock h1 {
+      color: white;
+      font-size: 5em;
+      text-align: center;
+      margin: 350px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <button id="btn">네이버로 이동!</button>
+
+  <script>
+  
+    const $btn = document.getElementById('btn');
+    
+    $btn.onclick = () => {
+      console.log(location);
+      location.replace('www.naver.com')
+    }
+
+
+  </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
