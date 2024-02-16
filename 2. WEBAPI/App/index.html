@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Calculator</title><!--브라우저 탭 제목-->
+
+<link rel="stylesheet" href="./assets/styles/app.css"><!--CSS 불러오기-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" /><!--폰트 불러오기-->
+<script src="./assets/scripts/vendor.js" defer></script> <!--자바스크립트 불러오기, 后인출-->
+<script src="./assets/scripts/app.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <!-- 의미는 없으나 시작점 알림-->
+    <h1>The Calculator</h1>
+  </header>
+
+  <!-- section.card*3 -->
+  <section class="card" id="calculator">
+    <input type="number" id="input-number">
+    <div id="cacl-actions">
+      <!-- 버튼 감싸는-->
+      <button type="button" id="btn-add">+</button>
+      <button type="button" id="btn-subtract">-</button>
+      <button type="button" id="btn-multiply">x</button>
+      <button type="button" id="btn-divide">/</button>
+    </div>
+  </section>
+
+  <section class="card" id="results">
+    <h2 id="current-calculation">0</h2>
+    <h2>Result: <span id="current-result">0</span></h2><!--실전에선 필요하면 만들기-->
+  </section>
+
+  <section class="card" id="logs">
+    <ul class="log-entries">
+
+      <li class="log-entries-item">#1. 0 + 15 = 17</li>
+      <li class="log-entries-item">#1. 1 + 1 = 3</li>
+      <li class="log-entries-item">#1. 1 + 1 = 0</li>
+      <li class="log-entries-item">#1. 1 + 1 = 0</li>
+
+    </ul>
+
+  </section>
+
+
+
+
+
+
+
+
+  <!-- overflow auto 길어질 시-스크롤, float//flex, input -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+
+*{
+  /* 전체영역 */
+  box-sizing: border-box;
+  /* 패딩을 줘도 사이즈 변경x : 비율줄 때 유리*/
+
+}
+
+html{
+  font-family: 'Roboto', open-sans;
+  /* 1지망 2지망 */
+}
+
+body{
+  margin: 0;
+}
+
+header{
+  background: #023d6d;
+  color: #fff;
+  padding: 1rem;
+  /* rem : html 폰트사이즈, 기본 16px*3 */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 26);
+  width: 100%;
+  /* % 부모의 비율 따라가겠다 */
+}
+
+.card{
+  margin: 2rem auto;
+  width: 40rem;
+  max-width: 90%;
+  /* 최대 가로길이 제한 */
+  border: 1px solid #023d6d;
+  border-radius: 10px;
+  /* 모서리 깍기 */
+  padding: 1rem;
+  color: #023d6d;
+}
+
+#calculator input{
+/* id로 지목해됨 */
+font: inherit;
+/* 물려 받음 부모 */
+font-size: 3rem;
+border: 2px solid #023d6d;
+width: 10rem;
+display: block;
+/* 인라인은 마진 안먹음-> display block */
+margin: auto;
+padding: 0.15rem;
+color: #023d6d;
+text-align: center;
+}
+
+#calculator input:focus{
+  outline: none;
+  /* 테두리 둥글게 */
+}
+
+#calculator button{
+  font: inherit;
+  background: #023d6d;
+  color: #fff;
+  border: 1px solid #023d6d;
+  padding: 1rem;
+  cursor: pointer;
+  /* 누르는 것이다 */
+  /* 버튼 태그는 인라인태그라 기본적으로 가로배치 */
+}
+
+
+#calculator button:focus{
+  outline: none;
+}
+
+#calculator button:hover
+
+#calculator button:active{
+  background: #084f88;
+  border-color: #084f88;
+}
+
+#cacl-actions button{
+  /* 모든 버튼 */
+  width: 4rem;
+}
+
+#cacl-actions{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#results {
+  text-align: center;
+}
+
+#logs {
+  min-height: 10rem;
+  max-height: 15rem;
+  padding: 2rem 5rem;
+  overflow: auto;
+  /* 최소 길이 최대 길이 */
+  /* 스크롤 필요할 땐 없다가, 있으면 생기는 */
+}
+
+
+.log-entries{
+  list-style: none;
+  /* li 점 없애기 */
+  display: flex;
+  flex-direction: column;
+  /* 플렉스 사용시 정렬 편함 */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgb(237, 78, 78);
+
+}
+
+.log-entries .log-entries-item{
+  /* li지목 */
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #ccc;
+  /* 그림자 생성 */
+  padding: 0.75rem;
+  margin-bottom: 0.6rem;
+}
