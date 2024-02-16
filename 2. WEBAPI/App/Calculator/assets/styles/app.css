@@ -81,12 +81,12 @@ text-align: center;
   border-color: #084f88;
 }
 
-#cacl-actions button{
+#calc-actions button{
   /* 모든 버튼 */
   width: 4rem;
 }
 
-#cacl-actions{
+#calc-actions{
   margin-top: 1rem;
   text-align: center;
 }

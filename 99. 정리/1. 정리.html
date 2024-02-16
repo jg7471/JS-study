@@ -13,14 +13,32 @@
 
   <script>
     Q
-    match matches
-    click onClick
-    if (!e.target.matches('#fruits > li'))
-      if (!e.target.matches('.todo-list > li > button'))
 
 
 
-        하이라이트
+    //즉시 실행 함수
+    (function (x, y) {
+      console.log(`x+y= ${x+y}`);
+    })(60,70);
+
+    
+    function factorial(n) {
+      if(n===1) return 1;
+      return n * factorial(n-1);
+    }
+    console.log(factorial(5));
+
+
+
+
+
+    // 화살표 함수
+    const multiply1 = (n1, n2) => /*{ \n return*/ n1 * n2; //방식1
+    const multiply2 = (n1, n2) => { //방식2
+    return n1 * n2};
+    const pow = num => num * num; //방식3
+
+
 
 
     //함수정리

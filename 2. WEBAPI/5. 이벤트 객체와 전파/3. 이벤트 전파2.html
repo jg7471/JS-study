@@ -53,7 +53,7 @@
     // 이벤트 핸들러 -> ul에 클릭이 발생하면 호출됨.
     function activate(e) { //즉석 콜백 // 이 방법 더 선호 @@무슨 함수?
       //이벤트 발생 타겟이 특정 요소인지를 검증.
-      if (!e.target.matches('#fruits > li')) { //@@@'#fruits(전체) > li(선택)' false일 경우 return , 특정 요소 아닐경우 강제 종료
+      if (!e.target.matches('#fruits > li')) { //'#fruits(전체) > li(선택)' false일 경우 return , 특정 요소 아닐경우 강제 종료
         //element.matches('selector'); 요소에 해당 선택자가 있는지 확인하고 true / false 를 반환한다
         // #fruits(전체) > li:Banana(일부) : 외부 클릭시 false -> 클릭 안됨
         console.log('여기는 이벤트가 발생하면 안돼~!');

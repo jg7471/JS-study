@@ -122,7 +122,7 @@
 
       //body 태그는 document 객체로 바로 접근 가능
       document.body.appendChild($img); ///@@@ 위치가 배경이라?
-      idx++; //idx 하나 올리기, @@@ for 없는데?
+      idx++; //idx 하나 올리기,  for 없는데? 함수반복
       if (idx === bgList.length) { // 인덱스가 끝까지 도달했다면 0으로 //한줄 중괄호 생략 가능
         idx = 0;
       }
@@ -137,6 +137,12 @@
       changeBackGround(); //배경 바꾸기
       setInterval(changeBackGround, 10000); //10초에 한번씩 배경 바꾸기
     })();// 왜 또 ()? @@@
+
+
+
+
+
+
   </script>
 
 

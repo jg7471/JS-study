@@ -89,6 +89,10 @@
     //함수의 내부 코드가 단 한 줄이라면 중괄호 생략 가능
     //그 한 줄의 코드가 리턴문이라면 return 키워드 생략 가능
     const multiply = /*function*/ (n1, n2) => /*{ \n return*/ n1 * n2;
+    //const multiply = (n1, n2) => { //위와 같다
+    //return n1 * n2};
+    //하나일 때 생략 가능, 이외는 소괄호 꼭 필요, 240216
+    //return, 중괄호 한 줄일 경우 생략가능 240216
 
     const r2 = multiply(4, 7);
     console.log(`r2: ${r2}`);

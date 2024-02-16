@@ -1,0 +1,240 @@
+/* reset */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  /* a태그 기본 글자 파랑/밑줄 없애기///부모값 색 물려받음 */
+}
+
+/* layout */
+.wrapper {
+  font-size: 18px;
+  background: #1f5f2c;
+  height: 100vh;
+  /* 디바이스에 관계없이 꽉 찬 높이 */
+  position: relative;
+  /* relative 상대적 위치 기준점 */
+}
+
+section.main {
+  width: 40%;
+  background: #f6f6f6;
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* 상자 가운데 공식 */
+
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+section.main .main-title {
+  font-size: 1.7em;
+  font-weight: 700;
+  background: #a2f7fb;
+  text-align: center;
+  padding: 30px 20px;
+  border-bottom: 1px solid #d3d3d3;
+
+}
+
+section.main .number-wrapper {
+  padding: 50px 20px;
+  font-size: 1.3em;
+}
+
+section.main .number-wrapper h2 {
+  font-size: 1.2em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+section.main .number-wrapper h2 em {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #f00;
+
+}
+
+#numbers {
+  width: 70%;
+  height: 400px;
+  overflow: auto;
+  /* 넘치는거 방지 */
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 30px auto 0;
+  padding: 30px 0 30px 50px;
+
+  display: flex;
+  /* 숫자 세로로 배치 */
+  flex-wrap: wrap;
+  /* 자리 없을시 줄 바꾸기 */
+}
+
+#numbers .icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #fff;
+  background: #000;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 텍스트 가운데 배치 */
+  /* text-align: center;
+  line-height: ; */
+
+  margin-right: 5%;
+  margin-bottom: 10px;
+  cursor: pointer;
+  /* 클릭가능 */
+
+}
+
+#numbers .icon:nth-child(4n) {
+  background: orangered;
+}
+
+#numbers .icon:nth-child(4n-1) {
+  background: blue;
+}
+
+#numbers .icon:nth-child(4n-2) {
+  background: greenyellow;
+}
+
+#numbers .icon:nth-child(4n-3) {
+  background: rosybrown;
+}
+
+#numbers .icon:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.result {
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.result div {
+  /* 공통디자인 */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  font-size: 1.7em;
+  font-weight: 700;
+  color: #fff;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+
+}
+
+#up {
+  background: red;
+
+}
+
+#down {
+  background: blue;
+}
+
+/* 사용자가 아이콘 선택 시 UP & DOWN 아이콘 에니메이션 */
+.result div.selected {
+  animation: jumping 0.3s infinite linear alternate;
+}
+
+
+
+
+@keyframes jumping {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+#finish {
+  width: 60%;
+  height: 200px;
+  background: tomato;
+  font-size: 5em;
+  font-weight: 700;
+  border: 2px dashed #000;
+  text-align: center;
+  line-height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% -50%);
+  opacity: 0;
+  z-index: -100;
+  /* 요소들 가장 아래로 숨겨두기 */
+}
+
+
+#finish.show {
+  animation: showUp 1s linear forwards;
+}
+
+@keyframes showUp {
+  0% {
+    opacity: 0;
+    top: -50%;
+  }
+
+  50% {
+    opacity: 0.5;
+    top: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 50%;
+    z-index: 100;
+  }
+}
+
+/* 정답아이콘에 id="move"가 붙으면 아이콘이 커지면서
+움직이는 애니메이션 */
+.icon#move {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  z-index: 10;
+  border: 4px dashed #000;
+  animation: move 1s linear forwards;
+}
+
+@keyframes move {
+  0% {
+    top: 0;
+    transform: translateX(0) rotate(0) scale(1);
+  }
+
+  100% {
+    top: 10%;
+    transform: translateX(-50%) rotate(720deg) scale(2);
+  }
+}

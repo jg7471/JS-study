@@ -9,7 +9,8 @@
 
 <body>
 
-  <!-- submit() - form 내부 입력양식 제출 (action 경로로 전송) @@@-->
+  <!-- submit() - form 내부 입력양식 제출 (action 경로로 전송) 
+  form// -->
   <form action="#" name="regForm">
     아이디: <input type="text" name="id"> <br>
     비밀번호: <input type="password" name="pw"> <br>
@@ -70,7 +71,7 @@
       submit() - form 내부 입력양식 제출 (action 경로로 전송) //함수 
     */
 
-    function check() { //html에 함수?@@@
+    function check() { //html에 함수?
       console.log('check함수 호출');
 
       const $form = document.regForm; //form 태그'만' 바로 지목 가능 //document.regForm; 반복하기 싫어 변수에 담음
@@ -95,7 +96,7 @@
         console.log($form.inter); //체크박스 유사배열 형태로 모든 checkbox를 확인
 
         let flag = false; //깃발 변수 //기본적으로 false 인데 하나라도 찾을 시 깃발을 들어라
-        for (let $ele of [...$form.inter]) { //순수한 배열 전환 : 배열 (...)새로운 기능(ES6), 여러개의 값을 묶어서 배열 가능@@@
+        for (let $ele of [...$form.inter]) { //순수한 배열 전환 : 배열 (...)새로운 기능(ES6), 여러개의 값을 묶어서 배열 가능
           if ($ele.checked /*=== true*/ ) { //4개중 1나만 있어도 끝냄된다
             flag = true; //만약 2개 이상일 시 checked의 개수를 count 증가하여 판단해야함
             break;
@@ -108,7 +109,7 @@
         }
 
         if (confirm('회원가입을 진행합니다')) {
-          $form.submit(); // 제출한다?@@@
+          $form.submit(); // 제출한다?
         } else('회원가입을 취소합니다.');
         return; //최하단이라 return 안적어도 되긴함
 

@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="./assets/styles/app.css"><!--CSS 불러오기-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" /><!--폰트 불러오기-->
-<script src="./assets/scripts/vendor.js" defer></script> <!--자바스크립트 불러오기, 后인출-->
+<script src="./assets/scripts/vendor.js" defer></script> <!--자바스크립트 불러오기, 后인출 or 맨 아래선언-->
 <script src="./assets/scripts/app.js" defer></script>
 </head>
 
@@ -22,7 +22,7 @@
   <!-- section.card*3 -->
   <section class="card" id="calculator">
     <input type="number" id="input-number">
-    <div id="cacl-actions">
+    <div id="calc-actions">
       <!-- 버튼 감싸는-->
       <button type="button" id="btn-add">+</button>
       <button type="button" id="btn-subtract">-</button>
@@ -37,28 +37,12 @@
   </section>
 
   <section class="card" id="logs">
-    <ul class="log-entries">
-
-      <li class="log-entries-item">#1. 0 + 15 = 17</li>
-      <li class="log-entries-item">#1. 1 + 1 = 3</li>
-      <li class="log-entries-item">#1. 1 + 1 = 0</li>
-      <li class="log-entries-item">#1. 1 + 1 = 0</li>
-
-    </ul>
-
+    <ul class="log-entries"></ul>
   </section>
-
-
-
-
-
-
 
 
   <!-- overflow auto 길어질 시-스크롤, float//flex, input -->
 
 
-
 </body>
-
 </html>
