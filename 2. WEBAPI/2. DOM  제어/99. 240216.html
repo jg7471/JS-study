@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li class="apple">apple</li>
+        <li class="banana">banana</li>
+        <li class="grape">grape</li>
+    </ul>
+
+    <div id="test"></div>
+
+    <table id="board">
+        <tr>
+          <td>A</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>D</td>
+        </tr>
+      </table>
+      <div id="greeting">Hello<span>World!</span></div>
+
+    <script>
+        //자식노드 
+        const $fruits = document.getElementById('fruits');
+        const $children = $fruits.children; // 값 전체 불러오기
+        console.log($children);
+        console.log($fruits.firstElementChild);
+        console.log($fruits.lastElementChild);
+        console.log(!!$fruits.children.length); // 강의 재참고
+
+        const $test = document.getElementById('test');
+        console.log($test.hasChildNodes); //자식여부(txt node 주의)
+
+        //부모형제
+        const $banana = document.querySelector('.banana');
+        const $parent = $banana.parentNode; //바나나의 부모 fruits
+        const $div = $banana.parentNode.parentNode;
+        const $prev = $banana.previousElementSibling; //이전형제
+        const $perv = $banana.nextElementSibling; //다음형제
+
+        //textContent
+        const $div1 = document.getElementById('greeting');
+        $div1.textContent = 'HELLO'; // div1 txt 변경
+
+        //innerHTML
+        console.log($fruits.innerHTML); //내부요소 확인
+        $fruits.innerHTML += '<li class="banana">banana</li>' //누적 추가
+        console.log(!!$fruits.children.length); // 자식 있는지 확인
+        //$fruits.innerHTML = ''; //요소 삭제(권장 x)
+
+        //노드 생성 및 추가
+        const $newLi = document.createElement('li');// li요소 취득
+        $newLi.textContent = 'Banana'; //텍스트 삽입
+        $fruits.appendChild($newLi); // fruits에 이어붙이겠다
+
+        //복수 노드 생성
+        const $frag = document.createDocumentFragment(); //가상컨테이너
+        
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
