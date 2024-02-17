@@ -5,7 +5,7 @@
 
 
 //현재 계산기에 그려질 숫자
-let currentResult = 0; //전역변수
+let currentResult = 0; //전역변수 //시작값 0 // 저장값
 
 //계산 이력을 모아 둘 배열
 const logEntries = [];
@@ -23,20 +23,26 @@ const getUserNumberInput = () => parseInt($userInput.value); //계산값50
 const calculate = type => { //매개값 - type //1개일 경우 괄호 생략 가능
 
 
+  //currentResult 0 = originalResult 0 ->
+  //getUserNumberInput 1 = enteredNumber 1 ->
+
   //계산 전 값을 기억
-  const originalResult = currentResult;
-  const enteredNumber = getUserNumberInput(); //계산값50
+  const originalResult = currentResult; //  오리지날 = 커렌트 : 초기값 0
+  console.log(`1번 originalResult : ${originalResult}, currentResult : ${currentResult}`);
+  //                                       0                                  0
+
+  const enteredNumber = getUserNumberInput(); //1
   console.log(enteredNumber);
 
   //if(enteredNumber === NaN){
     if(!enteredNumber && enteredNumber !== 0){ //NaN === NaN false
-    alert('무제발쌩');
+    alert('문제발생');
     return;
   }
 
   let mark;
   if(type === 'ADD') {
-    mark = '+'; //마크
+    mark = '+'; //마크 생김
     currentResult += enteredNumber;
   } else if(type === 'SUB') {
     mark = '-';
@@ -52,27 +58,36 @@ const calculate = type => { //매개값 - type //1개일 경우 괄호 생략 �
     mark = '/';
     currentResult /= enteredNumber;
   }
+  //연산 끝난 뒤 originalResult : 0, currentResult : 3
+  console.log(`2번 : originalResult: ${originalResult}, currentResult : ${currentResult}`);
 
 
-  // 연산식과 결과값을 두번째 section에 렌더링
+  // 연산식과 결과값을 두번째 section에 렌더링   0               +           1   
   $currentCalculationOutput.textContent = `${originalResult} ${mark} ${enteredNumber}`;
   $currentResultOutput.textContent = currentResult;
+  //       result                          = 1
 
   // 로그 이력 쌓기
+  //            +       0                1             1
   writeToLog(mark, originalResult, enteredNumber, currentResult);  //매개값()
-}
+  //console.log(`3번 : originalResult : ${originalResult}, currentResult : ${currentResult}, enteredNumber : ${enteredNumber}`);
+}//                                         0                                    3                                3
+
 
 //로그 이력을 만드는 함수 : 위 로그 이력 쌓기와 이름 달라도 되는데 순서는 동일하게
-const writeToLog = (operation, prevResult, number, result) => {
+const writeToLog = (mark, originalResult, enteredNumber, currentResult) => {
+  //                   +           0         1       = 1
+  
+
     //하나의 로그 객체 (연산타입, 이전결과, 연산숫자, 연산결과)
-    const logObject = {
-      operation, //이름 동일해서 : 필요없음
-      prevResult,
-      number,
-      result
+    const logObject = { //배열을 만든 뒤 초기 배열에 집어 넣음
+      mark, //이름 동일해서 : 필요없음
+      originalResult,
+      enteredNumber,
+      currentResult
     };
-    logEntries.push(logObject);
-    console.log(logEntries);
+    logEntries.push(logObject); // 첫 배열에 집어 넣음
+    console.log(logEntries); //배열값 출력
 
   // 화면에 로그를 li로 렌더링하는 함수 호출
   renderToLog(logObject);
@@ -84,18 +99,18 @@ const writeToLog = (operation, prevResult, number, result) => {
 //로그 이력을 화면에 렌더링하는 함수
 //매개변수로 객체가 전달된다면 매개변수 위치에서 디스트럭쳐링이 가능 //매게0
   //const renderToLog = (obj) => {
-  const renderToLog = ({operation: mark, prevResult, number, result}) => {  //객체를 받자마자 디스트럭쳐링 하겠다 //매게1 //풀어낼 때는 이름 바꿔서 설정함 operation->mark
-
+  const renderToLog = ({mark, originalResult, enteredNumber, currentResult}) => {  //객체를 받자마자 디스트럭쳐링 하겠다 //매게1 //풀어낼 때는 이름 바꿔서 설정함 operation->mark
+//                                   +      0          1       = 1
   //li태그 생성
   const $newLi = document.createElement('li');
-  $newLi.classList.add('log-entries-item');
+  $newLi.classList.add('log-entries-item'); 
+  console.log(`newLi 출력값 ${$newLi}`);
 
   //$newLi.textContent = `#${++seq}. ${obj.prevResult} ${obj.type} ${obj.enteredNumber} = ${obj.currentResult}`; //출력할 때 올려라, 함수 진행될 때 마다
-  $newLi.textContent = `#${++seq}. ${prevResult} ${mark} ${number} = ${result}`; //출력할 때 올려라, 함수 진행될 때 마다 //매게2 //seq 전역변수
+  $newLi.textContent = `#${++seq}. ${originalResult} ${mark} ${enteredNumber} = ${currentResult}`; //출력할 때 올려라, 함수 진행될 때 마다 //매게2 //seq 전역변수
 
   //ul에 추가
   $logEntries.appendChild($newLi);
-
 };
 
 

@@ -13,11 +13,12 @@ html{
 
 body{
   margin: 0;
+  
 }
 
 header{
-  background: #023d6d;
-  color: #fff;
+  background: black;
+  color: gold;
   padding: 1rem;
   /* rem : html 폰트사이즈, 기본 16px*3 */
   text-align: center;
@@ -31,11 +32,11 @@ header{
   width: 40rem;
   max-width: 90%;
   /* 최대 가로길이 제한 */
-  border: 1px solid #023d6d;
+  border: 1px solid black;
   border-radius: 10px;
   /* 모서리 깍기 */
   padding: 1rem;
-  color: #023d6d;
+  color: red;`
 }
 
 #calculator input{
@@ -43,13 +44,13 @@ header{
 font: inherit;
 /* 물려 받음 부모 */
 font-size: 3rem;
-border: 2px solid #023d6d;
+border: 2px solid darkred;
 width: 10rem;
 display: block;
 /* 인라인은 마진 안먹음-> display block */
 margin: auto;
 padding: 0.15rem;
-color: #023d6d;
+color: goldenrod;
 text-align: center;
 }
 
@@ -60,9 +61,9 @@ text-align: center;
 
 #calculator button{
   font: inherit;
-  background: #023d6d;
+  background: greenyellow;
   color: #fff;
-  border: 1px solid #023d6d;
+  border: 1px solid black;
   padding: 1rem;
   cursor: pointer;
   /* 누르는 것이다 */
@@ -74,11 +75,10 @@ text-align: center;
   outline: none;
 }
 
-#calculator button:hover
-
+#calculator button:hover,
 #calculator button:active{
-  background: #084f88;
-  border-color: #084f88;
+  background: black;
+  border-color: yellow;
 }
 
 #calc-actions button{
