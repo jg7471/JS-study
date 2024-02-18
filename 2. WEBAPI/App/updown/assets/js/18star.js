@@ -1,35 +1,58 @@
-
+import gameDate from "./gameData.js";
+import {
+  caseUp,
+  caseDown,
+  correctAnswer
+} from "./checkAnswer.js";
 import gameData from "./gameData.js";
-import { caseUp, caseDown, correctAnswer } from "./checkAnswer.js"
 
-export default function gameStart(){
+export default function gameStart() {
 
-  const $numbers = document.getElementById('number');
+  const $numbers = document.getElementById(numbers);
 
   const makeIcon = () => {
 
     const $frag = document.createDocumentFragment();
 
-    for(let n=1; n<=100; n++){
+    for (let n = 1; n <= 100; n++) {
       const $icon = document.createElement('div');
-      $icon.classList.add('icon');
       $icon.textContent = n;
-      $icon.dataset.iconNumber = n;
-
+      $icon.dataset.iconNumbers = n;
       $frag.appendChild($icon);
     }
     $numbers.appendChild($frag);
 
   }
 
+  makeIcon();
+
+  $numbers.onclick = e => {
+    if(!e.target.matches('$numbers .icon') return;
+
+    gameData.answer = +e.target.dataset.iconNumbers;
+
+    checkNumber(e.target)
+
+  };
+
+
+  
+
 }
 
-makeIcon();
-$numbers.onclick = e =>{
+function checkNumber($target){
 
-  if(!e.target.matches('#number .icon')) return;
+  const {secret, answer} = ganmeData;
 
-  gameData.answer = +e.target.dataset.icon
+  if(secret === answer){
+    correctAnswer($target);
+  }else if(secret > answer){
+    caseUp($target);
+  }
 
 
 }
+
+
+
+

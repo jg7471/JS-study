@@ -31,8 +31,8 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
       // <div class = 'icon'>1</div>
       const $icon = document.createElement('div');
       $icon.classList.add('icon'); // 속성 부여
-      $icon.textContent = n;
-      $icon.dataset.iconNumber = n; //data : icon-number = 1 js=HTML 양식 다름 카멜/케밥
+      $icon.textContent = n; // '' 없음
+      $icon.dataset.iconNumber = n; //@@@ data : icon-number = 1 js=HTML 양식 다름 카멜/케밥
       //HTML에 data-icon-number="n" 속성으로 추가
 
 
@@ -44,12 +44,15 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
 
   }
 
-  makeIcon();//함수 실행
+  makeIcon();//함수 실행 100개의 icon 생성됨
+
+  //아이콘에 클릭 이벤트 생성
+  //부모->자식 전파
   $numbers.onclick = e => {
 
     //아이콘이 아닌 곳을 클릭하면 이벤트가 발생하지 않도록
     if(!e.target.matches('#numbers .icon')) return; //#numbers.icon 이렇게 해서 오류뜸...ㅡㅡ //한줄이라 {} 생략
-  
+    //@@@ .icon 가상컨테이너라 HTML에 미기재? 그런데 왜 .은 있는지?
 
     console.log(`사용자가 클릭한 아이콘 번호 : ${e.target.dataset.iconNumber}번`); //생략하셈
     //dataset 사용

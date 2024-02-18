@@ -1,6 +1,6 @@
 
 // ex1)정답 40, 사용자 선택 35, begin 36
-function caseUp($icon) { // UP일 경우 나 icon
+function caseUp($icon)/*=$target*/ {  // UP일 경우 나 icon
 
   // 1. #begin인 em의 숫자값을 선택한 값 +1로 변경        ex1) begin 35+1 : 36
   document.getElementById('begin').textContent = +$icon.dataset.iconNumber + 1; //사용자가 선택한 값보다 +1 받음
