@@ -1,6 +1,7 @@
 // 요소취득
 // 프로그램에서 전역적으로 사용할 변수, 함수를 정의
 const $userInput = document.getElementById('input-number');
+
 const $addBtn = document.getElementById('btn-add');
 const $subtractBtn = document.getElementById('btn-subtract');
 const $multiplyBtn = document.getElementById('btn-multiply');

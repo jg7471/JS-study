@@ -13,6 +13,11 @@ const gameData = { // 외부 반출 방법1 //export const gameData
 //외부로 반출할 필요X
 function makeRandomNumber(range){
   return Math.floor(Math.random() * range) + 1;
+  /*
+  Math.ceil 은 소수값이 존재할 때 값을 올리는 역활을 하는 함수이며,
+  Math.floor 는 소수값이 존재할 때 소수값을 버리는 역활을 하는 함수이며,
+  Math.round 는 소수값에 따라 올리거나 버리는 역활을 하는 반올림 함수입니다.
+  */
 }
 
 //내보낼 데이터가 하나 

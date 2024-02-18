@@ -1,6 +1,6 @@
-import gameData from "./gameData.js";
+import gameData from "./gameData.js"; //함수만 호출
 //gameData 호출
-import { caseUp, caseDown, correctAnswer } from "./checkAnswer.js"; //caseUp : 이름 변경 가능
+import { caseUp, caseDown, correctAnswer } from "./checkAnswer.js"; //여러 함수를 디스트럭쳐링로 불러오기 //caseUp : 이름 변경 가능
 
 //게임이 시작되면 해야할 이름을 정의하는 함수
 export default function gameStart() { // default 없을 시 {gameStart} , default : 바로 불러오기, 없을시 디스트럭쳐링으로 불러오는 것 {1, 2, 3}
@@ -30,9 +30,12 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
     for(let n=1; n<=100; n++) {
       // <div class = 'icon'>1</div>
       const $icon = document.createElement('div');
-      $icon.classList.add('icon');
+      $icon.classList.add('icon'); // 속성 부여
       $icon.textContent = n;
-      $icon.dataset.iconNumber = n; //data : icon-number = 1 js=HTML 양식 다름 케밥/카멜
+      $icon.dataset.iconNumber = n; //data : icon-number = 1 js=HTML 양식 다름 카멜/케밥
+      //HTML에 data-icon-number="n" 속성으로 추가
+
+
 
       $frag.appendChild($icon); //가상돔 content 집어 넣기
 
@@ -41,21 +44,22 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
 
   }
 
-  makeIcon();
+  makeIcon();//함수 실행
   $numbers.onclick = e => {
 
     //아이콘이 아닌 곳을 클릭하면 이벤트가 발생하지 않도록
-    if(!e.target.matches('#numbers.icon')) return;
+    if(!e.target.matches('#numbers .icon')) return; //#numbers.icon 이렇게 해서 오류뜸...ㅡㅡ //한줄이라 {} 생략
+  
 
-    //console.log(`사용자가 클릭한 아이콘 번호 : ${e.target.dataset.iconNumber}번`);
+    console.log(`사용자가 클릭한 아이콘 번호 : ${e.target.dataset.iconNumber}번`); //생략하셈
     //dataset 사용
 
     //사용자가 클릭한 아이콘의 숫자를 answer에 저장(大小비교를 위해 정수로 변환)
     gameData.answer = +e.target.dataset.iconNumber;    //+ 잊지 말기 정수
-    console.log(gameData.secret);
+    console.log(gameData.secret); //정답 출력
 
     //정답 검증 함수 -> 이벤트가 발생한 아이콘 요소를 넘기자
-    checkNumber(e.target);
+    checkNumber(e.target); //이벤트 함수 클릭이 되어야 실행됨
 
 
 
@@ -68,7 +72,7 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
 //정답을 검증하는 함수
 function checkNumber($target) {
   //gameData에서 정답과 사용자의 입력값 얻어오기
-  const {secret, answer} = gameData;  //gameData 객체 디스트럭쳐링에서 에서 secret, answer만 가져오기
+  const {secret, answer} = gameData;  //gameData.js 객체 디스트럭쳐링에서 에서 secret, answer만 가져오기
 
   //실제 정답과 사용자 선택값을 비교
   if (secret === answer) { // 정답인 경우

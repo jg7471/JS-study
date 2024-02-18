@@ -8,7 +8,7 @@
 let currentResult = 0; //전역변수 //시작값 0 // 저장값
 
 //계산 이력을 모아 둘 배열
-const logEntries = [];
+const logEntries = []; // $logEntries 랑 다름
 
 let seq = 0; // 로그 번호
 
@@ -16,6 +16,7 @@ let seq = 0; // 로그 번호
 
 //입력창에 입력한 숫자를 읽는 함수.
 const getUserNumberInput = () => parseInt($userInput.value); //계산값50
+//userInput란에  
 
 
 
@@ -31,7 +32,7 @@ const calculate = type => { //매개값 - type //1개일 경우 괄호 생략 �
   console.log(`1번 originalResult : ${originalResult}, currentResult : ${currentResult}`);
   //                                       0                                  0
 
-  const enteredNumber = getUserNumberInput(); //1
+  const enteredNumber = getUserNumberInput(); //1 //계산식을 함수값 불러오기
   console.log(enteredNumber);
 
   //if(enteredNumber === NaN){
@@ -41,7 +42,7 @@ const calculate = type => { //매개값 - type //1개일 경우 괄호 생략 �
   }
 
   let mark;
-  if(type === 'ADD') {
+  if(type === 'ADD') { // ADD 값을 type 에 담음으로써 addHandler 여러값 동시 호출
     mark = '+'; //마크 생김
     currentResult += enteredNumber;
   } else if(type === 'SUB') {
@@ -87,7 +88,7 @@ const writeToLog = (mark, originalResult, enteredNumber, currentResult) => {
       currentResult
     };
     logEntries.push(logObject); // 첫 배열에 집어 넣음
-    console.log(logEntries); //배열값 출력
+    //console.log(`로그오브젝트 ${logObject}`); // 로그기록 배열으로 출력
 
   // 화면에 로그를 li로 렌더링하는 함수 호출
   renderToLog(logObject);
@@ -99,22 +100,24 @@ const writeToLog = (mark, originalResult, enteredNumber, currentResult) => {
 //로그 이력을 화면에 렌더링하는 함수
 //매개변수로 객체가 전달된다면 매개변수 위치에서 디스트럭쳐링이 가능 //매게0
   //const renderToLog = (obj) => {
-  const renderToLog = ({mark, originalResult, enteredNumber, currentResult}) => {  //객체를 받자마자 디스트럭쳐링 하겠다 //매게1 //풀어낼 때는 이름 바꿔서 설정함 operation->mark
+  const renderToLog = ({mark, originalResult, enteredNumber, currentResult}) => {
+    //객체를 받자마자 디스트럭쳐링 하겠다 //매게1 //풀어낼 때는 이름 바꿔서 설정함 operation->mark
 //                                   +      0          1       = 1
+
   //li태그 생성
   const $newLi = document.createElement('li');
   $newLi.classList.add('log-entries-item'); 
-  console.log(`newLi 출력값 ${$newLi}`);
 
   //$newLi.textContent = `#${++seq}. ${obj.prevResult} ${obj.type} ${obj.enteredNumber} = ${obj.currentResult}`; //출력할 때 올려라, 함수 진행될 때 마다
   $newLi.textContent = `#${++seq}. ${originalResult} ${mark} ${enteredNumber} = ${currentResult}`; //출력할 때 올려라, 함수 진행될 때 마다 //매게2 //seq 전역변수
+  //console.log(`newLi 출력값 ${$newLi}`);
 
   //ul에 추가
   $logEntries.appendChild($newLi);
 };
 
 
-const addHandler = () => {
+const addHandler = () => { //계산을 calculate에 몰아주기 위해 선언
   calculate('ADD'); //ctrl 누르고 함수 누르면 선언부로 이동가능
   //console.log('덧셈 연산 발생'); 잘 등록되어 있는지 테스트용
 
@@ -130,7 +133,7 @@ const subHandler = () => {
   calculate('SUB'); //const calculate = (type) =>{
   //console.log('뺄셈 연산 발생');
 }
-const multiHandler = () => calculate('MULTI') //한줄 표기 가능
+const multiHandler = () => calculate('MULTI') //한줄 표기 가능 // ; No
 //console.log('곱셈 연산 발생');
 
 const divideHandler = () => calculate('DIVIDE')
