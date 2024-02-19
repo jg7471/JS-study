@@ -12,11 +12,11 @@ function caseUp($icon){
 
         const $nextTarget = $delTarget.previousElmentSibling;
         $numbers.removeChild($delTarget);
-        $delTarget = $nextTarget;
+        $delTarget = $nextTarget;//1
     }
 
 
-}
+} 
 
 
 function caseUp($icon){
