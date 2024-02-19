@@ -27,6 +27,7 @@ function caseUp($icon)/*=$target*/ {  // UP일 경우 나 icon
 
 
 
+  // 삭제해야 할 숫자가 더 있는지 체크하는 부분
   // 이전 형제요소 삭제 대상
   //  사용자35       35 : down 일경우 예시
     while($delTarget) { // delTarget이 null이 되면 반복문 종료(디자인 요소)

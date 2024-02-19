@@ -31,7 +31,7 @@ const todos = [{
 //화면에 표현할 li.todo-list-item 노드를 생성하는 함수 정의
 function makeNewTodoNode(newTodo) { //함수 선언 $붙이는거 차이@@ -> 관례적으로 노드 변수는 이름 앞에 $
   const $li = document.createElement('li');//요소 노드 생성
-  const $label = document.createElement('label');
+  const $label = document.createElement('label'); // 체크박스 대장
   const $check = document.createElement('input'); //input 기본적으로 text임 //체크 V박스
   const $span = document.createElement('span'); //할 일 리스트 텍스트
   const $divMod = document.createElement('div'); //modify
