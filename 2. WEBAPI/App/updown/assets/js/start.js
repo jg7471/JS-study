@@ -32,8 +32,9 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
       const $icon = document.createElement('div');
       $icon.classList.add('icon'); // 속성 부여
       $icon.textContent = n; // '' 없음
-      $icon.dataset.iconNumber = n; //@@@ data : icon-number = 1 js=HTML 양식 다름 카멜/케밥
+      $icon.dataset.iconNumber = n; // data : icon-number = 1 js=HTML 양식 다름 카멜/케밥
       //HTML에 data-icon-number="n" 속성으로 추가
+      //@@@ iconNumber 이유
 
 
 
@@ -52,7 +53,7 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
 
     //아이콘이 아닌 곳을 클릭하면 이벤트가 발생하지 않도록
     if(!e.target.matches('#numbers .icon')) return; //#numbers.icon 이렇게 해서 오류뜸...ㅡㅡ //한줄이라 {} 생략
-    //@@@ .icon 가상컨테이너라 HTML에 미기재? 그런데 왜 .은 있는지?
+    // @@@ .icon 가상컨테이너라 HTML에 미기재? 그런데 왜 .은 있는지?
 
     console.log(`사용자가 클릭한 아이콘 번호 : ${e.target.dataset.iconNumber}번`); //생략하셈
     //dataset 사용

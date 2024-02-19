@@ -25,12 +25,15 @@ function caseUp($icon)/*=$target*/ {  // UP일 경우 나 icon
     // 삭제되는 요소가 1번 아이콘인 경우에는 이전 요소가 없기 때문에 $delTarget이 null이 됩니다
     // $delTarget이 null이 되는 순간 반복문을 종료시키겠다는 조건식을 작성.
 
+
+
+  // 이전 형제요소 삭제 대상
   //  사용자35       35 : down 일경우 예시
     while($delTarget) { // delTarget이 null이 되면 반복문 종료(디자인 요소)
 
     //  ex2)             1의 이전 요소 : null(0) 없다 -> delTarget : 0(null)
     //       34          내 이전요소 미리 지정
-    const $nextTarget = $delTarget.previousElementSibling; //지워야할 다음 타켓 -> 지금 지워야할, 이전 형제요소    //이전형제 //; 빼먹음 //이전 형제요소 @@@
+    const $nextTarget = $delTarget.previousElementSibling; //지워야할 다음 타켓 -> 지금 지워야할, 이전 형제요소    //이전형제 //; 빼먹음 //이전 형제요소
     $numbers.removeChild($delTarget); //내가 지워지기 전에, 다음 요소 지목하고 삭제
     //                   35삭제
     // ex2)                   1 삭제 
@@ -79,14 +82,18 @@ function caseDown($icon) {
 function correctAnswer($icon) {
 
   // 1. #finish 박스에 class 'show' 부여
-  document.getElementById('finish').classList.add('#finish.show');
+  //document.getElementById('finish').classList.add('#finish.show');
+  const $finish = document.getElementById('finish');
+  $finish.classList.add('show');
+  
   
   // 2. #numbers 클릭 이벤트 해제
-  $numbers.onclick = null;
+  //$numbers.onclick = null;
+  document.getElementById('numbers').onclick.null;
 
   // 3. 사용자가 선택한 아이콘에 id 'move' 추가
-  $icon.classList.add('move');
-  
+  //$icon.classList.add('move');
+  $icon.setAttribute('id', 'move');
 
 
 }
