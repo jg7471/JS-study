@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+class Student {
+
+constructor(name, teamHistory) {
+    this.name = name;
+    this.teamHistory = teamHistory;
+}
+}
+
+
+function start() {
+
+// 이름 배열
+const nameList = [
+    new Student('박성주', [1]),
+    new Student('구다솜', [1]),
+    new Student('박미랑', [1]),
+    new Student('김민혁', [2]),
+    new Student('문상훈', [2]),
+    new Student('서준혁', [2]),
+    new Student('원진섭', [3]),
+    new Student('서정원', [3]),
+    new Student('서정화', [3]),
+    new Student('원승재', [4]),
+    new Student('김택진', [4]),
+    new Student('전민정', [5]),
+    new Student('염승빈', [5]),
+    new Student('김태훈', [6]),
+    new Student('이영섭', [6]),
+    new Student('성민아', [7]),
+    new Student('이가연', [7]),
+    new Student('유사범', [7]),
+    new Student('이종구', [8]),
+    new Student('권보현', [8]),
+    new Student('서강현', [8]),
+    new Student('최민혁', [9]),
+    new Student('최건우', [9]),
+    new Student('강예빈', [9]),
+    new Student('윤낙원', [10]),
+    new Student('장재혁', [10]),
+    new Student('김상진', [10]),
+];
+
+let teamNo = 1;
+
+// 팀원 정보 배열
+const teams = [];
+
+// 팀원 수 배열
+const teamNumbers = [3,3,3,3,3,3,3,3,3];
+
+// 하나의 팀정보
+const teamList = [];
+
+let checkCount = 0;
+
+const checkHistory = (select) => {
+
+    // 이전 히스토리와 겹치는 팀원이 있으면 스킵
+    for (const person of teamList) {
+        if (person === select) continue;
+
+        for (let i = 0; i < person.teamHistory.length; i++) {
+            if (person.teamHistory[i] === select.teamHistory[i]) {
+                checkCount++;
+                return false;
+            }
+        }
+    }
+    console.log(`${select.name}체크중: ${checkCount}회`);
+    
+    return true;
+};
+
+// 팀원 랜덤 생성 함수
+const makeTeam = numOfPerson => {
+
+    while (teamList.length < numOfPerson) {
+        const randomIndex = Math.floor(Math.random() * nameList.length);
+        const select = nameList[randomIndex];
+
+        if (checkHistory(select) || checkCount > 100) {
+            checkCount = 0;
+            teamList.push(select);
+            nameList.splice(randomIndex, 1);
+        }
+    }
+
+    teams.push({
+        teamNo: teamNo++,
+        teamList: teamList.map(t => t.name)
+    });
+
+    teamList.splice(0);
+
+};
+
+// 팀원 정보 출력함수
+const printTeamInfo = () => {
+
+    teams.forEach(({
+        teamNo,
+        teamList
+    }) => {
+        console.log(`${teamNo}조 : [${teamList}]`);
+    });
+};
+
+teamNumbers.forEach(n => {
+    makeTeam(n);
+});
+
+printTeamInfo();
+
+}
+
+
+
+
+
+//============[ execute ]=============//
+(() => {
+start();
+})();
+
+  </script>
+  
+</body>
+</html>

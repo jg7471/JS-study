@@ -89,7 +89,7 @@ function correctAnswer($icon) {
   
   // 2. #numbers 클릭 이벤트 해제
   //$numbers.onclick = null;
-  document.getElementById('numbers').onclick.null;
+  document.getElementById('numbers').onclick = null; //=을 .찍음
 
   // 3. 사용자가 선택한 아이콘에 id 'move' 추가
   //$icon.classList.add('move');

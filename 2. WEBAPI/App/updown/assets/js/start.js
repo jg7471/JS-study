@@ -34,7 +34,7 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
       $icon.textContent = n; // '' 없음
       $icon.dataset.iconNumber = n; // data : icon-number = 1 js=HTML 양식 다름 카멜/케밥
       //HTML에 data-icon-number="n" 속성으로 추가
-      //@@@ iconNumber 이유
+      //@@ iconNumber 이유 -> dataset은 공통적인 id-숫자 같은거 관리하기 편함(없어도 그만이긴 함)
 
 
 
@@ -53,7 +53,8 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
 
     //아이콘이 아닌 곳을 클릭하면 이벤트가 발생하지 않도록
     if(!e.target.matches('#numbers .icon')) return; //#numbers.icon 이렇게 해서 오류뜸...ㅡㅡ //한줄이라 {} 생략
-    // @@@ .icon 가상컨테이너라 HTML에 미기재? 그런데 왜 .은 있는지?
+    // @@ .icon 가상컨테이너라 HTML에 미기재?-> 함수 내에서 생성된 icon(html에는 없는 요소)
+    // @@그런데 왜 .은 있는지? -> 가상컨테이너랑 상관없음, .은 class라서
 
     console.log(`사용자가 클릭한 아이콘 번호 : ${e.target.dataset.iconNumber}번`); //생략하셈
     //dataset 사용

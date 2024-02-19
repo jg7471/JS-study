@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
 
-  <button class = "stop">스탑!</button>
+  <button class="stop">스탑!</button>
 
   <script>
     //setInterval은 일정시간마다 함수를 반복 실행합니다.
     //매개변수로 (실행 함수, 인터벌 시간(밀리초))이 들어갑니다.
-    
+
     const func = setInterval(() => { //1초 마다 하이하이 반복 출력 //window.setInterval 이게 원형인데 window 생략(최상단이라)
       console.log('하이하이');
     }, 1000); //1초
 
     //clearInterval(인터벌함수)는 Interval을 중지함
     document.querySelector('.stop').onclick = () => { //클릭 발생시 함수
-      clearInterval(func);//함수 받기
+      clearInterval(func); //함수 받기
     }
-
-
   </script>
-  
+
 </body>
+
 </html>
