@@ -194,7 +194,7 @@ function insertTodoData() { //매개값x
 //data-id 값으로 배열을 탐색하여 이리하는 객체가 들어있는 인덱스 반환
 function findIndexByDataId(dataId) {
   for (let i = 0; i < todos.length; i++) {
-    if (dataId === todos[i].id) {
+    if (dataId === todos[i].id) { //@@@
       return i;
     }
   }
@@ -202,7 +202,7 @@ function findIndexByDataId(dataId) {
 
 //할 일 완료 처리 수행할 함수 정의
 function changeCheckState($label) { //paranet 노드 정의했기 때문에 //이벤트가 발생한 그곳에 부모
-  //@@@ label 항상?
+  //@@@ 이해x
 
   /*
   할 일 완료된 노드의 클래스 이름을 추가(디자인 주려고)
@@ -210,7 +210,7 @@ function changeCheckState($label) { //paranet 노드 정의했기 때문에 //�
   -> 클래스 이름을 뗏다 붙였다 할 수 있어야 함.
   */
 
-  $label.lastElementChild.classList.toggle('checked');
+  $label.lastElementChild.classList.toggle('checked'); // @@마지막 추가되었다는 checked?
   //add는 추가만 하면 끝
 
   /* 내가 작성
@@ -251,7 +251,7 @@ function changeCheckState($label) { //paranet 노드 정의했기 때문에 //�
 function removeTodoData($delTarget) {
 
   // 애니메이션 적용을 위해 클래스 이름을 추가(delMoving)
-  $delTarget.classList.add('delMoving'); //정답
+  $delTarget.classList.add('delMoving'); //정답  속성
 
   // ul 안에 있는 li를 removeChild를 제거하기 전에 애니메이션 발동 및
   // 배열 내부 객체 삭제가 진행될 수 있도록 시간을 일부러 지연.
@@ -277,7 +277,7 @@ function removeTodoData($delTarget) {
   // 삭제되는 객체가 배열 안에 몇번째 인지를 확인
   //-> 할 일 완료 처리 함수쪽에 비슷한 로직이 있음 -> 함수화 해야함
   const index = findIndexByDataId(+$delTarget.dataset.id); //함수 호출 (삭제할 대상), index는 숫자라 + 붙임
-  todos.splice(index, 1); //index에서 1개만 지우기
+  todos.splice(index, 1); //index에서 1개만 지우기 //todos 게시물 양식 객체
 
   console.log(todos);
 
@@ -330,7 +330,7 @@ function enterModifyMode($modSpan) {
   const $label = $modSpan.parentNode.previousElementSibling; //@@@위치 어디에요?  //$modSpan lnr-undo
   const $textSpan = $label.lastElementChild; //<span class="text">할 일 1</span>
 
-  const $modInput = document.createElement('input');
+  const $modInput = document.createElement('input'); //V 체크박스
   //$modInput.setAttribute('type', 'text'); //안써도 input은 type이 text임 //이외는 세팅 해야함: 체크박스, 라디오, 넘버 등
   $modInput.classList.add('modify-input');
   $modInput.setAttribute('value', $textSpan.textContent); //@@@ 기존 할 일 text를 input에 미리 세팅 : value값
