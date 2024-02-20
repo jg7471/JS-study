@@ -1,16 +1,17 @@
+
+
 //일정 데이터가 들어 있는 배열 선언
 const todos = [{
     id: 1,
     text: '할 일1',
-    done: false //checkbox를 클릭해서 할 일을 마쳤는지의 여부 //체크박스에서 done: true/false여부 확인
-
+    done: false //checkbox를 클릭해서 할 일을 마쳤는지의 여부 //체크박스에서 done: true/false으로 판단
 
 
   }, //객체
   {
     id: 2,
     text: '할 일2',
-    done: false
+    done: false //아직 체크 안한거
 
 
 
@@ -19,7 +20,6 @@ const todos = [{
     id: 3,
     text: '할 일3',
     done: false
-
 
 
   }, //객체
@@ -53,12 +53,12 @@ function makeNewTodoNode(newTodo) { //함수 선언 $붙이는거 차이@@ -> �
 
   //수정 div 태그 작업
   $divMod.classList.add('modify'); // 수정모드
-  const $modIcon = document.createElement('span'); //@@@
+  const $modIcon = document.createElement('span'); //@@@ 수정값
 
   //클래스 이름을 두 개 이상 add할 때는 각각 지정해야함
   //한번에 공백 포함 두 개 이상 설정하면 에러
   //$modIcon.classList.add('lnr lnr-undo'); //오류
-  $modIcon.classList.add('lnr', 'lnr-undo'); //각각 지목(add쓰는게 편함 className 보다)
+  $modIcon.classList.add('lnr', 'lnr-undo'); //각각 지목(add쓰는게 편함 className 보다) //@@@수정완료후 속성
   //lnr-undo 수정 완료-html
   $divMod.appendChild($modIcon);//자식요소로 추가됨
 
@@ -123,7 +123,7 @@ function makeNewId() { //매개값x
 function insertTodoData() { //매개값x
 
   //사용자가 작성할 할 일 input 요소 얻기
-  const $todoText = document.getElementById('todo-text'); //input 할 일을 입력하세요
+  const $todoText = document.getElementById('todo-text'); //input 할 일을 입력하세요 항목
 
   // 1.1 입력값이 없다면 추가처리 하지 않음(이벤트 끝냄)
   // 1.2 공백이 들어갈 가능성이 있기에 공백을 제거하고 비교  
@@ -156,10 +156,10 @@ function insertTodoData() { //매개값x
 
 
   // 2.1 todos 배열에 객체를 생성한 후 추가(id 추가 순서대로 잘 진행하세요)
-  const newTodo = { //@@@
+  const newTodo = {
     id: makeNewId(), //고정값 아님 //함수 호출
     text: $todoText.value,
-    done: false ///@@@
+    done: false ///@@@ 어떤 요소?
   };
   todos.push(newTodo);
   //console.log(todos); //확인하기
@@ -191,7 +191,7 @@ function insertTodoData() { //매개값x
 
 
 
-//data-id 값으로 배열을 탐색하여 이리하는 객체가 들어있는 인덱스 반환
+//data-id 값으로 배열을 탐색하여 일치하는 객체가 들어있는 인덱스 반환
 function findIndexByDataId(dataId) {
   for (let i = 0; i < todos.length; i++) {
     if (dataId === todos[i].id) { //@@@
@@ -202,7 +202,7 @@ function findIndexByDataId(dataId) {
 
 //할 일 완료 처리 수행할 함수 정의
 function changeCheckState($label) { //paranet 노드 정의했기 때문에 //이벤트가 발생한 그곳에 부모
-  //@@@ 이해x
+  
 
   /*
   할 일 완료된 노드의 클래스 이름을 추가(디자인 주려고)
@@ -242,7 +242,7 @@ function changeCheckState($label) { //paranet 노드 정의했기 때문에 //�
   //   }
   // }
   const index = findIndexByDataId(dataId);
-  todos[index].done = !todos[index].done;
+  todos[index].done = !todos[index].done; //@@@ 
   console.log(todos);
 
 }
@@ -310,7 +310,7 @@ function enterModifyMode($modSpan) {
   // $modSpan.classList.remove('lnr-undo');
   // $modSpan.classList.add(lnr-checkmark-circle);
 
-  $modSpan.classList.replace('lnr-undo', 'lnr-checkmark-circle'); //수정 모드
+  $modSpan.classList.replace('lnr-undo', 'lnr-checkmark-circle'); //수정 모드 //여기서 기존에 없던 속성 checkmark 설정한거? @@@
 
   /*내가 작성
   const $modSpan = document.querySelector('modify');
@@ -368,7 +368,7 @@ function modifyTodoData($modCompleteSpan) {
   */
 
   // 배열 내의 id가 일치하는 객체를 찾아서 text 프로퍼티 값을 수정된 값으로 변경해야 함(f12 참고).
-  const idx = findIndexByDataId(+$label.parentNode.dataset.id); //작성 했었음 //ID 받음 //+뺴먹음 @@@
+  const idx = findIndexByDataId(+$label.parentNode.dataset.id); //작성 했었음 //ID 받음 //+붙이기(정수값) @@@
   todos[idx].text = $textSpan.textContent; //= $modeInput.value
 
   console.log(todos);
@@ -386,9 +386,10 @@ function modifyTodoData($modCompleteSpan) {
   $addBtn.addEventListener('click', e => {
 
     //form태그 안의 button은 type을 명시하지 않으면 자동 submit이 동작합니다.
-    e.preventDefault(); //버튼의 고유기능(submit)을 중지 //e.preventDefault() 챗gpt
+    //방법 1 <button type="button">
+    e.preventDefault(); //방법 2 버튼의 고유기능(submit)을 중지
 
-    insertTodoData();
+    insertTodoData(); //할 일 추가하는 함수 '호출'
 
   });
 
@@ -399,7 +400,7 @@ function modifyTodoData($modCompleteSpan) {
 
 
   //할 일 완료(체크박스) 이벤트
-  const $todoList = document.querySelector('ul.todo-list');
+  const $todoList = document.querySelector('ul.todo-list'); // @@@ css 속성 # . 붙이고 HTML은 # . 안붙이는거?
 
   $todoList.addEventListener('click', e => {
     if (!e.target.matches('input[type=checkbox')) { //속성선택자
@@ -419,7 +420,7 @@ function modifyTodoData($modCompleteSpan) {
 
   //할 일 삭제 이벤트
   $todoList.addEventListener('click', e => {
-    if (!e.target.matches('.todo-list .remove span')) {
+    if (!e.target.matches('.todo-list .remove span')) { //@@@ id 모르니까 todo-list-item 생략?
 
       return;
     }
@@ -441,7 +442,7 @@ function modifyTodoData($modCompleteSpan) {
   $todoList.addEventListener('click', e => { //누군지 확인하기 위해 e값 받음
     if (e.target.matches('.todo-list .modify span.lnr-undo')) {//수정 모드 完
       enterModifyMode(e.target); //수정 모드 진입 //함수 위에 선언
-    } else if (e.target.matches('.todo-list .modify span.lnr-checkmark-circle')) {
+    } else if (e.target.matches('.todo-list .modify span.lnr-checkmark-circle')) { // checkmark 수정中모드
       modifyTodoData(e.target); //수정모드에서 수정을 확정 지으려는 이벤트
     } else {
       return;
