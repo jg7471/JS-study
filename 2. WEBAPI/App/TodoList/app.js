@@ -30,10 +30,8 @@ const todos = [{
 
 //화면에 표현할 li.todo-list-item 노드를 생성하는 함수 정의
 function makeNewTodoNode(newTodo) { //함수 선언 $붙이는거 차이@@ -> 관례적으로 노드 변수는 이름 앞에 $
-  const $li = document.createElement('li');//요소 노드 생성
+  const $li = document.createElement('li');//요소 노드 생성(최상위)
   const $label = document.createElement('label'); // 체크박스 대장
-  const $check = document.createElement('input'); //input 기본적으로 text임 //체크 V박스
-  const $span = document.createElement('span'); //할 일 리스트 텍스트
   const $divMod = document.createElement('div'); //modify
   const $divRem = document.createElement('div'); //remove div+span
   const $remIcon = document.createElement('span'); //remove div+span
@@ -42,10 +40,12 @@ function makeNewTodoNode(newTodo) { //함수 선언 $붙이는거 차이@@ -> �
   // label 태그 작업
   $label.classList.add('checkbox'); //할 일 전체 묶음
 
-  $check.setAttribute('type', 'checkbox'); // 속성 checkbox로 설정
+  const $check = document.createElement('input'); //1)input 기본적으로 type=text임 선언x//체크 V박스
+  $check.setAttribute('type', 'checkbox'); //2)input속성 type=text이 아니라 type checkbox로 설정
 
+  const $span = document.createElement('span'); //할 일 리스트 텍스트
   $span.classList.add('text');
-  $span.textContent = newTodo.text;
+  $span.textContent = newTodo.text; //newTodo.text : 사용자가 입력한 할 일
 
   // 순서에 맡게 정리 : check(V) , span(할 일)
   $label.appendChild($check);
@@ -53,31 +53,35 @@ function makeNewTodoNode(newTodo) { //함수 선언 $붙이는거 차이@@ -> �
 
   //수정 div 태그 작업
   $divMod.classList.add('modify'); // 수정모드
-  const $modIcon = document.createElement('span'); //@@@ 수정값
-
-  //클래스 이름을 두 개 이상 add할 때는 각각 지정해야함
+  const $modIcon = document.createElement('span'); //$modIcon 수정 아이콘
+  //$modIcon.classList.add('lnr lnr-undo'); //1)문자열 하나로. 오류 //클래스 이름을 두 개 이상 add할 때는 각각 지정해야함
   //한번에 공백 포함 두 개 이상 설정하면 에러
-  //$modIcon.classList.add('lnr lnr-undo'); //오류
-  $modIcon.classList.add('lnr', 'lnr-undo'); //각각 지목(add쓰는게 편함 className 보다) //@@@수정완료후 속성
+  $modIcon.classList.add('lnr', 'lnr-undo'); //1번방식(아래2번)  2)각각 '' 따로 지목 (add쓰는게 편함 className(2번) 보다) //@@@수정완료후 속성
   //lnr-undo 수정 완료-html
   $divMod.appendChild($modIcon);//자식요소로 추가됨
 
   
-  // 삭제 div태그 작업
+
+  // 삭제 div태그 작업 : innerHTML 사용하면 한방에 삭제가능
   //function makeNewId({
   $divRem.classList.add('remove'); //remove 묶음 remove : 上div-下span
-  $remIcon.className = 'lnr lnr-cross-circle'; //클레스 이름을 설정(공백 가능) //삭제버튼
+  $remIcon.className = 'lnr lnr-cross-circle'; //2번방식, 클레스 이름을 다이렉트로 설정(공백 가능) //삭제버튼
   $divRem.appendChild($remIcon);
 
   //li 태그 작업
-  $li.dataset.id = newTodo.id; // 다른 ID랑 이름 같게 // data-id="1..."
-  $li.classList.add('todo-list-item');
+  $li.dataset.id = newTodo.id; // 다른 ID랑 이름 같게 // data-id="1..." //newTodo.id의 값을 주겠다
+  $li.classList.add('todo-list-item');//새로운 li값에 속성 부여
 
-  for (let $ele of [$label, $divMod, $divRem]) { //라벨/수정/삭제 @@@이 순서대로 새 li에 추가한다는 의미?
+  //li 추가방법 방법 1, 2, 3(더미 데이터와 양식/속성 같은지 체크)
+  for (let $ele of [$label, $divMod, $divRem]) { //방법1)appendchlid 묶어서 표현 //라벨/수정/삭제이 순서대로 새 li에 추가한다는 의미->ㅇㅇ
     $li.appendChild($ele);
   }
 
-  //[$label, $divMod, $divRem].forEach($ele => $li.appendChild($ele)); //배열 고차함수
+  //[$label, $divMod, $divRem].forEach($ele => $li.appendChild($ele)); //방법2)배열 고차함수
+
+  //$li.appendChild($label); //방법3
+  //$li.appendChild($divMod);
+  //$li.appendChild($divRem);
 
   //ul 태그를 지목하여 $li를 자식 노드로 추가
   document.querySelector('.todo-list').appendChild($li); //.todo-list 전체 클래스
@@ -100,9 +104,9 @@ function makeNewTodoNode(newTodo) { //함수 선언 $붙이는거 차이@@ -> �
 function makeNewId() { //매개값x
   if (todos.length > 0) {
     //배열 내의 할 일 객체 중 마지막 객체의 id보다 하나 크게
-    return todos[todos.length - 1].id + 1;
-  } else { //할 일 하나도 없는 상태는 id가 1
-    return 1;
+    return todos[todos.length - 1].id + 1; // 객체 안의 배열 0부터 시작 //[todos.length - 1] 마지막 객체의 배열순서 01234
+   } else { //할 일 하나도 없는 상태는 id가 1
+    return 1; //객체가 없으니, 1번 객체
   }
 
 }
@@ -130,12 +134,11 @@ function insertTodoData() { //매개값x
   // 1.3 공백 제거 함수: trim() === ''; //양쪽 공백 제거하고 입력
   // 1.4 입력값이 공백이라면 -> background: orangered, placeholder: 필수 입력사항입니다!, 이벤트 강제 종료
 
-  if ($todoText.value.trim() === '') { //공백여부
-    $todoText.style.background = 'orangered';
-    $todoText.setAttribute('placeholder', '필수 입력사항입니다'); //속성의 값을 변경
-    $todoText.value = ''; // 공백 들어갔을 때
-
-    return;
+  if ($todoText.value.trim() === '') { //공백여부 확인
+    $todoText.style.background = 'orangered'; //아래부터 공백일 경우
+    $todoText.setAttribute('placeholder', '필수 입력사항입니다'); //태그의 속성 값을 변경
+    $todoText.value = ''; // 기존데이터 제거
+    return; //이벤트 강제 종료
   } else {
     //제대로 입력이 되었다면 속성과 디자인 초기화
     $todoText.setAttribute('placeholder', '할 일을 입력하세요');
@@ -155,11 +158,11 @@ function insertTodoData() { //매개값x
 
 
 
-  // 2.1 todos 배열에 객체를 생성한 후 추가(id 추가 순서대로 잘 진행하세요)
+  // 2.1 todos 배열에 // 객체를 생성한 후 추가(id 추가 순서대로 잘 진행하세요)
   const newTodo = {
     id: makeNewId(), //고정값 아님 //함수 호출
     text: $todoText.value,
-    done: false ///@@@ 어떤 요소?
+    done: false // checkbox를 클릭해서 할 일을 마쳤는지의 여부 //체크박스에서 done: true/false으로 판단
   };
   todos.push(newTodo);
   //console.log(todos); //확인하기
@@ -185,7 +188,7 @@ function insertTodoData() { //매개값x
   makeNewTodoNode(newTodo);
 
   // 4.1 입력 완료 후 input에 존재하는 문자열을 제거
-  $todoText.value = ''; //input 창에 남아 있는 공백 지우기
+  $todoText.value = ''; //input 창에 남아 있는 공백 비워두기
 
 }
 
@@ -200,7 +203,7 @@ function findIndexByDataId(dataId) {
   }
 }
 
-//할 일 완료 처리 수행할 함수 정의
+//할 일 완료 처리 수행할 함수 정의 //이벤트가 발생 곳의 부모가 옴 <label class="checkbox">
 function changeCheckState($label) { //paranet 노드 정의했기 때문에 //이벤트가 발생한 그곳에 부모
   
 
@@ -210,7 +213,8 @@ function changeCheckState($label) { //paranet 노드 정의했기 때문에 //�
   -> 클래스 이름을 뗏다 붙였다 할 수 있어야 함.
   */
 
-  $label.lastElementChild.classList.toggle('checked'); // @@마지막 추가되었다는 checked?
+  $label.lastElementChild.classList.toggle('checked'); //label의 last <span class="text">할 일 1</span>
+
   //add는 추가만 하면 끝
 
   /* 내가 작성
@@ -233,10 +237,9 @@ function changeCheckState($label) { //paranet 노드 정의했기 때문에 //�
 
   //$todos.dataset.Id = ;
   //li data-id 가지고 있음 데이터 숫자 얻기
-  const dataId = +$label.parentNode.dataset.id; //+정수로 교체
-  //@@ dataset
+  const dataId = +$label.parentNode.dataset.id; // 데이터 ID(속성) 가져오기 *속성이라 string임 +붙여 정수로 교체
   // for (let i = 0; i < todos.length; i++) {
-  //   if (dataId === todos[i].id) {
+  //   if (dataId === todos[i].id) { //todos 배열의 i번째 id
   //     //todos[i].done = true; //true로만 됨 false로 안돌아옴
   //     todos[i].done = !todos[i].done; //논리 반전 연산자 ture = flase 돌리기
   //   }
@@ -368,7 +371,7 @@ function modifyTodoData($modCompleteSpan) {
   */
 
   // 배열 내의 id가 일치하는 객체를 찾아서 text 프로퍼티 값을 수정된 값으로 변경해야 함(f12 참고).
-  const idx = findIndexByDataId(+$label.parentNode.dataset.id); //작성 했었음 //ID 받음 //+붙이기(정수값) @@@
+  const idx = findIndexByDataId(+$label.parentNode.dataset.id); //ID 받음 //+붙이기(정수값) @@@
   todos[idx].text = $textSpan.textContent; //= $modeInput.value
 
   console.log(todos);
@@ -400,14 +403,14 @@ function modifyTodoData($modCompleteSpan) {
 
 
   //할 일 완료(체크박스) 이벤트
-  const $todoList = document.querySelector('ul.todo-list'); // @@@ css 속성 # . 붙이고 HTML은 # . 안붙이는거?
+  const $todoList = document.querySelector('ul.todo-list'); //<ul class="todo-list"> 선택자 지명하는 방식은 자유 @@@ css 속성 # . 붙이고 HTML은 # . 안붙이는거?
 
   $todoList.addEventListener('click', e => {
-    if (!e.target.matches('input[type=checkbox')) { //속성선택자
+    if (!e.target.matches('input[type=checkbox')) { //<input type="checkbox"> 속성선택자 : 클래스/ID 없어서 속성으로 지목
       return; // checkbox에서만 이벤트가 동작하도록 처리
     }
 
-    changeCheckState(e.target.parentNode); // label을 함수에 매개값으로 전달
+    changeCheckState(e.target.parentNode); // label을(<label class="checkbox">) 함수에 매개값으로 전달
 
 
   });
