@@ -106,7 +106,7 @@ function makeNewId() { //매개값x
     //배열 내의 할 일 객체 중 마지막 객체의 id보다 하나 크게
     return todos[todos.length - 1].id + 1; // 객체 안의 배열 0부터 시작 //[todos.length - 1] 마지막 객체의 배열순서 01234
    } else { //할 일 하나도 없는 상태는 id가 1
-    return 1; //객체가 없으니, 1번 객체
+    return 1; //todos 객체가 없으니, 1번 객체
   }
 
 }
@@ -197,7 +197,7 @@ function insertTodoData() { //매개값x
 //data-id 값으로 배열을 탐색하여 일치하는 객체가 들어있는 인덱스 반환
 function findIndexByDataId(dataId) {
   for (let i = 0; i < todos.length; i++) {
-    if (dataId === todos[i].id) { //@@@
+    if (dataId === todos[i].id) {
       return i;
     }
   }
@@ -236,17 +236,20 @@ function changeCheckState($label) { //paranet 노드 정의했기 때문에 //�
   */
 
   //$todos.dataset.Id = ;
-  //li data-id 가지고 있음 데이터 숫자 얻기
-  const dataId = +$label.parentNode.dataset.id; // 데이터 ID(속성) 가져오기 *속성이라 string임 +붙여 정수로 교체
-  // for (let i = 0; i < todos.length; i++) {
-  //   if (dataId === todos[i].id) { //todos 배열의 i번째 id
-  //     //todos[i].done = true; //true로만 됨 false로 안돌아옴
-  //     todos[i].done = !todos[i].done; //논리 반전 연산자 ture = flase 돌리기
+  //li data-id 가지고 있음 데이터 숫자 얻기 done 을 true로 변경
+  const dataId = +$label.parentNode.dataset.id;//<li data-id="2" class="todo-list-item">
+  // 데이터 ID(속성) 가져오기 *속성이라 string임 +붙여 정수로 교체
+
+  // for (let i = 0; i < todos.length; i++) { //방법1
+  //   if (dataId === todos[i].id) { 방법1 //todos 배열의 i번째 id
+  //     //todos[i].done = true; //true로만 됨 false로 안돌아옴 XXXX
+  //     todos[i].done = !todos[i].done;// 방법1 //논리 반전 연산자 ture = flase 돌리기
   //   }
   // }
-  const index = findIndexByDataId(dataId);
-  todos[index].done = !todos[index].done; //@@@ 
-  console.log(todos);
+  //★★
+  const index = findIndexByDataId(dataId); //방법2
+  todos[index].done = !todos[index].done; //방법2 반대로 뒤집어 넣겠다 // 체크박스 클릭V 후에 done으로 처리여부 //V체크 해제면 false
+  console.log(todos); 
 
 }
 
@@ -303,17 +306,18 @@ function delArray($todoList) {
 
 
 // 수정 모드 진입 이벤트 함수
-function enterModifyMode($modSpan) {
+function enterModifyMode($modSpan) { //일반 함수명+$ : Dom제어/조작 기능 하려고 사용? @@@
 
   // 수정 모드 진입 버튼을 교체 (lnr-undo -> lnr-checkmark-circle)
   //$modIcon.classList.replace('lnr', 'lnr-undo'); ???
 
 
-  //요렇게도 가능
+  //방법1 비추
   // $modSpan.classList.remove('lnr-undo');
   // $modSpan.classList.add(lnr-checkmark-circle);
 
-  $modSpan.classList.replace('lnr-undo', 'lnr-checkmark-circle'); //수정 모드 //여기서 기존에 없던 속성 checkmark 설정한거? @@@
+  // 방법2
+  $modSpan.classList.replace('lnr-undo', 'lnr-checkmark-circle'); //수정 모드 //여기서 기존 HTML에 없던 속성 checkmark 부여한거? @@@
 
   /*내가 작성
   const $modSpan = document.querySelector('modify');
@@ -330,13 +334,19 @@ function enterModifyMode($modSpan) {
 
   // span.text를 input태그로 교체(replaceChild)
   // input 태그에는 .modify-input을 추가하고, input에는 기존의 할 일 텍스트가 미리 작성되어 있어야 함
-  const $label = $modSpan.parentNode.previousElementSibling; //@@@위치 어디에요?  //$modSpan lnr-undo
+  const $label = $modSpan.parentNode.previousElementSibling; //@@위치 어디에요? ->
+  //$modSpan <span class="lnr lnr-undo"></span> 
+  //$modSpan.parentNode : <div class="modify">
+  //$modSpan.parentNode.previousElementSibling; <label class="checkbox">
+
+
   const $textSpan = $label.lastElementChild; //<span class="text">할 일 1</span>
 
   const $modInput = document.createElement('input'); //V 체크박스
-  //$modInput.setAttribute('type', 'text'); //안써도 input은 type이 text임 //이외는 세팅 해야함: 체크박스, 라디오, 넘버 등
+  //$modInput.setAttribute('type', 'text'); //안써도 input은 default type이 text임 :안적어도됨 //이외는 세팅 해야함: 체크박스, 라디오, 넘버 등
   $modInput.classList.add('modify-input');
-  $modInput.setAttribute('value', $textSpan.textContent); //@@@ 기존 할 일 text를 input에 미리 세팅 : value값
+  $modInput.setAttribute('value', $textSpan.textContent);
+  //@@ 기존 할 일 $textSpan 값을 modInput에 미리 세팅 : value값
 
   $label.replaceChild($modInput, $textSpan); //교체 旧 $modInput, 新 $textSpan 
 }
@@ -349,8 +359,8 @@ function enterModifyMode($modSpan) {
 
 
 
-// 수정 완료 이벤트 처리 함수
-function modifyTodoData($modCompleteSpan) {
+// 수정 완료 이벤트 처리 함수 //마지막 강의 부분
+function modifyTodoData($modCompleteSpan) { //동그라미 체크모양(확정)의 아이콘 span tag
   // 버튼을 원래대로 돌림. (lnr-undo)
 
   // 내가 작성
@@ -372,13 +382,13 @@ function modifyTodoData($modCompleteSpan) {
 
   // 배열 내의 id가 일치하는 객체를 찾아서 text 프로퍼티 값을 수정된 값으로 변경해야 함(f12 참고).
   const idx = findIndexByDataId(+$label.parentNode.dataset.id); //ID 받음 //+붙이기(정수값) @@@
-  todos[idx].text = $textSpan.textContent; //= $modeInput.value
+  todos[idx].text = $textSpan.textContent; //= $modeInput.value 
 
   console.log(todos);
 
 }
 
-
+ 
 
 
 // 메인 역할을 하는 즉시 실행 함수.
@@ -441,7 +451,7 @@ function modifyTodoData($modCompleteSpan) {
 
 
 
-  //할 일 수정 이벤트(수정 모드 진입, 수정 완료)
+  //할 일 수정 이벤트(수정 모드 진입, 수정 완료) //입력창+아이콘 변함
   $todoList.addEventListener('click', e => { //누군지 확인하기 위해 e값 받음
     if (e.target.matches('.todo-list .modify span.lnr-undo')) {//수정 모드 完
       enterModifyMode(e.target); //수정 모드 진입 //함수 위에 선언
