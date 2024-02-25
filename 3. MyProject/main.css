@@ -1,0 +1,12 @@
+
+h1.active{
+    color: blue;
+    border-color: aqua;
+    text-decoration: dotted;
+    background-color: red;
+}
+
+body div{
+    color : red;
+   }
+   

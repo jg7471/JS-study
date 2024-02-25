@@ -74,7 +74,7 @@
         */
 
         //$li.classList.toggle('active');// 이러면 내가 클릭 안한 곳도 이벤트 발생
-        $li.classList.toggle('active', $li === e.target);
+        $li.classList.toggle('', $li === e.target);
         //li 데이터 === e.target(내 마우스 값)-> active 클래스 작동(밑줄 생기는 효과)
         
       }
@@ -105,7 +105,7 @@
       $fruits.appendChild($newLi); // ul(기존/큰값)에 새로만든 li(신규/작은값) 추가 //자식요소 이어 붙이겠다
       $textBox.value = ''; // 다음 입력을 위해 입력창 비우기
 
-      // 새롭게 추가된 li에도 active 추가 대상 여부를 확인하기 위해 배열에 추가~!
+      // 새롭게 추가된 li에도  추가 대상 여부를 확인하기 위해 배열에 추가~!
       $liList.push($newLi);//기존.push(신규)
 
     }); //만능 //onClick도 되긴함
