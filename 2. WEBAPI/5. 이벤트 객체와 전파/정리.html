@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+</head>
+
+<body>
+
+  <p>아무곳이나 클릭하세요</p>
+  <input type="checkbox">
+
+  <em class="message"></em><br>
+
+  <hr>
+
+  <input type="text" id="input-text">
+  <p class="msg"></p>
+
+  <script>
+    const $checkbox = document.querySelector(input = [type = 'chceckbox']);
+    const $em = document.querySelector('.message');
+
+    $checkbox.addEventListener('click', function (e) {
+
+          if (e.targer.checked) {
+            $em.textContent = '체크됨';
+          } else {
+            $em.textContent =
+          }
+
+
+
+
+
+          const $liList = [...$fruits.children];
+          if (!e.target.matches('#fruits > li'))
+
+            for (let $li of $liList) {
+              $li.classList.toggle('active', $li === e.target);
+            }
+
+          $btn.addEventListener('click', e => {
+            const $newLi = document.createElement('li'); //<li></li>
+            $newLi.textContent = $textBox.value; //<li>Oreange</li>
+            $newLi.setAttribute('id', $textBox.value.toLowerCase()); /*소문자로 함수 */ //<li id="orange">Orange</li>
+            $fruits.appendChild($newLi); // ul(기존/큰값)에 새로만든 li(신규/작은값) 추가 //자식요소 이어 붙이겠다
+            $textBox.value = ''; // 다음 입력을 위해 입력창 비우기
+            $liList.push($newLi); //기존.push(신규)
+          });
+
+          $textBox.addEventListener('keydown', e => { //화살표 함수
+              if (e.keyCode === 13) {
+                $btn.click(); // 엔터시 클릭 효과
+              }
+            )
+          };
+
+
+          $link.addEventListener('click', e => {
+            if (!confirm('정말 이동하시겠습니까?')) //사용자가 취소를 눌렀다면
+              e.preventDefault(); //태그의 고유 기능을 막음. (form submit에도 많이 사용:회원가입)
+          });
+
+
+          $btn.addEventListener('click', () => {
+                $text.classList.toggle('hide'); //toggle로 hide 생성 //f12 element에서 확인 가능
+                if ($text.classList.contains('hide')) {
+                  $btn.textContent = '텍스트 보이기'; //<div id="text" class="hide">안녕하세요</div>
+                } else {
+                  $btn.textContent = '텍스트 숨기기'; //<div id="text" class="">안녕하세요</div>
+                }
+
+
+
+
+                const $menu = document.querySelector('.menu');
+    const $title = document.querySelector('.title');
+    $title.addEventListener('click', () => { //이벤트 객체 필요x
+      $menu.classList.toggle('open');         
+  </script>
+
+</body>
+
+</html>
