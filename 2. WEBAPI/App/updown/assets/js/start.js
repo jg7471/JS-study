@@ -50,7 +50,7 @@ export default function gameStart() { // default 없을 시 {gameStart} , defaul
   //아이콘에 클릭 이벤트 생성
   //부모->자식 전파
   $numbers.onclick = e => {
-
+    디스트럭처링 
     //아이콘이 아닌 곳을 클릭하면 이벤트가 발생하지 않도록
     if(!e.target.matches('#numbers .icon')) return; //#numbers.icon 이렇게 해서 오류뜸...ㅡㅡ //한줄이라 {} 생략
     // @@ .icon 가상컨테이너라 HTML에 미기재?-> 함수 내에서 생성된 icon(html에는 없는 요소)
